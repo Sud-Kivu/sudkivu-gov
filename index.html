@@ -688,7 +688,7 @@
     .view-all:hover { color: var(--blue-deep); }
     .news-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
     }
     .news-card {
@@ -1066,6 +1066,245 @@
       .topbar-right { display: none; }
     }
 
+    /* ===== SKIP LINK (accessibility) ===== */
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 20px;
+      background: var(--blue-deep);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 0 0 8px 8px;
+      font-weight: 700;
+      font-size: 14px;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; color: var(--white); }
+
+    /* ===== PROVINCE OVERVIEW ===== */
+    .province-overview {
+      padding: 72px 0;
+      background: var(--white);
+    }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .overview-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+      transition: all 0.25s;
+    }
+    .overview-card:hover {
+      background: var(--white);
+      box-shadow: 0 8px 28px rgba(0,56,130,0.1);
+      transform: translateY(-2px);
+    }
+    .overview-icon { font-size: 32px; margin-bottom: 14px; }
+    .overview-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+    .overview-content {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    /* ===== TERRITORIES ===== */
+    .territories-section {
+      padding: 72px 0;
+      background: var(--off-white);
+    }
+    .territories-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+    .territories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .territory-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 18px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s;
+    }
+    .territory-card:hover {
+      box-shadow: 0 8px 28px rgba(0,56,130,0.12);
+      transform: translateY(-3px);
+    }
+    .territory-card.city { border-top: 3px solid var(--gold); }
+    .territory-card.territoire { border-top: 3px solid var(--blue-mid); }
+    .territory-tag {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-mid);
+      margin-bottom: 8px;
+    }
+    .territory-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+    .territory-desc {
+      font-size: 12.5px;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+    .territory-icon {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-size: 18px;
+      opacity: 0.35;
+    }
+
+    /* ===== SERVICES ===== */
+    .services-section {
+      padding: 72px 0;
+      background: var(--white);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .service-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .service-card:hover {
+      background: var(--blue-deep);
+      color: var(--white);
+      box-shadow: 0 8px 28px rgba(0,56,130,0.2);
+      transform: translateY(-3px);
+      border-color: var(--blue-deep);
+    }
+    .service-card:hover .service-title { color: var(--white); }
+    .service-card:hover .service-desc { color: rgba(255,255,255,0.7); }
+    .service-icon { font-size: 34px; margin-bottom: 14px; }
+    .service-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .service-desc {
+      font-size: 12px;
+      color: var(--gray-mid);
+      line-height: 1.5;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section {
+      padding: 72px 0;
+      background: linear-gradient(135deg, var(--blue-deep) 0%, #001840 100%);
+      color: var(--white);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 56px;
+      margin-top: 48px;
+    }
+    .contact-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--gold-light);
+    }
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .contact-item-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .contact-item-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.8);
+    }
+    .contact-item-text strong {
+      display: block;
+      color: var(--white);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 3px;
+    }
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .social-link {
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .social-link:hover { background: var(--gold); border-color: var(--gold); }
+    .contact-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .contact-links li a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    .contact-links li a:hover { color: var(--gold-light); }
+    .contact-links li a::before { content: '→'; font-size: 12px; color: var(--gold-light); }
+
+    /* ===== RESPONSIVE additions ===== */
+    @media (max-width: 1040px) {
+      .overview-grid { grid-template-columns: repeat(2, 1fr); }
+      .territories-grid { grid-template-columns: repeat(2, 1fr); }
+      .territories-intro { grid-template-columns: 1fr; gap: 24px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) {
+      .overview-grid { grid-template-columns: 1fr; }
+      .territories-grid { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+
     /* ===== ANIMATIONS ===== */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -1140,6 +1379,9 @@
 </head>
 <body>
 
+  <!-- SKIP TO MAIN CONTENT (accessibility) -->
+  <a href="#accueil" class="skip-link">Aller au contenu principal</a>
+
   <!-- TOP BAR -->
   <div class="topbar">
     <div class="topbar-inner">
@@ -1149,6 +1391,7 @@
         <span>Province du Sud-Kivu — Gouvernement Provincial</span>
       </div>
       <div class="topbar-right">
+        <a href="#province">La Province</a>
         <a href="#programme">Programme 2024–2028</a>
         <a href="#governor">Le Gouverneur</a>
         <a href="#contact">Contacts</a>
@@ -1168,6 +1411,7 @@
       </a>
       <nav>
         <a href="#accueil" class="nav-link active">Accueil</a>
+        <a href="#province" class="nav-link">Province</a>
         <a href="#programme" class="nav-link">Programme</a>
         <a href="#secteurs" class="nav-link">Secteurs</a>
         <a href="#finances" class="nav-link">Finances</a>
@@ -1181,6 +1425,7 @@
     </div>
     <div class="mobile-nav">
       <a href="#accueil" class="nav-link">Accueil</a>
+      <a href="#province" class="nav-link">Province</a>
       <a href="#programme" class="nav-link">Programme 2024–2028</a>
       <a href="#secteurs" class="nav-link">Secteurs</a>
       <a href="#finances" class="nav-link">Finances</a>
@@ -1280,6 +1525,47 @@
     </div>
   </section>
 
+  <!-- PROVINCE OVERVIEW -->
+  <section class="province-overview" id="province" aria-labelledby="province-title">
+    <div class="section-inner">
+      <div class="section-label">Présentation Officielle</div>
+      <div class="section-title" id="province-title">Province du <span>Sud-Kivu</span> — Portrait</div>
+      <div class="section-sub">Cœur de la région des Grands Lacs africains, le Sud-Kivu est une province d'une richesse naturelle et culturelle exceptionnelle.</div>
+      <div class="overview-grid">
+        <div class="overview-card">
+          <div class="overview-icon">📍</div>
+          <div class="overview-title">Localisation &amp; Frontières</div>
+          <div class="overview-content">Province de l'Est de la RDC. Frontières internationales : <strong>Rwanda</strong> (nord-est), <strong>Burundi</strong> (est), <strong>Tanzanie</strong> (sud-est). Frontières provinciales : North Kivu (nord), Maniema (ouest), Tanganyika (sud).</div>
+        </div>
+        <div class="overview-card">
+          <div class="overview-icon">🗺️</div>
+          <div class="overview-title">Superficie &amp; Relief</div>
+          <div class="overview-content">Superficie totale : <strong>69 130 km²</strong>. Altitude variable de 775 m (littoral lacustre) à 3 470 m (Monts Mitumba). Partie de la Vallée du Grand Rift Africain. Climat équatorial tempéré par l'altitude.</div>
+        </div>
+        <div class="overview-card">
+          <div class="overview-icon">👥</div>
+          <div class="overview-title">Population &amp; Langues</div>
+          <div class="overview-content">Environ <strong>5,5 millions d'habitants</strong>. Langue officielle : <strong>Français</strong>. Langues nationales : <strong>Swahili</strong>, Shi (Bushi). Langues locales : Fuliru, Havu, Lega, Bembe, Nyindu. Chef-lieu : <strong>Bukavu</strong>.</div>
+        </div>
+        <div class="overview-card">
+          <div class="overview-icon">💎</div>
+          <div class="overview-title">Ressources Naturelles</div>
+          <div class="overview-content">Sous-sol exceptionnel : <strong>or, coltan (tantalite-columbite), cassitérite, wolframite, diamants</strong>. Agriculture : café, thé, pyrèthre, quinine, banane plantain, manioc. Élevage bovin et pisciculture lacustre.</div>
+        </div>
+        <div class="overview-card">
+          <div class="overview-icon">🌿</div>
+          <div class="overview-title">Biodiversité &amp; Patrimoine</div>
+          <div class="overview-content"><strong>Parc National de Kahuzi-Biega</strong> — Patrimoine Mondial de l'UNESCO. <strong>Réserve Naturelle d'Itombwe</strong> — l'une des plus riches en espèces d'oiseaux d'Afrique. Dernier habitat naturel du <strong>gorille de plaine de l'Est</strong>.</div>
+        </div>
+        <div class="overview-card">
+          <div class="overview-icon">🌊</div>
+          <div class="overview-title">Hydrologie</div>
+          <div class="overview-content"><strong>Lac Kivu</strong> et <strong>Lac Tanganyika</strong> — deux des plus profonds lacs du monde. Rivières : <strong>Ruzizi, Ulindi, Elila, Luhoho</strong>. Potentiel hydroélectrique majeur : centrales Ruzizi I, II et III (en développement).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- KEY FIGURES -->
   <section class="key-figures">
     <div class="section-inner">
@@ -1303,6 +1589,109 @@
           <div class="figure-icon">🍽️</div>
           <div class="figure-num">52,6<span class="figure-unit">%</span></div>
           <div class="figure-label">Ménages en insécurité alimentaire (2021)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMINISTRATIVE TERRITORIES -->
+  <section class="territories-section" id="territoires" aria-labelledby="territories-title">
+    <div class="section-inner">
+      <div class="territories-intro">
+        <div>
+          <div class="section-label">Organisation Administrative</div>
+          <div class="section-title" id="territories-title">8 Territoires &amp; <span>4 Villes</span></div>
+          <div class="section-sub" style="margin-bottom:0;">La province du Sud-Kivu est subdivisée en 8 territoires, 4 villes, plusieurs cités et groupements, formant un tissu administratif dense de plus de 5,5 millions d'habitants.</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div style="background:var(--white); border:1px solid var(--border); border-radius:12px; padding:20px 22px; display:flex; align-items:center; gap:14px;">
+            <span style="font-size:28px;">🏙️</span>
+            <div>
+              <div style="font-weight:700; font-size:15px; color:var(--text-dark);">4 Villes provinciales</div>
+              <div style="font-size:13px; color:var(--gray-mid);">Bukavu (chef-lieu), Uvira, Baraka, Kamituga</div>
+            </div>
+          </div>
+          <div style="background:var(--white); border:1px solid var(--border); border-radius:12px; padding:20px 22px; display:flex; align-items:center; gap:14px;">
+            <span style="font-size:28px;">🗾</span>
+            <div>
+              <div style="font-weight:700; font-size:15px; color:var(--text-dark);">8 Territoires administratifs</div>
+              <div style="font-size:13px; color:var(--gray-mid);">Fizi, Idjwi, Kabare, Kalehe, Mwenga, Shabunda, Uvira, Walungu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="territories-grid">
+        <div class="territory-card city">
+          <span class="territory-icon">🌆</span>
+          <div class="territory-tag">Ville — Chef-lieu</div>
+          <div class="territory-name">Bukavu</div>
+          <div class="territory-desc">Capitale provinciale, située sur les rives sud du Lac Kivu. Centre administratif, commercial et culturel de la province.</div>
+        </div>
+        <div class="territory-card city">
+          <span class="territory-icon">🌆</span>
+          <div class="territory-tag">Ville</div>
+          <div class="territory-name">Uvira</div>
+          <div class="territory-desc">Deuxième ville de la province, au bord du Lac Tanganyika. Important nœud commercial et porte d'entrée du Burundi.</div>
+        </div>
+        <div class="territory-card city">
+          <span class="territory-icon">🌆</span>
+          <div class="territory-tag">Ville</div>
+          <div class="territory-name">Baraka</div>
+          <div class="territory-desc">Ville lacustre sur le Tanganyika, dans le territoire de Fizi. Principal port du Sud du lac et centre commercial régional.</div>
+        </div>
+        <div class="territory-card city">
+          <span class="territory-icon">🌆</span>
+          <div class="territory-tag">Ville</div>
+          <div class="territory-name">Kamituga</div>
+          <div class="territory-desc">Ville minière dans le territoire de Mwenga, connue pour ses gisements d'or. Important centre d'activités artisanales minières.</div>
+        </div>
+        <div class="territory-card territoire">
+          <span class="territory-icon">🗾</span>
+          <div class="territory-tag">Territoire</div>
+          <div class="territory-name">Fizi</div>
+          <div class="territory-desc">Vaste territoire au sud de la province, bordant le Lac Tanganyika. Ressources minières importantes ; chef-lieu : Baraka.</div>
+        </div>
+        <div class="territory-card territoire">
+          <span class="territory-icon">🏝️</span>
+          <div class="territory-tag">Territoire (Île)</div>
+          <div class="territory-name">Idjwi</div>
+          <div class="territory-desc">Grande île volcanique du Lac Kivu, l'une des plus peuplées d'Afrique subsaharienne. Agriculture vivrière et pêche lacustre.</div>
+        </div>
+        <div class="territory-card territoire">
+          <span class="territory-icon">🗾</span>
+          <div class="territory-tag">Territoire</div>
+          <div class="territory-name">Kabare</div>
+          <div class="territory-desc">Territoire adjacent à Bukavu, au cœur du pays Bushi. Forêts montagnardes, agriculture caféicole et élevage laitier.</div>
+        </div>
+        <div class="territory-card territoire">
+          <span class="territory-icon">🗾</span>
+          <div class="territory-tag">Territoire</div>
+          <div class="territory-name">Kalehe</div>
+          <div class="territory-desc">Territoire situé entre le Lac Kivu et le Parc de Kahuzi-Biega. Riche potentiel agropastoral et touristique.</div>
+        </div>
+        <div class="territory-card territoire">
+          <span class="territory-icon">🗾</span>
+          <div class="territory-tag">Territoire</div>
+          <div class="territory-name">Mwenga</div>
+          <div class="territory-desc">Territoire forestier à l'ouest, traversé par la rivière Ulindi. Ressources aurifères importantes ; ville principale : Kamituga.</div>
+        </div>
+        <div class="territory-card territoire">
+          <span class="territory-icon">🗾</span>
+          <div class="territory-tag">Territoire</div>
+          <div class="territory-name">Shabunda</div>
+          <div class="territory-desc">Le plus grand territoire en superficie. Forêts denses et ressources minières (or, coltan). Enclavé, accessible principalement par voie aérienne.</div>
+        </div>
+        <div class="territory-card territoire">
+          <span class="territory-icon">🗾</span>
+          <div class="territory-tag">Territoire</div>
+          <div class="territory-name">Uvira</div>
+          <div class="territory-desc">Territoire frontalier avec le Burundi et la Tanzanie, sur le Lac Tanganyika. Pêche, agriculture et commerce transfrontalier.</div>
+        </div>
+        <div class="territory-card territoire">
+          <span class="territory-icon">🗾</span>
+          <div class="territory-tag">Territoire</div>
+          <div class="territory-name">Walungu</div>
+          <div class="territory-desc">Territoire du Bushi, au sud-ouest de Bukavu. Densément peuplé, agriculture vivrière et cultures maraîchères.</div>
         </div>
       </div>
     </div>
@@ -1472,11 +1861,20 @@
             <div class="news-card-excerpt">Le gouvernement lance la rationalisation du secteur minier artisanal, la mise en place de brigades anti-fraude et l'audit du secteur afin de garantir que les ressources bénéficient aux communautés locales.</div>
           </div>
         </div>
+        <div class="news-card">
+          <div class="news-card-img" style="background: linear-gradient(135deg, #2a4a7a, #1a5c8a);">
+            <span>🌿</span>
+            <span class="news-cat">Environnement</span>
+          </div>
+          <div class="news-card-body">
+            <div class="news-date">Août 2024</div>
+            <div class="news-card-title">Campagne nationale de reboisement : un million d'arbres pour le Sud-Kivu</div>
+            <div class="news-card-excerpt">Le gouvernement provincial lance la campagne de reboisement « Un million d'arbres » pour lutter contre la déforestation et les effets du réchauffement climatique. Le Parc National de Kahuzi-Biega sera renforcé dans ses capacités de protection.</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- PRIORITIES (100 jours) -->
   <section class="priorities-section">
     <div class="section-inner">
       <div class="section-label">Agenda Gouvernemental</div>
@@ -1635,6 +2033,57 @@
     </div>
   </section>
 
+  <!-- GOVERNMENT SERVICES -->
+  <section class="services-section" aria-labelledby="services-title">
+    <div class="section-inner">
+      <div class="section-label">Services aux Citoyens</div>
+      <div class="section-title" id="services-title">Vos <span>démarches</span> en ligne</div>
+      <div class="section-sub">Accédez aux services administratifs, informations fiscales, permis et documents officiels de la Province du Sud-Kivu.</div>
+      <div class="services-grid">
+        <div class="service-card" role="button" tabindex="0">
+          <div class="service-icon">📄</div>
+          <div class="service-title">État Civil &amp; Documents</div>
+          <div class="service-desc">Actes de naissance, mariage, décès — extrait du casier judiciaire provincial.</div>
+        </div>
+        <div class="service-card" role="button" tabindex="0">
+          <div class="service-icon">💼</div>
+          <div class="service-title">Licences &amp; Permis</div>
+          <div class="service-desc">Permis de construire, licences d'exploitation, autorisations commerciales et minières.</div>
+        </div>
+        <div class="service-card" role="button" tabindex="0">
+          <div class="service-icon">💰</div>
+          <div class="service-title">Fiscalité Provinciale</div>
+          <div class="service-desc">Paiement des impôts fonciers, locatifs, sur véhicules — guichet unique numérisé.</div>
+        </div>
+        <div class="service-card" role="button" tabindex="0">
+          <div class="service-icon">🏗️</div>
+          <div class="service-title">Marchés Publics</div>
+          <div class="service-desc">Appels d'offres, résultats d'attribution, suivi des chantiers de la province.</div>
+        </div>
+        <div class="service-card" role="button" tabindex="0">
+          <div class="service-icon">📚</div>
+          <div class="service-title">Éducation</div>
+          <div class="service-desc">Bourses provinciales, examens d'État, inscriptions scolaires et universitaires.</div>
+        </div>
+        <div class="service-card" role="button" tabindex="0">
+          <div class="service-icon">🏥</div>
+          <div class="service-title">Santé Publique</div>
+          <div class="service-desc">Centres de santé, vaccination, programmes épidémiologiques et carte sanitaire.</div>
+        </div>
+        <div class="service-card" role="button" tabindex="0">
+          <div class="service-icon">🌾</div>
+          <div class="service-title">Agriculture &amp; Élevage</div>
+          <div class="service-desc">Accès aux intrants, formation agricole, enregistrement des coopératives rurales.</div>
+        </div>
+        <div class="service-card" role="button" tabindex="0">
+          <div class="service-icon">🤝</div>
+          <div class="service-title">Investissements</div>
+          <div class="service-desc">Guichet d'accueil des investisseurs, code provincial des investissements, zones franches.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- INSTITUTIONS / ORGANES DE GESTION -->
   <section class="institutions-section" id="contact">
     <div class="section-inner">
@@ -1676,6 +2125,74 @@
           <div class="inst-name">Partenaires Stratégiques</div>
           <div class="inst-desc">Bailleurs internationaux, ONGs, institutions financières, partenariats de jumelage et inter-provinciaux pour le financement et l'expertise technique.</div>
           <span class="inst-frequency">Sur demande</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO -->
+  <section class="contact-section" aria-labelledby="contact-title">
+    <div class="section-inner">
+      <div>
+        <div class="section-label" style="color:var(--gold-light);">Nous Contacter</div>
+        <div class="section-title" id="contact-title" style="color:var(--white);">Gouvernement Provincial du <span style="color:var(--gold-light);">Sud-Kivu</span></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-block">
+          <h3>Siège du Gouvernement Provincial</h3>
+          <div class="contact-item">
+            <span class="contact-item-icon">📍</span>
+            <div class="contact-item-text">
+              <strong>Adresse</strong>
+              Bâtiment du Gouvernorat, Avenue Président Mobutu<br>
+              Bukavu, Province du Sud-Kivu<br>
+              République Démocratique du Congo
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item-icon">📞</span>
+            <div class="contact-item-text">
+              <strong>Téléphone</strong>
+              +243 (0) 99 000 0001 — Cabinet du Gouverneur<br>
+              +243 (0) 81 000 0002 — Secrétariat Général<br>
+              <span style="font-size:12px; opacity:0.6;">Numéros officiels à confirmer</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item-icon">✉️</span>
+            <div class="contact-item-text">
+              <strong>E-mail</strong>
+              gouvernorat@sudkivu.gouv.cd<br>
+              communication@sudkivu.gouv.cd
+            </div>
+          </div>
+          <div class="social-links">
+            <div class="social-link" role="button" aria-label="Facebook" tabindex="0">📘</div>
+            <div class="social-link" role="button" aria-label="Twitter / X" tabindex="0">🐦</div>
+            <div class="social-link" role="button" aria-label="YouTube" tabindex="0">▶️</div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <h3>Institutions Provinciales</h3>
+          <ul class="contact-links">
+            <li><a href="#contact">Assemblée Provinciale du Sud-Kivu</a></li>
+            <li><a href="#contact">Cabinet du Gouverneur</a></li>
+            <li><a href="#contact">Vice-Gouvernorat de la Province</a></li>
+            <li><a href="#contact">Ministère Provincial des Finances</a></li>
+            <li><a href="#contact">Ministère Provincial de l'Intérieur</a></li>
+            <li><a href="#contact">Inspection Provinciale de l'Éducation</a></li>
+          </ul>
+        </div>
+        <div class="contact-block">
+          <h3>Accès Rapide</h3>
+          <ul class="contact-links">
+            <li><a href="#programme">Plan Quinquennal 2024–2028</a></li>
+            <li><a href="#finances">Budget &amp; Transparence financière</a></li>
+            <li><a href="#actualites">Communiqués de presse</a></li>
+            <li><a href="#province">Profil de la Province</a></li>
+            <li><a href="#territoires">Territoires &amp; Villes</a></li>
+            <li><a href="#governor">Mot du Gouverneur</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1732,11 +2249,12 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2024 Gouvernement Provincial du Sud-Kivu — République Démocratique du Congo</span>
+        <span>© 2025 Gouvernement Provincial du Sud-Kivu — République Démocratique du Congo</span>
         <div class="footer-bottom-links">
           <a href="#">Mentions légales</a>
           <a href="#">Accessibilité</a>
           <a href="#">Plan du site</a>
+          <a href="#">Données ouvertes</a>
         </div>
       </div>
     </div>
