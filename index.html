@@ -6,6 +6,7 @@
   <title>Province du Sud-Kivu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <style>
     /* ===== CSS VARIABLES ===== */
     :root {
@@ -1375,6 +1376,74 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
+
+    /* ===== INSTITUTIONS NAV DROPDOWN ===== */
+    .nav-item {
+      position: relative;
+    }
+    .nav-item > .nav-link {
+      cursor: pointer;
+      user-select: none;
+    }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0,56,130,0.14);
+      min-width: 220px;
+      padding: 8px 0;
+      z-index: 200;
+    }
+    .nav-item:hover .nav-dropdown,
+    .nav-item:focus-within .nav-dropdown {
+      display: block;
+    }
+    .nav-dropdown a {
+      display: block;
+      padding: 10px 18px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown a:hover {
+      background: var(--off-white);
+      color: var(--blue-deep);
+    }
+    .nav-dropdown-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 6px 0;
+    }
+
+    /* ===== INTERACTIVE MAP SECTION ===== */
+    .map-section {
+      padding: 72px 0;
+      background: var(--white);
+    }
+    #province-map {
+      height: 520px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-top: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,56,130,0.08);
+    }
+    .leaflet-popup-content-wrapper {
+      border-radius: 10px !important;
+      box-shadow: 0 4px 20px rgba(0,56,130,0.18) !important;
+    }
+    .leaflet-popup-content { font-family: 'Source Sans 3', sans-serif; font-size: 13px; }
+    .map-popup-title { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: #1C2340; margin-bottom: 4px; }
+    .map-popup-type { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 12px; display: inline-block; margin-bottom: 6px; }
+    .map-popup-type.city { background: rgba(206,138,0,0.15); color: #8a5a00; }
+    .map-popup-type.territory { background: rgba(0,82,180,0.12); color: #003882; }
+    .map-popup-desc { font-size: 12.5px; color: #3A4561; line-height: 1.55; }
   </style>
 </head>
 <body>
@@ -1417,6 +1486,14 @@
         <a href="#finances" class="nav-link">Finances</a>
         <a href="#governor" class="nav-link">Gouverneur</a>
         <a href="#actualites" class="nav-link">Actualités</a>
+        <div class="nav-item">
+          <span class="nav-link" tabindex="0">Institutions ▾</span>
+          <div class="nav-dropdown">
+            <a href="ministeres.html">🏛️ Ministères Provinciaux</a>
+            <a href="assemblee.html">📜 Assemblée Provinciale</a>
+            <a href="cabinet.html">🏅 Cabinet du Gouverneur</a>
+          </div>
+        </div>
         <a href="#contact" class="nav-cta">Contact</a>
       </nav>
       <button class="menu-toggle" onclick="document.querySelector('.mobile-nav').classList.toggle('open')" aria-label="Menu">
@@ -1431,6 +1508,9 @@
       <a href="#finances" class="nav-link">Finances</a>
       <a href="#governor" class="nav-link">Gouverneur</a>
       <a href="#actualites" class="nav-link">Actualités</a>
+      <a href="ministeres.html" class="nav-link">Ministères</a>
+      <a href="assemblee.html" class="nav-link">Assemblée Provinciale</a>
+      <a href="cabinet.html" class="nav-link">Cabinet du Gouverneur</a>
       <a href="#contact" class="nav-link">Contact</a>
     </div>
   </header>
@@ -1692,6 +1772,21 @@
           <div class="territory-tag">Territoire</div>
           <div class="territory-name">Walungu</div>
           <div class="territory-desc">Territoire du Bushi, au sud-ouest de Bukavu. Densément peuplé, agriculture vivrière et cultures maraîchères.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE MAP -->
+  <section class="map-section" id="carte" aria-labelledby="carte-title">
+    <div class="section-inner">
+      <div class="section-label">Géographie Provinciale</div>
+      <div class="section-title" id="carte-title">Carte Interactive du <span>Sud-Kivu</span></div>
+      <div class="section-sub">Explorez les 8 territoires et 4 villes de la province. Cliquez sur les marqueurs pour obtenir des informations détaillées.</div>
+      <div id="province-map">
+        <div id="map-fallback" style="height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--gray-mid);font-size:14px;">
+          <span style="font-size:36px;">🗺️</span>
+          <span>Chargement de la carte en cours…</span>
         </div>
       </div>
     </div>
@@ -2239,9 +2334,9 @@
         <div class="footer-col">
           <h4>Contacts</h4>
           <ul class="footer-links">
-            <li><a href="#">Assemblée Provinciale</a></li>
-            <li><a href="#">Cabinet du Gouverneur</a></li>
-            <li><a href="#">Ministères provinciaux</a></li>
+            <li><a href="assemblee.html">Assemblée Provinciale</a></li>
+            <li><a href="cabinet.html">Cabinet du Gouverneur</a></li>
+            <li><a href="ministeres.html">Ministères provinciaux</a></li>
             <li><a href="#">Transparence financière</a></li>
             <li><a href="#">Presse & Médias</a></li>
             <li><a href="#">Bukavu, Sud-Kivu — RDC</a></li>
@@ -2444,6 +2539,108 @@
       }
     }, { threshold: 0.3 });
     if (figuresSection) figuresObserver.observe(figuresSection);
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/sp38=" crossorigin=""></script>
+  <script>
+    // ===== INTERACTIVE MAP OF SUD-KIVU =====
+    (function() {
+      var mapEl = document.getElementById('province-map');
+      if (!mapEl) return;
+      if (typeof L === 'undefined') {
+        var fb = document.getElementById('map-fallback');
+        if (fb) fb.querySelector('span:last-child').textContent = 'Carte disponible en ligne. Activez votre connexion pour la charger.';
+        return;
+      }
+      var fallbackEl = document.getElementById('map-fallback');
+      if (fallbackEl) fallbackEl.remove();
+      var map = L.map('province-map', {
+        center: [-2.85, 28.30],
+        zoom: 8,
+        scrollWheelZoom: false,
+        attributionControl: true
+      });
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      }).addTo(map);
+
+      // Approximate boundary polygon of Sud-Kivu province
+      var boundary = L.polygon([
+        [-1.65, 28.80], [-1.68, 29.05], [-1.80, 29.22], [-2.00, 29.38],
+        [-2.15, 29.55], [-2.40, 29.60], [-2.65, 29.30], [-2.90, 29.28],
+        [-3.20, 29.22], [-3.55, 29.38], [-3.85, 29.50], [-4.15, 29.38],
+        [-4.45, 29.22], [-4.78, 29.00], [-4.95, 28.70], [-4.90, 28.40],
+        [-4.70, 28.10], [-4.40, 27.80], [-4.10, 27.55], [-3.70, 27.25],
+        [-3.30, 27.00], [-2.90, 26.90], [-2.50, 27.00], [-2.10, 27.25],
+        [-1.85, 27.60], [-1.75, 28.00], [-1.65, 28.40], [-1.65, 28.80]
+      ], {
+        color: '#003882',
+        weight: 2,
+        opacity: 0.7,
+        fillColor: '#0052B4',
+        fillOpacity: 0.08
+      }).addTo(map);
+
+      // Icon factories
+      function makeIcon(color) {
+        return L.divIcon({
+          html: '<div style="width:14px;height:14px;background:' + color + ';border:3px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.35);"></div>',
+          className: '',
+          iconSize: [14, 14],
+          iconAnchor: [7, 7],
+          popupAnchor: [0, -10]
+        });
+      }
+      var cityIcon = makeIcon('#CE8A00');
+      var territoryIcon = makeIcon('#003882');
+
+      function popup(title, type, desc) {
+        return '<div class="map-popup-title">' + title + '</div>'
+             + '<span class="map-popup-type ' + type + '">' + (type === 'city' ? 'Ville' : 'Territoire') + '</span>'
+             + '<div class="map-popup-desc">' + desc + '</div>';
+      }
+
+      // Cities
+      var cities = [
+        {name: 'Bukavu', lat: -2.508, lng: 28.858, desc: 'Chef-lieu de la Province du Sud-Kivu. Ville principale sur la rive du Lac Kivu, frontalière avec le Rwanda.'},
+        {name: 'Uvira', lat: -3.391, lng: 29.135, desc: 'Ville du Sud, port sur le Lac Tanganyika. Carrefour commercial et humanitaire régional.'},
+        {name: 'Baraka', lat: -4.103, lng: 29.088, desc: 'Ville lacustre sur le Lac Tanganyika, dans le territoire de Fizi. Principal port du sud du lac.'},
+        {name: 'Kamituga', lat: -3.053, lng: 28.175, desc: 'Ville minière dans le territoire de Mwenga. Connue pour ses gisements d\'or artisanaux.'}
+      ];
+      cities.forEach(function(c) {
+        L.marker([c.lat, c.lng], {icon: cityIcon}).addTo(map)
+          .bindPopup(popup(c.name, 'city', c.desc));
+      });
+
+      // Territories
+      var territories = [
+        {name: 'Fizi', lat: -4.296, lng: 28.940, desc: 'Vaste territoire au sud, bordant le Lac Tanganyika. Ressources minières importantes.'},
+        {name: 'Idjwi', lat: -2.083, lng: 29.053, desc: 'Île-territoire dans le Lac Kivu. Population Havu. Pêche et agriculture vivrière.'},
+        {name: 'Kabare', lat: -2.518, lng: 28.808, desc: 'Territoire adjacent à Bukavu, au cœur du pays Bushi. Agriculture caféicole et élevage.'},
+        {name: 'Kalehe', lat: -2.110, lng: 28.905, desc: 'Territoire au nord-ouest du Lac Kivu. Agriculture et pêche lacustre.'},
+        {name: 'Mwenga', lat: -3.036, lng: 28.432, desc: 'Territoire forestier, riche en minerais (or, coltan). Chef-lieu : Kamituga.'},
+        {name: 'Shabunda', lat: -2.689, lng: 27.336, desc: 'Le plus grand territoire. Forêts denses, ressources minières. Enclavé, accessible par voie aérienne.'},
+        {name: 'Uvira', lat: -3.396, lng: 29.135, desc: 'Territoire du Sud-Est, bordant le Burundi et la Tanzanie. Agriculture et commerce frontalier.'},
+        {name: 'Walungu', lat: -2.663, lng: 28.643, desc: 'Territoire du Bushi, au sud-ouest de Bukavu. Densément peuplé, agriculture vivrière.'}
+      ];
+      territories.forEach(function(t) {
+        L.marker([t.lat, t.lng], {icon: territoryIcon}).addTo(map)
+          .bindPopup(popup(t.name, 'territory', t.desc));
+      });
+
+      // Legend
+      var legend = L.control({position: 'bottomright'});
+      legend.onAdd = function() {
+        var div = L.DomUtil.create('div', '');
+        div.style.cssText = 'background:white;padding:12px 16px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.15);font-family:"Source Sans 3",sans-serif;font-size:12px;line-height:1.8;';
+        div.innerHTML = '<strong style="display:block;margin-bottom:6px;color:#1C2340;font-size:13px;">Légende</strong>'
+          + '<span style="display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:#CE8A00;border:2px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.3);flex-shrink:0;"></span>Ville</span>'
+          + '<span style="display:flex;align-items:center;gap:8px;margin-top:4px;"><span style="width:12px;height:12px;background:#003882;border:2px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.3);flex-shrink:0;"></span>Territoire</span>';
+        return div;
+      };
+      legend.addTo(map);
+    })();
   </script>
 </body>
 </html>
