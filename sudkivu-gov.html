@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gouvernement Provincial du Sud-Kivu — République Démocratique du Congo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --blue-deep: #003882;
+      --blue-mid: #0052B4;
+      --blue-light: #1A6FD4;
+      --gold: #CE8A00;
+      --gold-light: #F5B800;
+      --red-drc: #C8102E;
+      --white: #FFFFFF;
+      --off-white: #F4F6FA;
+      --gray-light: #E8ECF3;
+      --gray-mid: #8D9BB5;
+      --gray-dark: #3A4561;
+      --text-dark: #1C2340;
+      --text-body: #3A4561;
+      --border: rgba(0,56,130,0.12);
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text-body);
+      background: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== TOP BAR ===== */
+    .topbar {
+      background: var(--blue-deep);
+      color: rgba(255,255,255,0.75);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 7px 0;
+      text-transform: uppercase;
+    }
+    .topbar-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 16px; }
+    .topbar-sep { opacity: 0.3; }
+    .topbar-right { display: flex; gap: 20px; }
+    .topbar-right a:hover { color: var(--gold-light); }
+
+    /* ===== HEADER ===== */
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 16px rgba(0,56,130,0.10);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo-emblem {
+      width: 54px;
+      height: 54px;
+      background: var(--blue-deep);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-text .province {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--blue-deep);
+      letter-spacing: -0.01em;
+    }
+    .logo-text .country {
+      font-size: 11px;
+      color: var(--gray-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    nav { display: flex; align-items: center; gap: 4px; }
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: var(--blue-deep);
+      color: var(--white);
+    }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--white);
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-left: 8px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); color: var(--text-dark); }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 6px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--blue-deep);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--blue-deep) 0%, #001F50 55%, #0A2866 100%);
+      color: var(--white);
+      padding: 80px 0 90px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(206,138,0,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(200,16,46,0.12) 0%, transparent 50%);
+    }
+    /* DRC map silhouette decorative */
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -40px;
+      top: -20px;
+      width: 480px;
+      height: 520px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 450'%3E%3Cellipse cx='200' cy='225' rx='170' ry='190' fill='rgba(255,255,255,0.04)'/%3E%3Cellipse cx='200' cy='225' rx='130' ry='150' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E") no-repeat;
+      opacity: 0.6;
+    }
+    .hero-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,184,0,0.18);
+      border: 1px solid rgba(245,184,0,0.4);
+      color: var(--gold-light);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+    .hero-badge::before { content: '★'; font-size: 10px; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span { color: var(--gold-light); }
+    .hero-desc {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); color: var(--text-dark); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.4);
+      padding: 11px 26px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .hero-stats {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 32px;
+      backdrop-filter: blur(10px);
+    }
+    .hero-stats-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .hero-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .hero-stat-item {}
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .hero-divider {
+      width: 32px;
+      height: 2px;
+      background: var(--gold-light);
+      margin: 12px 0;
+    }
+
+    /* ===== BREADCRUMB / SECTION STRIP ===== */
+    .flag-strip {
+      height: 5px;
+      background: linear-gradient(90deg, var(--blue-mid) 33%, var(--red-drc) 33%, var(--red-drc) 66%, var(--gold) 66%);
+    }
+
+    /* ===== ANNOUNCEMENTS BAR ===== */
+    .announcement-bar {
+      background: var(--off-white);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .announcement-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .ann-label {
+      background: var(--red-drc);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .ann-text {
+      font-size: 13.5px;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+    .ann-ticker {
+      display: flex;
+      gap: 32px;
+      overflow: hidden;
+      flex: 1;
+    }
+    .ann-ticker-item { white-space: nowrap; }
+
+    /* ===== QUICK ACCESS ===== */
+    .quick-access {
+      padding: 48px 0;
+      background: var(--white);
+    }
+    .section-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .section-title span { color: var(--blue-mid); }
+    .section-sub {
+      font-size: 16px;
+      color: var(--gray-mid);
+      margin-bottom: 40px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .quick-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 18px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .quick-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--blue-mid);
+      transform: scaleX(0);
+      transition: transform 0.25s;
+    }
+    .quick-card:hover { background: var(--white); box-shadow: 0 8px 32px rgba(0,56,130,0.13); transform: translateY(-3px); }
+    .quick-card:hover::before { transform: scaleX(1); }
+    .quick-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--blue-deep);
+      border-radius: 14px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .quick-card-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+    .quick-card-desc {
+      font-size: 12px;
+      color: var(--gray-mid);
+      line-height: 1.4;
+    }
+
+    /* ===== KEY FIGURES ===== */
+    .key-figures {
+      background: linear-gradient(135deg, var(--blue-deep), #001840);
+      padding: 64px 0;
+      color: var(--white);
+    }
+    .figures-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .figure-item {
+      padding: 32px 28px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .figure-item:last-child { border-right: none; }
+    .figure-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
+      font-weight: 900;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .figure-unit {
+      font-size: 18px;
+      opacity: 0.7;
+    }
+    .figure-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.4;
+      margin-top: 8px;
+    }
+    .figure-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    /* ===== PROGRAMME AXES ===== */
+    .axes-section {
+      padding: 80px 0;
+      background: var(--off-white);
+    }
+    .axes-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+    .axes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .axe-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .axe-card:first-child { grid-column: span 1; }
+    .axe-card:nth-child(5) { grid-column: span 2; }
+    .axe-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--axe-color, var(--blue-mid));
+      border-radius: 0 0 0 0;
+    }
+    .axe-card:hover { box-shadow: 0 16px 40px rgba(0,56,130,0.12); transform: translateY(-4px); }
+    .axe-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--axe-color, var(--blue-mid));
+      opacity: 0.15;
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      line-height: 1;
+    }
+    .axe-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--axe-color, var(--blue-mid));
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+    .axe-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .axe-desc {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .axe-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+    .axe-pill {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      color: var(--text-body);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* ===== GOVERNOR SECTION ===== */
+    .governor-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .gov-inner {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .gov-photo-wrap {
+      position: relative;
+    }
+    .gov-photo-bg {
+      position: absolute;
+      inset: -12px;
+      background: linear-gradient(135deg, var(--blue-deep), var(--blue-light));
+      border-radius: 20px;
+      z-index: 0;
+    }
+    .gov-photo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border-radius: 16px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      background: linear-gradient(160deg, #1a3a6b, #0a2050);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      color: rgba(255,255,255,0.15);
+      overflow: hidden;
+    }
+    .gov-photo-inner {
+      width: 100%;
+      height: 360px;
+      background: linear-gradient(160deg, var(--blue-mid) 0%, var(--blue-deep) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+      color: rgba(255,255,255,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .gov-photo-inner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,30,80,0.5), transparent);
+    }
+    .gov-name-tag {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,20,60,0.95), transparent);
+      padding: 24px 20px 20px;
+      z-index: 2;
+      border-radius: 0 0 16px 16px;
+    }
+    .gov-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .gov-role {
+      font-size: 12px;
+      color: var(--gold-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+    .gov-content {}
+    .gov-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--text-dark);
+      line-height: 1.5;
+      border-left: 4px solid var(--gold);
+      padding-left: 24px;
+      margin: 28px 0;
+    }
+    .gov-text {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .gov-signature {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .gov-sig-line {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+    }
+    .gov-sig-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .gov-sig-title {
+      font-size: 12px;
+      color: var(--gray-mid);
+    }
+
+    /* ===== NEWS GRID ===== */
+    .news-section {
+      padding: 80px 0;
+      background: var(--off-white);
+    }
+    .news-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    .view-all {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue-mid);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .view-all::after { content: '→'; }
+    .view-all:hover { color: var(--blue-deep); }
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    .news-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.25s;
+    }
+    .news-card:hover { box-shadow: 0 12px 36px rgba(0,56,130,0.1); transform: translateY(-3px); }
+    .news-card-img {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--blue-deep), var(--blue-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: rgba(255,255,255,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .news-card-img.green { background: linear-gradient(135deg, #1a5c2a, #2a8a40); }
+    .news-card-img.orange { background: linear-gradient(135deg, #7a3800, #C8102E); }
+    .news-cat {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+    .news-card-body { padding: 22px 20px; }
+    .news-date { font-size: 12px; color: var(--gray-mid); margin-bottom: 8px; }
+    .news-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .news-card-excerpt {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ===== PRIORITIES (100 jours) ===== */
+    .priorities-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .priorities-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .priority-list { list-style: none; }
+    .priority-item {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .priority-item:last-child { border-bottom: none; }
+    .priority-num {
+      width: 36px;
+      height: 36px;
+      background: var(--blue-deep);
+      color: var(--white);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .priority-content h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .priority-content p { font-size: 13.5px; color: var(--text-body); line-height: 1.5; }
+    .timeline-box {
+      background: linear-gradient(135deg, var(--blue-deep), #001840);
+      border-radius: 16px;
+      padding: 40px 36px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .timeline-box::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 180px; height: 180px;
+      background: rgba(245,184,0,0.08);
+      border-radius: 50%;
+    }
+    .timeline-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .timeline-box p.sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 32px;
+    }
+    .timeline-items { display: flex; flex-direction: column; gap: 20px; }
+    .tl-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .tl-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--gold-light);
+      border-radius: 50%;
+      margin-top: 4px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .tl-dot::after {
+      content: '';
+      position: absolute;
+      top: 14px; left: 5px;
+      width: 2px;
+      height: 30px;
+      background: rgba(255,255,255,0.2);
+    }
+    .tl-item:last-child .tl-dot::after { display: none; }
+    .tl-period {
+      font-size: 11px;
+      color: var(--gold-light);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .tl-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+      margin-top: 2px;
+    }
+
+    /* ===== BUDGET / FINANCES ===== */
+    .finances-section {
+      padding: 80px 0;
+      background: var(--off-white);
+    }
+    .finances-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .budget-table {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .budget-table-header {
+      background: var(--blue-deep);
+      color: var(--white);
+      padding: 16px 24px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .budget-table table { width: 100%; border-collapse: collapse; }
+    .budget-table th {
+      background: var(--off-white);
+      padding: 12px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gray-mid);
+      text-align: left;
+    }
+    .budget-table td {
+      padding: 14px 20px;
+      font-size: 15px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-dark);
+    }
+    .budget-table tr:last-child td { border-bottom: none; font-weight: 700; background: var(--off-white); }
+    .budget-table td:last-child { text-align: right; font-weight: 600; color: var(--blue-mid); }
+    .risk-panel {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .risk-header {
+      background: var(--gold);
+      color: var(--white);
+      padding: 16px 24px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .risk-list { padding: 8px 0; }
+    .risk-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .risk-row:last-child { border-bottom: none; }
+    .risk-type {
+      padding: 16px 20px;
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--text-dark);
+      background: var(--off-white);
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+    .risk-mitigation {
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+
+    /* ===== CONTACTS / INSTITUTIONS ===== */
+    .institutions-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .inst-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .inst-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: all 0.25s;
+    }
+    .inst-card:hover { background: var(--white); box-shadow: 0 8px 28px rgba(0,56,130,0.1); }
+    .inst-icon { font-size: 32px; margin-bottom: 14px; }
+    .inst-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .inst-desc { font-size: 13.5px; color: var(--text-body); line-height: 1.6; margin-bottom: 16px; }
+    .inst-frequency {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,82,180,0.08);
+      color: var(--blue-mid);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .inst-frequency::before { content: '🕐'; font-size: 11px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #050E1F;
+      color: rgba(255,255,255,0.7);
+      padding: 64px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .logo-emblem {
+      background: rgba(255,255,255,0.08);
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .footer-brand .logo-text .province { color: var(--white); }
+    .footer-brand .logo-text .country { color: rgba(255,255,255,0.45); }
+    .footer-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-top: 16px;
+      color: rgba(255,255,255,0.55);
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links li a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+    .footer-links li a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: rgba(255,255,255,0.35); }
+    .footer-bottom-links a:hover { color: var(--gold-light); }
+
+    /* ===== MOBILE NAV ===== */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 80px;
+      left: 0; right: 0;
+      background: var(--white);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      padding: 20px 24px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav .nav-link { padding: 12px 16px; border-radius: 8px; display: block; width: 100%; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1040px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-stats { display: none; }
+      .quick-grid { grid-template-columns: repeat(3, 1fr); }
+      .figures-grid { grid-template-columns: repeat(2, 1fr); }
+      .axes-grid { grid-template-columns: 1fr 1fr; }
+      .axe-card:nth-child(5) { grid-column: span 1; }
+      .gov-inner { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr 1fr; }
+      .priorities-grid { grid-template-columns: 1fr; }
+      .finances-grid { grid-template-columns: 1fr; }
+      .inst-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      nav { display: none; }
+      .menu-toggle { display: flex; }
+    }
+    @media (max-width: 640px) {
+      .quick-grid { grid-template-columns: 1fr 1fr; }
+      .figures-grid { grid-template-columns: 1fr 1fr; }
+      .axes-grid { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+      .inst-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .topbar-right { display: none; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-badge, .hero h1, .hero-desc, .hero-actions {
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero h1 { animation-delay: 0.1s; }
+    .hero-desc { animation-delay: 0.2s; }
+    .hero-actions { animation-delay: 0.3s; }
+
+    /* ===== MODAL (Axes detail) ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,10,30,0.7);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--white);
+      border-radius: 16px;
+      max-width: 640px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 40px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 32px; height: 32px;
+      background: var(--off-white);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .modal-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .modal-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+    .modal-list li::before {
+      content: '✓';
+      color: var(--blue-mid);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span>🇨🇩 République Démocratique du Congo</span>
+        <span class="topbar-sep">|</span>
+        <span>Province du Sud-Kivu — Gouvernement Provincial</span>
+      </div>
+      <div class="topbar-right">
+        <a href="#programme">Programme 2024–2028</a>
+        <a href="#governor">Le Gouverneur</a>
+        <a href="#contact">Contacts</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo-wrap">
+        <div class="logo-emblem">SK</div>
+        <div class="logo-text">
+          <div class="province">Province du Sud-Kivu</div>
+          <div class="country">Gouvernement Provincial • RDC</div>
+        </div>
+      </a>
+      <nav>
+        <a href="#accueil" class="nav-link active">Accueil</a>
+        <a href="#programme" class="nav-link">Programme</a>
+        <a href="#secteurs" class="nav-link">Secteurs</a>
+        <a href="#finances" class="nav-link">Finances</a>
+        <a href="#governor" class="nav-link">Gouverneur</a>
+        <a href="#actualites" class="nav-link">Actualités</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+      <button class="menu-toggle" onclick="document.querySelector('.mobile-nav').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav">
+      <a href="#accueil" class="nav-link">Accueil</a>
+      <a href="#programme" class="nav-link">Programme 2024–2028</a>
+      <a href="#secteurs" class="nav-link">Secteurs</a>
+      <a href="#finances" class="nav-link">Finances</a>
+      <a href="#governor" class="nav-link">Gouverneur</a>
+      <a href="#actualites" class="nav-link">Actualités</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- FLAG STRIP -->
+  <div class="flag-strip"></div>
+
+  <!-- ANNOUNCEMENTS BAR -->
+  <div class="announcement-bar">
+    <div class="announcement-inner">
+      <span class="ann-label">🔴 Urgent</span>
+      <div class="ann-ticker">
+        <span class="ann-ticker-item">📢 Programme d'Actions du Gouvernement Provincial 2024–2028 adopté par l'Assemblée Provinciale — Budget de 112 milliards de FC pour le quinquennat</span>
+        <span class="ann-ticker-item ann-sep" style="color:var(--gray-mid)"> &nbsp;|&nbsp; </span>
+        <span class="ann-ticker-item">🏛️ Investiture du Gouverneur Jean-Jacques Purusi Sadiki le 02 mai 2024</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="accueil">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">Plan Quinquennal 2024 – 2028</div>
+        <h1>Pour un <span>Sud-Kivu</span><br>Émergent &amp; Prospère</h1>
+        <p class="hero-desc">
+          Le Gouvernement Provincial du Sud-Kivu s'engage dans un programme ambitieux de développement économique et social, articulé autour de 5 axes stratégiques pour transformer durablement la province et améliorer les conditions de vie des Sud-Kivutiens.
+        </p>
+        <div class="hero-actions">
+          <a href="#programme" class="btn-primary">Découvrir le Programme ↓</a>
+          <a href="#governor" class="btn-outline">Mot du Gouverneur</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stats-title">Chiffres Clés de la Province</div>
+        <div class="hero-stat-grid">
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">5,5M<span style="font-size:16px; opacity:0.6"></span></div>
+            <div class="hero-stat-label">Habitants estimés</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">69k<span style="font-size:16px; opacity:0.6">km²</span></div>
+            <div class="hero-stat-label">Superficie totale</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">8</div>
+            <div class="hero-stat-label">Territoires administratifs</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">112B<span style="font-size:16px; opacity:0.6">FC</span></div>
+            <div class="hero-stat-label">Budget quinquennal projeté</div>
+          </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:16px;">
+          Chef-lieu : <strong style="color:rgba(255,255,255,0.85)">Bukavu</strong> &nbsp;·&nbsp; Mandature : <strong style="color:rgba(255,255,255,0.85)">2024 – 2028</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK ACCESS -->
+  <section class="quick-access">
+    <div class="section-inner">
+      <div class="quick-grid">
+        <a href="#axe1" class="quick-card" onclick="openModal('axe1')">
+          <div class="quick-icon">🏛️</div>
+          <div class="quick-card-title">Gouvernance</div>
+          <div class="quick-card-desc">Transparence & leadership au service du développement</div>
+        </a>
+        <a href="#axe2" class="quick-card" onclick="openModal('axe2')">
+          <div class="quick-icon">🌾</div>
+          <div class="quick-card-title">Secteur Productif</div>
+          <div class="quick-card-desc">Agriculture, mines, tourisme & emploi</div>
+        </a>
+        <a href="#axe3" class="quick-card" onclick="openModal('axe3')">
+          <div class="quick-icon">🏥</div>
+          <div class="quick-card-title">Services Sociaux</div>
+          <div class="quick-card-desc">Éducation, santé et capital humain</div>
+        </a>
+        <a href="#axe4" class="quick-card" onclick="openModal('axe4')">
+          <div class="quick-icon">🛣️</div>
+          <div class="quick-card-title">Infrastructures</div>
+          <div class="quick-card-desc">Routes, voies navigables & télécommunications</div>
+        </a>
+        <a href="#axe5" class="quick-card" onclick="openModal('axe5')">
+          <div class="quick-icon">🏙️</div>
+          <div class="quick-card-title">Cadre de Vie</div>
+          <div class="quick-card-desc">Eau, électricité, urbanisme & environnement</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY FIGURES -->
+  <section class="key-figures">
+    <div class="section-inner">
+      <div class="figures-grid">
+        <div class="figure-item">
+          <div class="figure-icon">📉</div>
+          <div class="figure-num">84,7<span class="figure-unit">%</span></div>
+          <div class="figure-label">Taux de pauvreté provincial (vs 71,3% national)</div>
+        </div>
+        <div class="figure-item">
+          <div class="figure-icon">👷</div>
+          <div class="figure-num">22,2<span class="figure-unit">%</span></div>
+          <div class="figure-label">Taux de chômage urbain en milieu jeune</div>
+        </div>
+        <div class="figure-item">
+          <div class="figure-icon">🏫</div>
+          <div class="figure-num">92<span class="figure-unit">‰</span></div>
+          <div class="figure-label">Taux de mortalité infantile (en baisse)</div>
+        </div>
+        <div class="figure-item">
+          <div class="figure-icon">🍽️</div>
+          <div class="figure-num">52,6<span class="figure-unit">%</span></div>
+          <div class="figure-label">Ménages en insécurité alimentaire (2021)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMME AXES -->
+  <section class="axes-section" id="programme">
+    <div class="section-inner">
+      <div class="axes-header">
+        <div>
+          <div class="section-label">Programme d'Actions 2024–2028</div>
+          <div class="section-title">Cinq axes <span>stratégiques</span><br>pour l'émergence</div>
+        </div>
+        <div class="section-sub" style="max-width:400px;">
+          Un programme cohérent et intégré doté d'un budget de 112 milliards de francs congolais pour transformer structurellement la Province du Sud-Kivu sur 5 ans.
+        </div>
+      </div>
+      <div class="axes-grid" id="secteurs">
+        <div class="axe-card" style="--axe-color:#003882;" onclick="openModal('axe1')">
+          <span class="axe-num">01</span>
+          <div class="axe-tag">Axe 1 — Gouvernance</div>
+          <div class="axe-title">Instaurer une gouvernance transparente et un leadership efficace</div>
+          <div class="axe-desc">Refonder l'administration publique, assurer la sécurité des personnes et optimiser la mobilisation des ressources provinciales grâce à la numérisation et à l'anti-corruption.</div>
+          <div class="axe-actions">
+            <span class="axe-pill">Leadership</span>
+            <span class="axe-pill">Sécurité</span>
+            <span class="axe-pill">Finances publiques</span>
+            <span class="axe-pill">Administration</span>
+            <span class="axe-pill">Partenariats</span>
+          </div>
+        </div>
+        <div class="axe-card" style="--axe-color:#1a7a2e;" onclick="openModal('axe2')">
+          <span class="axe-num">02</span>
+          <div class="axe-tag">Axe 2 — Économie</div>
+          <div class="axe-title">Relancer le secteur productif et assurer l'emploi</div>
+          <div class="axe-desc">Redynamiser l'agriculture, rationnaliser les activités minières, développer le tourisme et le commerce transfrontalier, et soutenir les PME pour créer des emplois durables.</div>
+          <div class="axe-actions">
+            <span class="axe-pill">Agriculture</span>
+            <span class="axe-pill">Mines</span>
+            <span class="axe-pill">Tourisme</span>
+            <span class="axe-pill">Commerce</span>
+            <span class="axe-pill">PME / Emploi</span>
+          </div>
+        </div>
+        <div class="axe-card" style="--axe-color:#b83200;" onclick="openModal('axe3')">
+          <span class="axe-num">03</span>
+          <div class="axe-tag">Axe 3 — Services de base</div>
+          <div class="axe-title">Améliorer l'accès aux services sociaux et renforcer le capital humain</div>
+          <div class="axe-desc">Maintenir la compétitivité éducative, rendre les services de santé accessibles à tous les niveaux et améliorer les voies de communication pour désenclaver les territoires.</div>
+          <div class="axe-actions">
+            <span class="axe-pill">Éducation</span>
+            <span class="axe-pill">Santé</span>
+            <span class="axe-pill">Voies de communication</span>
+          </div>
+        </div>
+        <div class="axe-card" style="--axe-color:#6a1a8a;" onclick="openModal('axe4')">
+          <span class="axe-num">04</span>
+          <div class="axe-tag">Axe 4 — Infrastructures</div>
+          <div class="axe-title">Revitaliser le réseau provincial d'infrastructures</div>
+          <div class="axe-desc">Désenclavement des territoires par la construction et la réhabilitation des routes, l'aménagement des ports et des aérodromes, et la mise en place de services de transport public.</div>
+          <div class="axe-actions">
+            <span class="axe-pill">Routes nationales</span>
+            <span class="axe-pill">Routes provinciales</span>
+            <span class="axe-pill">Aérodromes</span>
+            <span class="axe-pill">Voies lacustres</span>
+          </div>
+        </div>
+        <div class="axe-card" style="--axe-color:#CE8A00;" onclick="openModal('axe5')">
+          <span class="axe-num">05</span>
+          <div class="axe-tag">Axe 5 — Cadre de vie</div>
+          <div class="axe-title">Améliorer le cadre de vie des populations du Sud-Kivu</div>
+          <div class="axe-desc">Accroître la desserte en eau potable et en électricité, lutter contre la pollution, moderniser l'habitat et l'urbanisme, développer les villes harmonieusement et promouvoir l'environnement et la culture.</div>
+          <div class="axe-actions">
+            <span class="axe-pill">Eau & Électricité</span>
+            <span class="axe-pill">Assainissement</span>
+            <span class="axe-pill">Habitat & Urbanisme</span>
+            <span class="axe-pill">Environnement</span>
+            <span class="axe-pill">Culture & Sport</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOVERNOR -->
+  <section class="governor-section" id="governor">
+    <div class="section-inner">
+      <div class="gov-inner">
+        <div class="gov-photo-wrap">
+          <div class="gov-photo-bg"></div>
+          <div class="gov-photo-inner">
+            <span style="font-size:90px; z-index:1; position:relative;">👤</span>
+            <div class="gov-name-tag">
+              <div class="gov-name">Prof. Jean-Jacques Purusi Sadiki</div>
+              <div class="gov-role">Gouverneur de Province — Sud-Kivu</div>
+            </div>
+          </div>
+        </div>
+        <div class="gov-content">
+          <div class="section-label">Mot du Gouverneur</div>
+          <div class="section-title" style="margin-bottom:0;">Message aux<br><span>Sud-Kivutiens</span></div>
+          <div class="gov-quote">
+            «&nbsp;Ce programme traduit la détermination du Sud-Kivu à assurer son émergence, gage du bien-être de sa population. L'émergence du Sud-Kivu est entre nos mains.&nbsp;»
+          </div>
+          <p class="gov-text">
+            En date du 20 décembre 2023, la République Démocratique du Congo a organisé son quatrième cycle électoral depuis la promulgation de la Constitution du 18 février 2006. Ce processus a conduit à mon élection et à l'investiture du Gouvernement provincial le 02 mai 2024.
+          </p>
+          <p class="gov-text">
+            Le programme d'actions pour le quinquennat 2024–2028 propose avec courage de nombreuses réformes ainsi que des projets structurants d'un coût global de cent douze milliards de francs congolais, élaborés pour accélérer le développement économique et social de la province du Sud-Kivu à très court terme, à court terme, à moyen terme et à long terme.
+          </p>
+          <p class="gov-text">
+            Votre gouvernement ne ménagera aucun moyen pour arriver aux objectifs qu'il s'est assignés. Avec patriotisme, volonté et détermination, ensemble, nous pouvons y arriver.
+          </p>
+          <div class="gov-signature">
+            <div class="gov-sig-line"></div>
+            <div>
+              <div class="gov-sig-name">Professeur Jean-Jacques Purusi Sadiki</div>
+              <div class="gov-sig-title">Gouverneur de la Province du Sud-Kivu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTUALITES -->
+  <section class="news-section" id="actualites">
+    <div class="section-inner">
+      <div class="news-header">
+        <div>
+          <div class="section-label">Actualités & Communiqués</div>
+          <div class="section-title">Dernières <span>nouvelles</span></div>
+        </div>
+        <a href="#" class="view-all">Toutes les actualités</a>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-card-img">
+            <span>🏛️</span>
+            <span class="news-cat">Gouvernance</span>
+          </div>
+          <div class="news-card-body">
+            <div class="news-date">02 mai 2024</div>
+            <div class="news-card-title">Investiture du Gouvernement Provincial du Sud-Kivu</div>
+            <div class="news-card-excerpt">Le Professeur Jean-Jacques Purusi Sadiki prend officiellement les rênes de la Province du Sud-Kivu suite aux élections du 20 décembre 2023. Le programme quinquennal 2024–2028 est présenté à l'Assemblée provinciale.</div>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-img green">
+            <span>🌾</span>
+            <span class="news-cat">Agriculture</span>
+          </div>
+          <div class="news-card-body">
+            <div class="news-date">Juin 2024</div>
+            <div class="news-card-title">Relance du secteur agricole : réhabilitation de l'INERA et du CRSN Lwiro</div>
+            <div class="news-card-excerpt">Le gouvernement provincial engage un partenariat avec des centres scientifiques spécialisés (IITA) pour renforcer les capacités de recherche et soutenir les 3 984 agents techniques agricoles.</div>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-img orange">
+            <span>⛏️</span>
+            <span class="news-cat">Mines</span>
+          </div>
+          <div class="news-card-body">
+            <div class="news-date">Juillet 2024</div>
+            <div class="news-card-title">Création d'une société minière provinciale pour protéger les ressources du Sud-Kivu</div>
+            <div class="news-card-excerpt">Le gouvernement lance la rationalisation du secteur minier artisanal, la mise en place de brigades anti-fraude et l'audit du secteur afin de garantir que les ressources bénéficient aux communautés locales.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIORITIES (100 jours) -->
+  <section class="priorities-section">
+    <div class="section-inner">
+      <div class="section-label">Agenda Gouvernemental</div>
+      <div class="section-title" style="margin-bottom:40px;">Actions <span>prioritaires</span> & calendrier</div>
+      <div class="priorities-grid">
+        <div>
+          <ul class="priority-list">
+            <li class="priority-item">
+              <div class="priority-num">1</div>
+              <div class="priority-content">
+                <h4>Numérisation des paiements fiscaux</h4>
+                <p>Bancarisation de tous les processus de paiements des taxes et redevances, avec installation d'un guichet unique provincial pour réduire les tracasseries administratives.</p>
+              </div>
+            </li>
+            <li class="priority-item">
+              <div class="priority-num">2</div>
+              <div class="priority-content">
+                <h4>Audit de l'administration publique provinciale</h4>
+                <p>Élimination des agents fictifs, contrôles physiques, informatisation des services et mise à jour du fichier du personnel de l'État.</p>
+              </div>
+            </li>
+            <li class="priority-item">
+              <div class="priority-num">3</div>
+              <div class="priority-content">
+                <h4>Relance de la Ruzizi I pour l'énergie électrique</h4>
+                <p>Mobilisation des fonds et partenaires pour que la centrale hydroélectrique de Ruzizi I produise et distribue suffisamment pour alimenter les usines de la province.</p>
+              </div>
+            </li>
+            <li class="priority-item">
+              <div class="priority-num">4</div>
+              <div class="priority-content">
+                <h4>Société provinciale minière & lutte anti-fraude</h4>
+                <p>Création d'une société minière provinciale pour protéger les intérêts de la population, avec brigades anti-fraude et cartographie des ressources minières.</p>
+              </div>
+            </li>
+            <li class="priority-item">
+              <div class="priority-num">5</div>
+              <div class="priority-content">
+                <h4>Programme de désarmement (PDDRCS)</h4>
+                <p>Accompagnement du programme DDR, réinsertion communautaire et capitalisation du projet STAREST en faveur des ex-combattants pour consolider la paix et la sécurité.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="timeline-box">
+          <h3>Calendrier d'exécution</h3>
+          <p class="sub">Plan quinquennal 2024–2028 — Province du Sud-Kivu</p>
+          <div class="timeline-items">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div>
+                <div class="tl-period">Court terme — 100 premiers jours</div>
+                <div class="tl-desc">Interventions prioritaires et stratégiques : audit de l'administration, sécurisation, réformes fiscales d'urgence et mobilisation des ressources.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div>
+                <div class="tl-period">Année 1 — 2024</div>
+                <div class="tl-desc">Budget provincial : 5 M USD. Mise en œuvre des réformes de gouvernance, démarrage des chantiers d'infrastructure clés, relance agricole.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div>
+                <div class="tl-period">Années 2–3 — 2025–2026</div>
+                <div class="tl-desc">Budget : 7 M + 8 M USD. Accélération des projets structurants, développement des PME, amélioration des services sociaux de base.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div>
+                <div class="tl-period">Années 4–5 — 2027–2028</div>
+                <div class="tl-desc">Budget : 10 M + 10 M USD. Consolidation des acquis, évaluation finale, bilan quinquennal et préparation du prochain cycle de développement.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINANCES -->
+  <section class="finances-section" id="finances">
+    <div class="section-inner">
+      <div class="section-label">Transparence financière</div>
+      <div class="section-title" style="margin-bottom:40px;">Budget & <span>Projections financières</span></div>
+      <div class="finances-grid">
+        <div class="budget-table">
+          <div class="budget-table-header">📊 Tableau des Projections Financières (en Millions USD)</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>2024</th>
+                <th>2025</th>
+                <th>2026</th>
+                <th>2027</th>
+                <th>2028</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Budget Provincial</td>
+                <td>5M</td>
+                <td>7M</td>
+                <td>8M</td>
+                <td>10M</td>
+                <td>10M</td>
+              </tr>
+              <tr>
+                <td>Partenaires</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>Gap à rechercher</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>5M</strong></td>
+                <td><strong>7M</strong></td>
+                <td><strong>8M</strong></td>
+                <td><strong>10M</strong></td>
+                <td><strong>10M</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="risk-panel">
+          <div class="risk-header">⚠️ Analyse des risques et mesures de mitigation</div>
+          <div class="risk-list">
+            <div class="risk-row">
+              <div class="risk-type">Instabilité politique</div>
+              <div class="risk-mitigation">Assurer la transparence, organiser des réunions régulières avec la majorité et plaider pour une décentralisation effective.</div>
+            </div>
+            <div class="risk-row">
+              <div class="risk-type">Récession économique</div>
+              <div class="risk-mitigation">Diversification économique de la province et relance des secteurs productifs pour atteindre l'autosuffisance.</div>
+            </div>
+            <div class="risk-row">
+              <div class="risk-type">Finances publiques</div>
+              <div class="risk-mitigation">Accroître l'assiette provinciale, assurer une exécution budgétaire orthodoxe et améliorer la crédibilité auprès des institutions financières.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTITUTIONS / ORGANES DE GESTION -->
+  <section class="institutions-section" id="contact">
+    <div class="section-inner">
+      <div class="section-label">Suivi & Évaluation</div>
+      <div class="section-title" style="margin-bottom:40px;">Organes de <span>gestion</span> du programme</div>
+      <div class="inst-grid">
+        <div class="inst-card">
+          <div class="inst-icon">🏛️</div>
+          <div class="inst-name">Conseil des Ministres</div>
+          <div class="inst-desc">Composé du Gouverneur et du Vice-Gouverneur. Assure le suivi permanent, dispose des pouvoirs les plus étendus sur les actions rectificatives et valide le rapport annuel.</div>
+          <span class="inst-frequency">Bi-hebdomadaire</span>
+        </div>
+        <div class="inst-card">
+          <div class="inst-icon">🔍</div>
+          <div class="inst-name">Comité de Pilotage Ministériel</div>
+          <div class="inst-desc">Présidé par le Ministre sectoriel, assure le suivi des axes du plan d'intérêt, documente l'exécution et propose des actions correctives.</div>
+          <span class="inst-frequency">Bi-hebdomadaire</span>
+        </div>
+        <div class="inst-card">
+          <div class="inst-icon">📊</div>
+          <div class="inst-name">Comité de Pilotage Sectoriel</div>
+          <div class="inst-desc">Comités créés selon l'importance des projets pour un meilleur suivi. Permet une gestion plus fine et ciblée des projets structurants.</div>
+          <span class="inst-frequency">Hebdomadaire</span>
+        </div>
+        <div class="inst-card">
+          <div class="inst-icon">🤝</div>
+          <div class="inst-name">Commission Permanente de Consultation</div>
+          <div class="inst-desc">Commission tripartite présidée par le Gouverneur. Évalue (i) l'état du climat des affaires et (ii) l'exécution du projet de développement en milieu et fin d'année.</div>
+          <span class="inst-frequency">2× par an minimum</span>
+        </div>
+        <div class="inst-card">
+          <div class="inst-icon">📡</div>
+          <div class="inst-name">Système d'Information & Reporting</div>
+          <div class="inst-desc">Outils de collecte de données via enquêtes et statistiques administratives. Tableaux de bord pour suivre l'exécution du programme en temps réel.</div>
+          <span class="inst-frequency">Continu</span>
+        </div>
+        <div class="inst-card">
+          <div class="inst-icon">🌐</div>
+          <div class="inst-name">Partenaires Stratégiques</div>
+          <div class="inst-desc">Bailleurs internationaux, ONGs, institutions financières, partenariats de jumelage et inter-provinciaux pour le financement et l'expertise technique.</div>
+          <span class="inst-frequency">Sur demande</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="section-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-wrap">
+            <div class="logo-emblem">SK</div>
+            <div class="logo-text">
+              <div class="province">Province du Sud-Kivu</div>
+              <div class="country">Gouvernement Provincial • RDC</div>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Le Gouvernement Provincial du Sud-Kivu s'engage pour l'émergence de la province à travers un programme ambitieux de développement économique, social et infrastructurel pour la période 2024–2028.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Programme</h4>
+          <ul class="footer-links">
+            <li><a href="#">Plan Quinquennal 2024–2028</a></li>
+            <li><a href="#">Axe 1 — Gouvernance</a></li>
+            <li><a href="#">Axe 2 — Secteur Productif</a></li>
+            <li><a href="#">Axe 3 — Services Sociaux</a></li>
+            <li><a href="#">Axe 4 — Infrastructures</a></li>
+            <li><a href="#">Axe 5 — Cadre de Vie</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Province</h4>
+          <ul class="footer-links">
+            <li><a href="#">Profil géographique</a></li>
+            <li><a href="#">8 Territoires</a></li>
+            <li><a href="#">Ville de Bukavu</a></li>
+            <li><a href="#">Parc Kahuzi-Biega</a></li>
+            <li><a href="#">Lac Kivu & Tanganyika</a></li>
+            <li><a href="#">Ressources minières</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacts</h4>
+          <ul class="footer-links">
+            <li><a href="#">Assemblée Provinciale</a></li>
+            <li><a href="#">Cabinet du Gouverneur</a></li>
+            <li><a href="#">Ministères provinciaux</a></li>
+            <li><a href="#">Transparence financière</a></li>
+            <li><a href="#">Presse & Médias</a></li>
+            <li><a href="#">Bukavu, Sud-Kivu — RDC</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Gouvernement Provincial du Sud-Kivu — République Démocratique du Congo</span>
+        <div class="footer-bottom-links">
+          <a href="#">Mentions légales</a>
+          <a href="#">Accessibilité</a>
+          <a href="#">Plan du site</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <div class="modal-overlay" id="modal-axe1" onclick="closeModal('axe1')">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal('axe1')">✕</button>
+      <div class="axe-tag" style="color:var(--blue-deep);">Axe 1 — Gouvernance & Leadership</div>
+      <div class="modal-title">Instaurer une gouvernance transparente au service du développement</div>
+      <ul class="modal-list">
+        <li>Déléguer effectivement certaines prérogatives au vice-Gouverneur pour fluidifier les prises de décision</li>
+        <li>Imposer un contrôle citoyen dans la gestion de la chose publique par la transparence des recettes et dépenses</li>
+        <li>Rendre public annuellement les édits provinciaux, notamment l'édit sur la reddition des comptes</li>
+        <li>Restaurer la solvabilité et la crédibilité de la Province auprès des partenaires</li>
+        <li>Instaurer une gestion axée sur le résultat, contrats de performance pour tous les agents adminsitratifs</li>
+        <li>Réorganiser et réformer les services en charge de la lutte anti-corruption</li>
+        <li>Numériser, bancariser et imposer un guichet unique pour toutes les transactions financières de la Province</li>
+        <li>Accompagner le Gouvernement central pour l'amélioration des conditions de vie des Forces de Défense et de Sécurité (FDS)</li>
+        <li>Renforcer les capacités de la police de proximité et coordonner l'action des services de sécurité</li>
+        <li>Promouvoir le dialogue entre les communautés en vue de renforcer la cohésion sociale</li>
+        <li>Auditer l'administration publique provinciale et engager des contrôles physiques pour éliminer le personnel fictif</li>
+        <li>Finaliser la digitalisation de la liquidation de l'impôt foncier, l'impôt locatif et l'impôt sur les véhicules</li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-axe2" onclick="closeModal('axe2')">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal('axe2')">✕</button>
+      <div class="axe-tag" style="color:#1a7a2e;">Axe 2 — Secteur Productif & Emploi</div>
+      <div class="modal-title">Relancer le secteur productif et assurer l'emploi</div>
+      <ul class="modal-list">
+        <li>Auditer le secteur foncier, immobilier et urbanistique</li>
+        <li>Organiser les communautés agricoles et les appuyer en ressources financières, kits, semences et géniteurs</li>
+        <li>Renforcer la collaboration avec l'IITA, réhabiliter l'INERA et le CRSN Lwiro, et la laiterie du Bushi</li>
+        <li>Rajeunir et former le corps d'agents techniques agricoles provinciaux (gap de 399 à combler)</li>
+        <li>Redynamiser le réseau des routes de desserte agricole pour l'évacuation des produits</li>
+        <li>Relancer la sucrerie de Kiliba et la laiterie de Bushi</li>
+        <li>Auditer le secteur minier et créer une société minière provinciale pour protéger les intérêts locaux</li>
+        <li>Renforcer les brigades anti-fraude minières et organiser l'activité des coopératives artisanales</li>
+        <li>Développer les infrastructures touristiques dans les parcs nationaux et réserves naturelles</li>
+        <li>Créer une société de transports lacustres (Taxi-Bateau) sur les Lacs Kivu et Tanganyika</li>
+        <li>Créer une Commission Provinciale des Emplois Internationaux (CPEI)</li>
+        <li>Réglementer et organiser le commerce transfrontalier et réformer les systèmes de perception des taxes</li>
+        <li>Envisager la création d'une Banque provinciale focalisée sur les prêts à taux préférentiels aux jeunes débutants</li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-axe3" onclick="closeModal('axe3')">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal('axe3')">✕</button>
+      <div class="axe-tag" style="color:#b83200;">Axe 3 — Services Sociaux & Capital Humain</div>
+      <div class="modal-title">Améliorer l'accès aux services sociaux de base</div>
+      <ul class="modal-list">
+        <li>Organiser des inspections ponctuelles et régulières des écoles</li>
+        <li>Alléger la charge des frais liés aux épreuves des examens d'État de 45 à 20 USD pour la première année</li>
+        <li>Mettre en place un programme de bourses du gouvernement provincial pour soutenir les élèves et étudiants les plus méritants</li>
+        <li>Activer les services du Fond pour la Promotion de l'Éducation (FPE) en province</li>
+        <li>Protéger les bâtiments publics et scolaires contre la spoliation</li>
+        <li>Réhabiliter les écoles emblématiques : Lycée Nyakavogo, ITFM, etc.</li>
+        <li>Construire, réhabiliter et équiper les centres hospitaliers essentiellement dans les zones les plus enclavées</li>
+        <li>Mettre en place des plans d'actions, de ripostes et de préventions des maladies épidémiques (Malaria, VIH, Choléra)</li>
+        <li>Favoriser des partenariats avec les organisations locales, nationales et internationales en vue de la réalisation des programmes communs de prise en charge des soins médicaux</li>
+        <li>Auditer le secteur des infrastructures routières et désenclavement des territoires</li>
+        <li>Construire et réhabiliter les infrastructures routières</li>
+        <li>Aménager et draguer les biefs navigables (Port Kalundu, Ruzizi, etc.)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-axe4" onclick="closeModal('axe4')">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal('axe4')">✕</button>
+      <div class="axe-tag" style="color:#6a1a8a;">Axe 4 — Infrastructures & Voies de Communication</div>
+      <div class="modal-title">Revitaliser le réseau provincial d'infrastructures</div>
+      <ul class="modal-list">
+        <li>Auditer le secteur des infrastructures pour connaître l'état des routes jamais construites ni convenablement entretenues</li>
+        <li>Faire un suivi strict et régulier des chantiers en cours</li>
+        <li>Construire, réhabiliter et entretenir les infrastructures routières</li>
+        <li>Mettre en place des vrais partenariats publics-privés pour l'aménagement routier des grands centres urbains</li>
+        <li>Aménager, baliser et draguer les biefs navigables (Port Kalundu, Ruzizi, etc.)</li>
+        <li>Réhabiliter les aéroports, les aérodromes et les pistes secondaires</li>
+        <li>Créer 4 parkings, des gares centrales, des toilettes publiques dans nos villes de Baraka, Bukavu, Uvira et Kamituga</li>
+        <li>Création d'une Société de Transports publics</li>
+        <li>Placement des Caméras de surveillance</li>
+        <li>Construction des passerelles et traçage des marquages routiers pour éviter des accidents</li>
+        <li>Améliorer le dispositif de signalisation routière et d'éclairage public</li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-axe5" onclick="closeModal('axe5')">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal('axe5')">✕</button>
+      <div class="axe-tag" style="color:#CE8A00;">Axe 5 — Cadre de Vie & Environnement</div>
+      <div class="modal-title">Améliorer le cadre de vie des populations du Sud-Kivu</div>
+      <ul class="modal-list">
+        <li>Mettre en valeur le potentiel des centrales provinciales (Chute de Tshibati, Kabare, Malicha) et groupement de Mutambala</li>
+        <li>Afin d'électrifier la ville de Baraka, l'unique ville non électrifiée parmi les quatre villes du Sud-Kivu</li>
+        <li>Accroître les capacités de production d'eau par les forages à haute intensité</li>
+        <li>Assurer le contrôle de la conformité des fabricants d'eau minérale en bouteille</li>
+        <li>Plaidoyer pour la relance des centrales hydroélectriques de Ruzizi 3 et 4</li>
+        <li>Mettre en place un service d'hygiène et assainissement</li>
+        <li>Organiser une législation en matière d'hygiène et assainissement ; obtenir des bourses d'étude et de formation au profit des jeunes</li>
+        <li>Auditer le secteur de l'urbanisme et réhabiliter l'État dans ses droits sur l'habitat</li>
+        <li>Rendre conforme les opérations de lotissement dans les règles de l'urbanisme</li>
+        <li>Mettre en place une politique d'habitat et des plans d'aménagement des milieux ruraux</li>
+        <li>Appuyer les initiatives de lutte contre les catastrophes naturelles liées au réchauffement climatique</li>
+        <li>Assurer la récupération et la protection des espaces verts dans les villes, la sensibilisation et l'entretien de la faune et la flore</li>
+        <li>Organiser des campagnes de reboisement et journée de l'arbre en plantant un million d'arbres</li>
+        <li>Reconstruire et réhabiliter les infrastructures sportives</li>
+        <li>Réhabiliter les monuments et autres sites mémoriaux de la province</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById('modal-' + id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+      event.preventDefault();
+    }
+    function closeModal(id) {
+      document.getElementById('modal-' + id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(m => {
+          m.classList.remove('open');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href.length <= 1) return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.querySelector('.mobile-nav').classList.remove('open');
+        }
+      });
+    });
+
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + entry.target.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+    sections.forEach(s => observer.observe(s));
+
+    // Counter animation for key figures
+    function animateCounters() {
+      document.querySelectorAll('.figure-num').forEach(el => {
+        const text = el.textContent;
+        const match = text.match(/[\d.]+/);
+        if (!match) return;
+        const target = parseFloat(match[0]);
+        let current = 0;
+        const step = target / 60;
+        const interval = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = text.replace(match[0], current.toFixed(target % 1 === 0 ? 0 : 1));
+          if (current >= target) clearInterval(interval);
+        }, 25);
+      });
+    }
+    const figuresSection = document.querySelector('.key-figures');
+    const figuresObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        animateCounters();
+        figuresObserver.disconnect();
+      }
+    }, { threshold: 0.3 });
+    if (figuresSection) figuresObserver.observe(figuresSection);
+  </script>
+</body>
+</html>
