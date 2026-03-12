@@ -6,7 +6,7 @@
   <title>Province du Sud-Kivu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
   <style>
     /* ===== CSS VARIABLES ===== */
     :root {
@@ -1451,26 +1451,90 @@
       background: var(--white);
     }
     #province-map {
-      height: 520px;
-      border-radius: 14px;
-      overflow: hidden;
       margin-top: 32px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 24px rgba(0,56,130,0.08);
     }
-    .leaflet-popup-content-wrapper {
-      border-radius: 10px !important;
-      box-shadow: 0 4px 20px rgba(0,56,130,0.18) !important;
+    /* ===== SVG ADMINISTRATIVE MAP ===== */
+    .admin-map-svg {
+      width: 100%;
+      max-width: 680px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 28px rgba(0,56,130,0.12);
     }
-    .leaflet-popup-content { font-family: 'Source Sans 3', sans-serif; font-size: 13px; }
-    .map-popup-title { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: #1C2340; margin-bottom: 4px; }
-    .map-popup-type { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 12px; display: inline-block; margin-bottom: 6px; }
-    .map-popup-type.city { background: rgba(206,138,0,0.15); color: #8a5a00; }
-    .map-popup-type.territory { background: rgba(0,82,180,0.12); color: #003882; }
-    .map-popup-desc { font-size: 12.5px; color: #3A4561; line-height: 1.55; }
-    .map-popup-link { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 700; color: #003882; text-decoration: none; padding: 4px 10px; border: 1.5px solid #003882; border-radius: 20px; transition: background 0.18s, color 0.18s; }
-    .map-popup-link:hover { background: #003882; color: #fff; }
-    .territory-poly { transition: fill-opacity 0.2s; }
+    .admin-territory {
+      fill: #B5BE8A;
+      stroke: #2D3A2D;
+      stroke-width: 1.5;
+      stroke-linejoin: round;
+      transition: fill 0.2s ease;
+      cursor: pointer;
+    }
+    .admin-territory:hover { fill: #8AA564; }
+    .admin-territory.fizi { fill: #E8E4DA; }
+    .admin-territory.fizi:hover { fill: #CFCABC; }
+    .admin-terr-link { text-decoration: none; }
+    .admin-terr-link:focus-visible .admin-territory { stroke: #003882; stroke-width: 3; }
+    .admin-label-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 10px;
+      font-weight: 700;
+      fill: #1C2340;
+      text-anchor: middle;
+      pointer-events: none;
+      user-select: none;
+    }
+    .admin-label-sub {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 8px;
+      fill: #3A4050;
+      text-anchor: middle;
+      pointer-events: none;
+      user-select: none;
+    }
+    .admin-context-label {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 10px;
+      fill: #999;
+      font-style: italic;
+      text-anchor: middle;
+      pointer-events: none;
+      user-select: none;
+    }
+    .admin-water-label {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 9px;
+      fill: #4A7EA5;
+      font-style: italic;
+      text-anchor: middle;
+      pointer-events: none;
+      user-select: none;
+    }
+    .admin-map-legend {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .admin-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 12px;
+      color: #3A4050;
+    }
+    .admin-legend-swatch {
+      width: 20px;
+      height: 14px;
+      border-radius: 3px;
+      border: 1.5px solid #2D3A2D;
+      flex-shrink: 0;
+    }
+    .admin-legend-swatch.terr { background: #B5BE8A; }
+    .admin-legend-swatch.fizi { background: #E8E4DA; }
+    .admin-legend-swatch.lake { background: #C8DDE8; border-color: #4A7EA5; }
   </style>
 </head>
 <body>
@@ -1929,11 +1993,117 @@
     <div class="section-inner">
       <div class="section-label">Géographie Provinciale</div>
       <div class="section-title" id="carte-title">Carte Interactive du <span>Sud-Kivu</span></div>
-      <div class="section-sub">Explorez les 8 territoires et 4 villes de la province. Cliquez sur les marqueurs pour obtenir des informations détaillées.</div>
+      <div class="section-sub">Cliquez sur un territoire pour accéder directement à sa page. La Province du Sud-Kivu comprend 8 territoires administratifs.</div>
       <div id="province-map">
-        <div id="map-fallback" style="height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--gray-mid);font-size:14px;">
-          <span style="font-size:36px;">🗺️</span>
-          <span>Chargement de la carte en cours…</span>
+        <svg class="admin-map-svg" viewBox="0 0 560 490" xmlns="http://www.w3.org/2000/svg"
+             role="img" aria-label="Carte administrative de la Province du Sud-Kivu — 8 territoires cliquables"
+             aria-describedby="admin-map-desc">
+          <desc id="admin-map-desc">Carte des 8 territoires du Sud-Kivu. Utilisez Tab pour naviguer et Entrée pour accéder à la page d'un territoire.</desc>
+
+          <!-- Fond de carte -->
+          <rect width="560" height="490" fill="#EAE6DE" rx="6"/>
+
+          <!-- Lac Kivu (zone nord-est) -->
+          <path d="M450,21 L450,0 L560,0 L560,162 L472,162 L462,147 L453,113 L466,84 L450,42 Z"
+                fill="#C8DDE8" stroke="none"/>
+
+          <!-- Lac Tanganyika (coin sud-est) -->
+          <path d="M510,442 L534,390 L560,418 L560,490 L510,490 Z"
+                fill="#C8DDE8" stroke="none"/>
+
+          <!-- ══════════════════════════════════════════ -->
+          <!-- TERRITOIRES — cliquer pour naviguer       -->
+          <!-- ══════════════════════════════════════════ -->
+
+          <!-- Territoire de Shabunda (grand territoire ouest) -->
+          <a href="territoire-shabunda.html" class="admin-terr-link" aria-label="Territoire de Shabunda">
+            <title>Territoire de Shabunda — Cliquer pour voir la page</title>
+            <path class="admin-territory" d="M47.5,21 L347.9,21 L353,91 L356.4,119 L356.4,147 L353,165 L297,165 L280,196 L280,238 L302,287 L353,322 L342.8,371 L356.4,427 L393.7,464.8 L449.7,473 L353,473 L291.9,448 L241,408.8 L186.7,361 L132.4,301 L88.2,240.8 L64.5,184.8 L54.3,128.8 L64.5,77 L93.3,44.8 Z"/>
+            <text class="admin-label-name" x="186" y="202">Shabunda</text>
+            <text class="admin-label-sub"  x="186" y="215">Territoire</text>
+          </a>
+
+          <!-- Territoire de Kalehe (nord) -->
+          <a href="territoire-kalehe.html" class="admin-terr-link" aria-label="Territoire de Kalehe">
+            <title>Territoire de Kalehe — Cliquer pour voir la page</title>
+            <path class="admin-territory" d="M347.9,21 L410.7,21 L449.7,42 L466.7,84 L454.8,112 L415.8,119 L373.3,119 L353,91 Z"/>
+            <text class="admin-label-name" x="404" y="63">Kalehe</text>
+            <text class="admin-label-sub"  x="404" y="76">Territoire</text>
+          </a>
+
+          <!-- Territoire d'Idjwi (île dans le Lac Kivu) -->
+          <a href="territoire-idjwi.html" class="admin-terr-link" aria-label="Territoire d'Idjwi">
+            <title>Territoire d'Idjwi — Cliquer pour voir la page</title>
+            <path class="admin-territory" d="M431,53 L449.7,46 L471.8,53 L483.6,70 L478.5,91 L461.6,105 L437.8,103.6 L424.2,86.8 L424.2,67 Z"/>
+            <text class="admin-label-name" x="454" y="75">Idjwi</text>
+          </a>
+
+          <!-- Territoire de Kabare (est) -->
+          <a href="territoire-kabare.html" class="admin-terr-link" aria-label="Territoire de Kabare">
+            <title>Territoire de Kabare — Cliquer pour voir la page</title>
+            <path class="admin-territory" d="M356.4,119 L415.8,119 L449.7,133 L461.6,147 L449.7,161 L415.8,168 L376.7,165 L356.4,147 Z"/>
+            <text class="admin-label-name" x="408" y="139">Kabare</text>
+            <text class="admin-label-sub"  x="408" y="153">Territoire</text>
+          </a>
+
+          <!-- Territoire de Walungu (centre-est) -->
+          <a href="territoire-walungu.html" class="admin-terr-link" aria-label="Territoire de Walungu">
+            <title>Territoire de Walungu — Cliquer pour voir la page</title>
+            <path class="admin-territory" d="M356.4,147 L376.7,165 L415.8,168 L441.2,179 L454.8,196 L441.2,210 L403.9,210 L369.9,193 L353,165 Z"/>
+            <text class="admin-label-name" x="404" y="182">Walungu</text>
+            <text class="admin-label-sub"  x="404" y="196">Territoire</text>
+          </a>
+
+          <!-- Territoire d'Uvira (sud-est) -->
+          <a href="territoire-uvira.html" class="admin-terr-link" aria-label="Territoire d'Uvira">
+            <title>Territoire d'Uvira — Cliquer pour voir la page</title>
+            <path class="admin-territory" d="M454.8,196 L475.2,189 L505.7,210 L522.7,245 L522.7,287 L505.7,322 L471.8,336 L432.7,329 L415.8,301 L410.7,259 L424.2,217 L441.2,203 Z"/>
+            <text class="admin-label-name" x="474" y="258">Uvira</text>
+            <text class="admin-label-sub"  x="474" y="272">Territoire</text>
+          </a>
+
+          <!-- Territoire de Mwenga (centre) -->
+          <a href="territoire-mwenga.html" class="admin-terr-link" aria-label="Territoire de Mwenga">
+            <title>Territoire de Mwenga — Cliquer pour voir la page</title>
+            <path class="admin-territory" d="M297,165 L353,165 L369.9,193 L403.9,210 L441.2,210 L424.2,217 L410.7,259 L410.7,287 L373.3,287 L353,322 L302,287 L280,238 L280,196 Z"/>
+            <text class="admin-label-name" x="348" y="237">Mwenga</text>
+            <text class="admin-label-sub"  x="348" y="251">Territoire</text>
+          </a>
+
+          <!-- Territoire de Fizi (sud) -->
+          <a href="territoire-fizi.html" class="admin-terr-link" aria-label="Territoire de Fizi">
+            <title>Territoire de Fizi — Cliquer pour voir la page</title>
+            <path class="admin-territory fizi" d="M415.8,301 L432.7,329 L471.8,336 L505.7,322 L522.7,287 L534.5,364 L522.7,406 L495.5,448 L449.7,473 L393.7,464.8 L356.4,427 L342.8,371 L353,322 L373.3,287 L410.7,287 Z"/>
+            <text class="admin-label-name" x="440" y="390">Fizi</text>
+            <text class="admin-label-sub"  x="440" y="404">Territoire</text>
+          </a>
+
+          <!-- ══════════════════════════════════════════ -->
+          <!-- ÉTIQUETTES DE CONTEXTE GÉOGRAPHIQUE       -->
+          <!-- ══════════════════════════════════════════ -->
+          <text class="admin-context-label" x="200" y="13">Nord-Kivu</text>
+          <text class="admin-context-label" x="547" y="210" transform="rotate(90,547,210)">Rwanda</text>
+          <text class="admin-context-label" x="547" y="345" transform="rotate(90,547,345)">Burundi</text>
+          <text class="admin-context-label" x="22"  y="280" transform="rotate(-90,22,280)">Maniema</text>
+          <text class="admin-water-label"   x="512" y="78">Lac Kivu</text>
+          <text class="admin-water-label"   x="535" y="456" font-size="7">Lac</text>
+          <text class="admin-water-label"   x="535" y="467" font-size="7">Tanganyika</text>
+        </svg>
+
+        <!-- Légende -->
+        <div class="admin-map-legend">
+          <div class="admin-legend-item">
+            <span class="admin-legend-swatch terr"></span>
+            <span>Territoire (cliquer pour accéder à la page)</span>
+          </div>
+          <div class="admin-legend-item">
+            <span class="admin-legend-swatch fizi"></span>
+            <span>Territoire de Fizi</span>
+          </div>
+          <div class="admin-legend-item">
+            <span class="admin-legend-swatch lake"></span>
+            <span>Lac / Plan d'eau</span>
+          </div>
         </div>
       </div>
     </div>
@@ -2702,195 +2872,10 @@
     }, { threshold: 0.3 });
     if (figuresSection) figuresObserver.observe(figuresSection);
   </script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/sp38=" crossorigin=""></script>
   <script>
-    // ===== INTERACTIVE MAP OF SUD-KIVU =====
-    (function() {
-      var mapEl = document.getElementById('province-map');
-      if (!mapEl) return;
-      if (typeof L === 'undefined') {
-        var fb = document.getElementById('map-fallback');
-        if (fb) fb.querySelector('span:last-child').textContent = 'Carte disponible en ligne. Activez votre connexion pour la charger.';
-        return;
-      }
-      var fallbackEl = document.getElementById('map-fallback');
-      if (fallbackEl) fallbackEl.remove();
-      var map = L.map('province-map', {
-        center: [-2.85, 28.30],
-        zoom: 8,
-        scrollWheelZoom: false,
-        attributionControl: true
-      });
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 18
-      }).addTo(map);
-
-      // ── Territory polygon data (approximate boundaries, [lat, lng]) ──
-      var territoryData = [
-        {
-          name: 'Kalehe',
-          page: 'territoire-kalehe.html',
-          desc: 'Territoire au nord-ouest du Lac Kivu. Agriculture et pêche lacustre.',
-          markerLat: -2.110, markerLng: 28.905,
-          coords: [
-            [-1.65, 28.45], [-1.65, 28.82], [-1.80, 29.05],
-            [-2.10, 29.15], [-2.30, 29.08], [-2.35, 28.85],
-            [-2.35, 28.60], [-2.15, 28.48]
-          ]
-        },
-        {
-          name: 'Idjwi',
-          page: 'territoire-idjwi.html',
-          desc: 'Île-territoire dans le Lac Kivu. Population Havu. Pêche et agriculture vivrière.',
-          markerLat: -2.083, markerLng: 29.053,
-          coords: [
-            [-1.88, 28.94], [-1.83, 29.05], [-1.88, 29.18],
-            [-2.00, 29.25], [-2.15, 29.22], [-2.25, 29.12],
-            [-2.24, 28.98], [-2.12, 28.90], [-1.98, 28.90]
-          ]
-        },
-        {
-          name: 'Kabare',
-          page: 'territoire-kabare.html',
-          desc: 'Territoire adjacent à Bukavu, au cœur du pays Bushi. Agriculture caféicole et élevage.',
-          markerLat: -2.518, markerLng: 28.808,
-          coords: [
-            [-2.35, 28.50], [-2.35, 28.85], [-2.45, 29.05],
-            [-2.55, 29.12], [-2.65, 29.05], [-2.70, 28.85],
-            [-2.68, 28.62], [-2.55, 28.50]
-          ]
-        },
-        {
-          name: 'Walungu',
-          page: 'territoire-walungu.html',
-          desc: 'Territoire du Bushi, au sud-ouest de Bukavu. Densément peuplé, agriculture vivrière.',
-          markerLat: -2.663, markerLng: 28.643,
-          coords: [
-            [-2.55, 28.50], [-2.68, 28.62], [-2.70, 28.85],
-            [-2.78, 29.00], [-2.90, 29.08], [-3.00, 29.00],
-            [-3.00, 28.78], [-2.88, 28.58], [-2.68, 28.48]
-          ]
-        },
-        {
-          name: 'Uvira',
-          page: 'territoire-uvira.html',
-          desc: 'Territoire du Sud-Est, bordant le Burundi et la Tanzanie. Agriculture et commerce frontalier.',
-          markerLat: -3.396, markerLng: 29.135,
-          coords: [
-            [-2.90, 29.08], [-2.85, 29.20], [-3.00, 29.38],
-            [-3.25, 29.48], [-3.55, 29.48], [-3.80, 29.38],
-            [-3.90, 29.18], [-3.85, 28.95], [-3.65, 28.85],
-            [-3.35, 28.82], [-3.05, 28.90], [-2.95, 29.00]
-          ]
-        },
-        {
-          name: 'Fizi',
-          page: 'territoire-fizi.html',
-          desc: 'Vaste territoire au sud, bordant le Lac Tanganyika. Ressources minières importantes.',
-          markerLat: -4.296, markerLng: 28.940,
-          coords: [
-            [-3.65, 28.85], [-3.85, 28.95], [-3.90, 29.18],
-            [-3.80, 29.38], [-3.55, 29.48], [-4.10, 29.55],
-            [-4.40, 29.48], [-4.70, 29.32], [-4.88, 29.05],
-            [-4.82, 28.72], [-4.55, 28.50], [-4.15, 28.42],
-            [-3.80, 28.48], [-3.55, 28.60], [-3.55, 28.82]
-          ]
-        },
-        {
-          name: 'Mwenga',
-          page: 'territoire-mwenga.html',
-          desc: 'Territoire forestier, riche en minerais (or, coltan). Chef-lieu : Kamituga.',
-          markerLat: -3.036, markerLng: 28.432,
-          coords: [
-            [-2.68, 28.15], [-2.68, 28.48], [-2.88, 28.58],
-            [-3.00, 28.78], [-3.00, 29.00], [-3.05, 28.90],
-            [-3.35, 28.82], [-3.55, 28.82], [-3.55, 28.60],
-            [-3.80, 28.48], [-3.55, 28.18], [-3.20, 28.05],
-            [-2.90, 28.05]
-          ]
-        },
-        {
-          name: 'Shabunda',
-          page: 'territoire-shabunda.html',
-          desc: 'Le plus grand territoire. Forêts denses, ressources minières. Enclavé, accessible par voie aérienne.',
-          markerLat: -2.689, markerLng: 27.336,
-          coords: [
-            [-1.65, 26.68], [-1.65, 28.45], [-2.15, 28.48],
-            [-2.35, 28.50], [-2.55, 28.50], [-2.68, 28.48],
-            [-2.68, 28.15], [-2.90, 28.05], [-3.20, 28.05],
-            [-3.55, 28.18], [-3.80, 28.48], [-4.15, 28.42],
-            [-4.55, 28.50], [-4.82, 28.72], [-4.88, 29.05],
-            [-4.88, 28.48], [-4.70, 28.12], [-4.42, 27.82],
-            [-4.08, 27.50], [-3.65, 27.18], [-3.22, 26.92],
-            [-2.82, 26.78], [-2.42, 26.72], [-2.05, 26.78],
-            [-1.82, 26.95]
-          ]
-        }
-      ];
-
-      // Territory style helpers
-      var polyStyle = {color: '#003882', weight: 1.5, opacity: 0.85, fillColor: '#0052B4', fillOpacity: 0.13};
-      var polyHover = {fillOpacity: 0.30, weight: 2.5};
-
-      function buildPopup(name, type, desc, page) {
-        return '<div class="map-popup-title">' + name + '</div>'
-          + '<span class="map-popup-type ' + type + '">' + (type === 'city' ? 'Ville' : 'Territoire') + '</span>'
-          + '<div class="map-popup-desc">' + desc + '</div>'
-          + '<a href="' + page + '" class="map-popup-link">Voir la page &rarr;</a>';
-      }
-
-      // Draw territory polygons with hover interaction
-      var territoryIcon = L.divIcon({
-        html: '<div style="width:12px;height:12px;background:#003882;border:2.5px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.35);"></div>',
-        className: '', iconSize: [12, 12], iconAnchor: [6, 6], popupAnchor: [0, -10]
-      });
-
-      territoryData.forEach(function(t) {
-        var poly = L.polygon(t.coords, polyStyle);
-        poly.on('mouseover', function() { this.setStyle(polyHover); });
-        poly.on('mouseout',  function() { this.setStyle(polyStyle); });
-        poly.bindPopup(buildPopup(t.name, 'territory', t.desc, t.page), {maxWidth: 250});
-        poly.addTo(map);
-
-        // Centre marker for label/click fallback
-        L.marker([t.markerLat, t.markerLng], {icon: territoryIcon})
-          .bindPopup(buildPopup(t.name, 'territory', t.desc, t.page), {maxWidth: 250})
-          .addTo(map);
-      });
-
-      // ── City markers ──
-      var cityIcon = L.divIcon({
-        html: '<div style="width:14px;height:14px;background:#CE8A00;border:3px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.35);"></div>',
-        className: '', iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -10]
-      });
-
-      var cities = [
-        {name: 'Bukavu',   page: 'territoire-bukavu.html',      lat: -2.508, lng: 28.858, desc: 'Chef-lieu de la Province du Sud-Kivu. Ville principale sur la rive du Lac Kivu, frontalière avec le Rwanda.'},
-        {name: 'Uvira',    page: 'territoire-uvira-ville.html', lat: -3.391, lng: 29.135, desc: 'Ville du Sud, port sur le Lac Tanganyika. Carrefour commercial et humanitaire régional.'},
-        {name: 'Baraka',   page: 'territoire-baraka.html',      lat: -4.103, lng: 29.088, desc: 'Ville lacustre sur le Lac Tanganyika, dans le territoire de Fizi. Principal port du sud du lac.'},
-        {name: 'Kamituga', page: 'territoire-kamituga.html',    lat: -3.053, lng: 28.175, desc: 'Ville minière dans le territoire de Mwenga. Connue pour ses gisements d\'or artisanaux.'}
-      ];
-      cities.forEach(function(c) {
-        L.marker([c.lat, c.lng], {icon: cityIcon})
-          .bindPopup(buildPopup(c.name, 'city', c.desc, c.page), {maxWidth: 250})
-          .addTo(map);
-      });
-
-      // ── Legend ──
-      var legend = L.control({position: 'bottomright'});
-      legend.onAdd = function() {
-        var div = L.DomUtil.create('div', '');
-        div.style.cssText = 'background:white;padding:12px 16px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.15);font-family:"Source Sans 3",sans-serif;font-size:12px;line-height:1.8;';
-        div.innerHTML = '<strong style="display:block;margin-bottom:6px;color:#1C2340;font-size:13px;">Légende</strong>'
-          + '<span style="display:flex;align-items:center;gap:8px;"><span style="width:14px;height:14px;background:#CE8A00;border:2.5px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.3);flex-shrink:0;"></span>Ville</span>'
-          + '<span style="display:flex;align-items:center;gap:8px;margin-top:4px;"><span style="width:12px;height:12px;background:#003882;border:2px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.3);flex-shrink:0;"></span>Territoire</span>'
-          + '<span style="display:flex;align-items:center;gap:8px;margin-top:4px;"><span style="width:14px;height:10px;background:rgba(0,82,180,0.18);border:1.5px solid #003882;border-radius:2px;flex-shrink:0;"></span>Limites</span>';
-        return div;
-      };
-      legend.addTo(map);
-    })();
+    // ===== CARTE ADMINISTRATIVE SVG DU SUD-KIVU =====
+    // Navigation directe : clic sur un territoire → page du territoire
+    // Les liens <a href> dans le SVG gèrent la navigation nativement.
   </script>
 </body>
 </html>
