@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baraka &mdash; Territoire &mdash; Province du Sud-Kivu</title>
-  <meta name="description" content="Baraka : Ville de la Province du Sud-Kivu. Ville lacustre sur le Tanganyika, dans le territoire de Fizi. Principal port du Sud du lac et centre commercial r&eacute;gional." />
+  <title>Le Vice-Gouverneur &mdash; Province du Sud-Kivu</title>
+  <meta name="description" content="Le Vice-Gouverneur de la Province du Sud-Kivu, Jean-Jacques Elakano, son profil et ses attributions." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -103,7 +103,7 @@
     .content-text p{font-size:15px;color:var(--text-body);line-height:1.75;margin-bottom:16px;}
     .info-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px;}
     .info-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--text-body);line-height:1.55;}
-    .info-list li::before{content:'\2713';color:var(--blue-mid);font-weight:700;flex-shrink:0;margin-top:1px;}
+    .info-list li::before{content:'✓';color:var(--blue-mid);font-weight:700;flex-shrink:0;margin-top:1px;}
     .info-box{background:linear-gradient(135deg,var(--blue-deep),#001840);border-radius:16px;padding:36px 32px;color:var(--white);}
     .info-box h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:20px;}
     .info-box h3 span{color:var(--gold-light);}
@@ -119,52 +119,39 @@
     .feature-card-icon{font-size:28px;margin-bottom:12px;}
     .feature-card-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:8px;}
     .feature-card-desc{font-size:13px;color:var(--text-body);line-height:1.6;}
-    .territories-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;}
-    .territory-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all 0.25s;display:flex;flex-direction:column;}
-    .territory-card:hover{box-shadow:0 8px 28px rgba(0,56,130,0.12);transform:translateY(-3px);}
-    .territory-card.city{border-top:3px solid var(--gold);}
-    .territory-card.territoire{border-top:3px solid var(--blue-mid);}
-    .territory-img{width:100%;height:140px;object-fit:cover;}
-    .territory-card-body{padding:16px;}
-    .territory-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-mid);margin-bottom:6px;}
-    .territory-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:6px;}
-    .territory-desc{font-size:13px;color:var(--text-body);line-height:1.55;margin-bottom:12px;}
-    .territory-icon{font-size:22px;float:right;margin-top:-4px;}
-    .territory-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--blue-mid);margin-top:auto;padding-top:8px;}
-    .territory-link:hover{color:var(--blue-deep);}
-    .ministere-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 22px;transition:all 0.25s;border-left:4px solid var(--blue-mid);}
-    .ministere-card:hover{box-shadow:0 8px 28px rgba(0,56,130,0.10);transform:translateY(-2px);}
-    .ministere-card-icon{font-size:32px;margin-bottom:12px;}
-    .ministere-card-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:8px;line-height:1.3;}
-    .ministere-card-desc{font-size:13px;color:var(--text-body);line-height:1.6;margin-bottom:12px;}
-    .ministere-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--blue-mid);}
-    .ministere-link:hover{color:var(--blue-deep);}
-    .ministeres-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px;}
-    @media(max-width:1040px){nav{display:none;}.menu-toggle{display:flex;}.footer-grid{grid-template-columns:1fr 1fr;}.content-grid{grid-template-columns:1fr;}.cards-grid{grid-template-columns:1fr 1fr;}.territories-grid{grid-template-columns:repeat(2,1fr);}.ministeres-grid{grid-template-columns:1fr;}}
-    @media(max-width:640px){.footer-grid{grid-template-columns:1fr;}.topbar-right{display:none;}.cards-grid{grid-template-columns:1fr;}.territories-grid{grid-template-columns:1fr;}}
-
-
+    .contact-dark{padding:72px 0;background:linear-gradient(135deg,var(--blue-deep) 0%,#001840 100%);color:var(--white);}
+    .contact-dark-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:40px;}
+    .contact-dark h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:12px;}
+    .contact-dark h3 span{color:var(--gold-light);}
+    .contact-dark p{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.7;}
+    .contact-list{list-style:none;display:flex;flex-direction:column;gap:18px;}
+    .contact-item{display:flex;gap:16px;align-items:flex-start;}
+    .contact-item-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+    .contact-item-text{font-size:14px;line-height:1.65;color:rgba(255,255,255,0.8);}
+    .contact-item-text strong{display:block;color:var(--gold-light);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;font-weight:700;}
+    @media(max-width:1040px){nav{display:none;}.menu-toggle{display:flex;}.footer-grid{grid-template-columns:1fr 1fr;}.content-grid{grid-template-columns:1fr;}.cards-grid{grid-template-columns:1fr 1fr;}.contact-dark-grid{grid-template-columns:1fr;}}
+    @media(max-width:640px){.footer-grid{grid-template-columns:1fr;}.topbar-right{display:none;}.cards-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
 
   <a href="#main" class="skip-link">Aller au contenu principal</a>
-    <div class="topbar">
+  <div class="topbar">
     <div class="topbar-inner">
       <div class="topbar-left">
-        <span>&#x1F1E8;&#x1F1E9; R&eacute;publique D&eacute;mocratique du Congo</span>
+        <span>&#x1F1E8;&#x1F1E9; République Démocratique du Congo</span>
         <span class="topbar-sep">|</span>
-        <span>Province du Sud-Kivu &mdash; Gouvernement Provincial</span>
+        <span>Province du Sud-Kivu — Gouvernement Provincial</span>
       </div>
       <div class="topbar-right">
         <a href="province.html">La Province</a>
-        <a href="programme-2024-2028.html">Programme 2024&ndash;2028</a>
+        <a href="programme-2024-2028.html">Programme 2024–2028</a>
         <a href="index.html#governor">Le Gouverneur</a>
         <a href="contact.html">Contacts</a>
       </div>
     </div>
   </div>
-    <header>
+  <header>
     <div class="header-inner">
       <a href="index.html" class="logo-wrap">
         <div class="logo-emblem" style="background:none; padding:0; overflow:hidden;"><img src="https://github.com/user-attachments/assets/47a9213d-48b5-46e7-a4b8-d572d2c6e33c" alt="Logo Sud-Kivu" style="width:54px; height:54px; object-fit:contain; border-radius:50%;"></div>
@@ -173,7 +160,6 @@
           <div class="country">Gouvernement Provincial</div>
         </div>
       </a>
-      
       <nav>
         <a href="index.html#accueil" class="nav-link">Accueil</a>
         <a href="https://sudkivu.cd/toutes-les-actualites.html" class="nav-link">Actu</a>
@@ -188,32 +174,32 @@
             <a href="assemblee.html">&#x1F4DC; Assembl&eacute;e Provinciale</a>
           </div>
         </div>
-        <div class="nav-item">
-          <span class="nav-link active" tabindex="0">Villes &#x25BE;</span>
-          <div class="nav-dropdown">
-            <a href="villes.html">&#x1F3D9;&#xFE0F; Vue d&apos;ensemble</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href="territoire-bukavu.html">&#x1F3D9;&#xFE0F; Bukavu</a>
-            <a href="territoire-uvira-ville.html">&#x1F3D9;&#xFE0F; Uvira</a>
-            <a href="territoire-baraka.html">&#x1F3D9;&#xFE0F; Baraka</a>
-            <a href="territoire-kamituga.html">&#x26CF;&#xFE0F; Kamituga</a>
-          </div>
-        </div>
-        <div class="nav-item">
-          <span class="nav-link" tabindex="0">Territoires &#x25BE;</span>
-          <div class="nav-dropdown">
-            <a href="territoires.html">&#x1F5FA;&#xFE0F; Vue d&apos;ensemble</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href="territoire-fizi.html">&#x1F30A; Fizi</a>
-            <a href="territoire-idjwi.html">&#x1F3DD;&#xFE0F; Idjwi</a>
-            <a href="territoire-kabare.html">&#x26F0;&#xFE0F; Kabare</a>
-            <a href="territoire-kalehe.html">&#x1F333; Kalehe</a>
-            <a href="territoire-mwenga.html">&#x1F332; Mwenga</a>
-            <a href="territoire-shabunda.html">&#x1F6B6; Shabunda</a>
-            <a href="territoire-uvira.html">&#x1F30A; Uvira</a>
-            <a href="territoire-walungu.html">&#x1F3D4;&#xFE0F; Walungu</a>
-          </div>
-        </div>
+                <div class="nav-item">
+                  <span class="nav-link" tabindex="0">Villes &#x25BE;</span>
+                  <div class="nav-dropdown">
+                    <a href="villes.html">&#x1F3D9;&#xFE0F; Vue d&apos;ensemble</a>
+                    <div class="nav-dropdown-divider"></div>
+                    <a href="territoire-bukavu.html">&#x1F3D9;&#xFE0F; Bukavu</a>
+                    <a href="territoire-uvira-ville.html">&#x1F3D9;&#xFE0F; Uvira</a>
+                    <a href="territoire-baraka.html">&#x1F3D9;&#xFE0F; Baraka</a>
+                    <a href="territoire-kamituga.html">&#x26CF;&#xFE0F; Kamituga</a>
+                  </div>
+                </div>
+                <div class="nav-item">
+                  <span class="nav-link" tabindex="0">Territoires &#x25BE;</span>
+                  <div class="nav-dropdown">
+                    <a href="territoires.html">&#x1F5FA;&#xFE0F; Vue d&apos;ensemble</a>
+                    <div class="nav-dropdown-divider"></div>
+                    <a href="territoire-fizi.html">&#x1F30A; Fizi</a>
+                    <a href="territoire-idjwi.html">&#x1F3DD;&#xFE0F; Idjwi</a>
+                    <a href="territoire-kabare.html">&#x26F0;&#xFE0F; Kabare</a>
+                    <a href="territoire-kalehe.html">&#x1F333; Kalehe</a>
+                    <a href="territoire-mwenga.html">&#x1F332; Mwenga</a>
+                    <a href="territoire-shabunda.html">&#x1F6B6; Shabunda</a>
+                    <a href="territoire-uvira.html">&#x1F30A; Uvira</a>
+                    <a href="territoire-walungu.html">&#x1F3D4;&#xFE0F; Walungu</a>
+                  </div>
+                </div>
         <div class="nav-item">
           <span class="nav-link" tabindex="0">Minist&#xe8;res &#x25BE;</span>
           <div class="nav-dropdown">
@@ -233,18 +219,18 @@
         </div>
         
         <div class="nav-item">
-          <span class="nav-link" tabindex="0">Cabinet &#x25BE;</span>
+          <span class="nav-link active" tabindex="0">Cabinet ▾</span>
           <div class="nav-dropdown">
             <a href="gouverneur.html">&#x1F464; Le Gouverneur</a>
-            <a href="vice-gouverneur.html">&#x1F464; Le Vice-Gouverneur</a>
+            <a href="vice-gouverneur.html" style="font-weight:700;color:var(--blue-deep);">&#x1F464; Le Vice-Gouverneur</a>
             <a href="cabinet.html">&#x1F3C5; Cabinet du Gouverneur</a>
             <div class="nav-dropdown-divider"></div>
             <a href="membres-cabinet.html">&#x1F465; Membres du Cabinet</a>
-            <a href="secretariat-executif.html">&#x1F4CB; Secr&eacute;tariat Ex&eacute;cutif</a>
-            <a href="secretariat-administratif.html">&#x1F4C2; Secr&eacute;tariat Administratif</a>
+            <a href="secretariat-executif.html">&#x1F4CB; Secrétariat Exécutif</a>
+            <a href="secretariat-administratif.html">&#x1F4C2; Secrétariat Administratif</a>
             <a href="service-courrier.html">&#x2709;&#xFE0F; Service Courrier</a>
             <div class="nav-dropdown-divider"></div>
-            <a href="assemblee.html">&#x1F4DC; Assembl&eacute;e Provinciale</a>
+            <a href="assemblee.html">&#x1F4DC; Assemblée Provinciale</a>
           </div>
         </div>
         <a href="contact.html" class="nav-cta">Contact</a>
@@ -253,7 +239,6 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-    
     <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Navigation mobile">
       <div class="mobile-nav-header">
         <span class="mobile-nav-title">Menu</span>
@@ -336,13 +321,13 @@
   <section class="page-hero">
     <div class="section-inner">
       <div class="page-hero-content">
-        <div class="hero-badge">Ville</div>
-        <h1><span>Baraka</span></h1>
-        <p class="page-hero-desc">Ville lacustre sur le Tanganyika, dans le territoire de Fizi. Principal port du Sud du lac et centre commercial r&eacute;gional.</p>
+        <div class="hero-badge">Vice-Chef de l&#39;Ex&eacute;cutif</div>
+        <h1>Le <span>Vice-Gouverneur</span> de Province</h1>
+        <p class="page-hero-desc">Le Vice-Gouverneur assiste le Gouverneur dans la direction de l&#39;Ex&eacute;cutif Provincial et assure l&#39;int&eacute;rim du Gouverneur en cas d&#39;absence ou d&#39;emp&ecirc;chement.</p>
         <div class="page-breadcrumb">
           <a href="index.html">Accueil</a> <span>&rsaquo;</span>
-          <a href="territoires.html">Territoires</a> <span>&rsaquo;</span>
-          <span>Baraka</span>
+          <a href="gouvernement.html">Gouvernement Provincial</a> <span>&rsaquo;</span>
+          <span>Le Vice-Gouverneur</span>
         </div>
       </div>
     </div>
@@ -350,65 +335,99 @@
 
   <section class="content-section">
     <div class="section-inner">
-      <div class="section-label">Ville &mdash; Province du Sud-Kivu</div>
-      <div class="section-title"><span>Baraka</span></div>
-      <div class="section-sub">Ville lacustre sur le Tanganyika, dans le territoire de Fizi. Principal port du Sud du lac et centre commercial r&eacute;gional.</div>
+      <div class="section-label">Vice-Chef de l&#39;Ex&eacute;cutif Provincial</div>
+      <div class="section-title">Le <span>Vice-Gouverneur</span> de Province</div>
+      <div class="section-sub">Le Vice-Gouverneur assiste le Gouverneur dans la direction et la coordination du gouvernement provincial du Sud-Kivu.</div>
       <div class="content-grid">
         <div class="content-text">
-          <p>Baraka est une ville situ&eacute;e sur les rives du Lac Tanganyika, dans le territoire de Fizi. Elle constitue le principal port du sud du lac et un centre commercial important pour le territoire de Fizi et les zones environnantes.</p>
-          <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text-dark);margin:24px 0 16px;">Caract&eacute;ristiques principales</h3>
+          <p>Jean-Jacques Elakano Myewa a &eacute;t&eacute; &eacute;lu Vice-Gouverneur de la Province du Sud-Kivu le 02 mai 2024, aux c&ocirc;t&eacute;s du Gouverneur Jean-Jacques Purusi Sadiki. Leur liste a remport&eacute; la majorit&eacute; lors de l&#39;&eacute;lection par l&#39;Assembl&eacute;e Provinciale.</p>
+          <p>N&eacute; le 16 juillet 1980 &agrave; Baraka (Fizi, Sud-Kivu), Jean-Jacques Elakano est une personnalit&eacute; politique congolaise, membre du parti Action des Alli&eacute;s / Tous pour le D&eacute;veloppement du Congo (2A/TDC). Avant son &eacute;lection, il &eacute;tait Conseiller du Chef de l&#39;&Eacute;tat dans le coll&egrave;ge socioculturel, en charge de l&#39;&eacute;ducation, la recherche scientifique, la culture, l&#39;art et les questions religieuses depuis 2019.</p>
+          <p>Reconnu pour son engagement en faveur de la paix, de la s&eacute;curit&eacute; et du d&eacute;veloppement de l&#39;Est de la RDC, il s&#39;implique activement dans la gestion des crises s&eacute;curitaires et humanitaires de la r&eacute;gion.</p>
+
+          <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text-dark);margin:24px 0 16px;">Parcours politique</h3>
           <ul class="info-list">
-            <li>Port principal du sud du Lac Tanganyika</li>
-<li>Chef-lieu du territoire de Fizi</li>
-<li>Centre commercial desservant tout le territoire de Fizi</li>
-<li>Activit&eacute;s de p&ecirc;che artisanale et transport lacustre</li>
-<li>Pr&eacute;sence de march&eacute;s hebdomadaires animant l'&eacute;conomie locale</li>
-<li>Voie d'acc&egrave;s aux zones mini&egrave;res du territoire</li>
-<li>Point d'entr&eacute;e humanitaire pour les zones isol&eacute;es du territoire</li>
+            <li>Vice-Gouverneur de la Province du Sud-Kivu depuis le 2 mai 2024</li>
+            <li>Conseiller du Chef de l&#39;&Eacute;tat dans le coll&egrave;ge socioculturel (2019&ndash;2024) &mdash; &eacute;ducation, recherche scientifique, culture, art et questions religieuses</li>
+            <li>Pr&eacute;sident interf&eacute;d&eacute;ral de l&#39;UDPS pour la grande r&eacute;gion du Kivu et Katanga (2020)</li>
+            <li>Membre fondateur de l&#39;Action des Alli&eacute;s / Tous pour le D&eacute;veloppement du Congo (2A/TDC)</li>
+          </ul>
+
+          <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text-dark);margin:24px 0 16px;">Actions et engagements</h3>
+          <ul class="info-list">
+            <li>Mobilisation des forces vives pour l&#39;&eacute;veil patriotique et la r&eacute;sistance contre les groupes arm&eacute;s &agrave; l&#39;Est de la RDC</li>
+            <li>Sensibilisation sur les r&eacute;formes constitutionnelles et le soutien aux FARDC</li>
+            <li>Soutien &agrave; la cr&eacute;ation de la radio communautaire Mukangi FM &agrave; Baraka (2021) pour favoriser la communication et la coh&eacute;sion sociale</li>
+            <li>Implication dans la gestion des crises s&eacute;curitaires et humanitaires &agrave; Uvira et dans le Sud-Kivu</li>
+          </ul>
+
+          <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text-dark);margin:24px 0 16px;">Attributions du Vice-Gouverneur</h3>
+          <ul class="info-list">
+            <li>Assister le Gouverneur dans la direction et la coordination de l&#39;action gouvernementale</li>
+            <li>Assurer l&#39;int&eacute;rim du Gouverneur en cas d&#39;absence ou d&#39;emp&ecirc;chement</li>
+            <li>Ex&eacute;cuter toute mission sp&eacute;ciale confi&eacute;e par le Gouverneur</li>
+            <li>Superviser des dossiers sectoriels d&eacute;l&eacute;gu&eacute;s par le Chef de l&#39;Ex&eacute;cutif</li>
+            <li>Repr&eacute;senter le Gouverneur aux c&eacute;r&eacute;monies et r&eacute;unions officielles</li>
           </ul>
         </div>
         <div class="info-box">
-          <h3>Profil de <span>Baraka</span></h3>
+          <div style="width:100%;text-align:center;margin-bottom:24px;">
+            <img src="https://github.com/user-attachments/assets/8ed8b707-9799-4568-8270-3443367059bd" alt="Vice-Gouverneur Jean-Jacques Elakano Myewa" style="width:160px;height:160px;object-fit:cover;object-position:center top;border-radius:50%;border:4px solid rgba(245,184,0,0.6);display:inline-block;">
+          </div>
+          <h3>Profil du <span>Vice-Gouverneur</span></h3>
           <div class="info-item">
-            <div class="info-item-icon">&#x1F4CD;</div>
+            <div class="info-item-icon">&#x1F464;</div>
             <div class="info-item-text">
-              <strong>Statut administratif</strong>
-              Ville &mdash; Province du Sud-Kivu
+              <strong>Identit&eacute;</strong>
+              Jean-Jacques Elakano Myewa<br>Vice-Gouverneur de Province
             </div>
           </div>
           <div class="info-item">
-            <div class="info-item-icon">&#x1F4CF;</div>
+            <div class="info-item-icon">&#x1F382;</div>
             <div class="info-item-text">
-              <strong>Superficie</strong>
-              Zone urbaine d'environ 30 km&sup2;
+              <strong>Date de naissance</strong>
+              16 juillet 1980 &mdash; Baraka, Fizi
             </div>
           </div>
           <div class="info-item">
-            <div class="info-item-icon">&#x1F465;</div>
+            <div class="info-item-icon">&#x1F3EB;</div>
             <div class="info-item-text">
-              <strong>Population</strong>
-              Environ 150 000 habitants
+              <strong>Formation</strong>
+              Juriste &mdash; Droit
             </div>
           </div>
           <div class="info-item">
-            <div class="info-item-icon">&#x1F3DB;&#xFE0F;</div>
+            <div class="info-item-icon">&#x1F4C5;</div>
             <div class="info-item-text">
-              <strong>Chef-lieu</strong>
-              Fizi-Centre 
+              <strong>Date d&#39;investiture</strong>
+              02 mai 2024
             </div>
           </div>
           <div class="info-item">
-            <div class="info-item-icon">&#x1F30D;</div>
+            <div class="info-item-icon">&#x1F3E7;</div>
             <div class="info-item-text">
-              <strong>Situation</strong>
-              Rives du Lac Tanganyika, territoire de Fizi
+              <strong>Institution</strong>
+              &Eacute;lu par l&#39;Assembl&eacute;e Provinciale du Sud-Kivu
             </div>
           </div>
           <div class="info-item">
             <div class="info-item-icon">&#x1F4BC;</div>
             <div class="info-item-text">
-              <strong>Activit&eacute;s &eacute;conomiques</strong>
-              Commerce, p&ecirc;che, transport lacustre, artisanat
+              <strong>Parti politique</strong>
+              2A/TDC &mdash; Action des Alli&eacute;s /<br>Tous pour le D&eacute;veloppement du Congo
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-icon">&#x1F4CD;</div>
+            <div class="info-item-text">
+              <strong>Bureau</strong>
+              Avenue du Gouvernorat, Bukavu<br>Province du Sud-Kivu &mdash; RDC
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-icon">&#x260E;&#xFE0F;</div>
+            <div class="info-item-text">
+              <strong>Contact Cabinet</strong>
+              +243 (0) 99 000 0002<br>vicegouverneur@sudkivu.gouv.cd
             </div>
           </div>
         </div>
@@ -418,79 +437,53 @@
 
   <section class="content-section alt">
     <div class="section-inner">
-      <div class="section-label">Autres Territoires &amp; Villes</div>
-      <div class="section-title">Explorez la <span>Province</span></div>
-      <div class="section-sub">Découvrez les autres territoires et villes de la Province du Sud-Kivu.</div>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px;">
-        
-        <a href="territoire-bukavu.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:24px;">&#x1F3D9;&#xFE0F;</span>
-          <div>
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-mid);">Ville &mdash; Chef-lieu</div>
-            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);">Bukavu</div>
+      <div class="section-label">Vision</div>
+      <div class="section-title">Message du <span>Vice-Gouverneur</span></div>
+      <div class="section-sub">L&#39;engagement du Vice-Gouverneur pour la paix, la s&eacute;curit&eacute; et le d&eacute;veloppement int&eacute;gral du Sud-Kivu.</div>
+      <div style="max-width:800px;margin:0 auto;">
+        <div style="background:var(--white);border-radius:16px;padding:40px;border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(0,56,130,0.07);">
+          <p style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--text-dark);line-height:1.6;margin-bottom:20px;">&laquo;&nbsp;Ensemble, nous œuvrons pour un Sud-Kivu stable, uni et prosp&egrave;re, o&ugrave; la paix et la s&eacute;curit&eacute; permettent &agrave; chaque habitant de s&#39;&eacute;panouir et de contribuer &agrave; l&#39;&eacute;mergence de notre belle province.&nbsp;&raquo;</p>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:40px;height:2px;background:var(--gold);"></div>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);">Jean-Jacques Elakano Myewa</div>
+              <div style="font-size:12px;color:var(--gray-mid);text-transform:uppercase;letter-spacing:0.08em;">Vice-Gouverneur de la Province du Sud-Kivu</div>
+            </div>
           </div>
-          <span style="margin-left:auto;color:var(--blue-mid);">&#x2192;</span>
-        </a>
-        <a href="territoire-uvira-ville.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:24px;">&#x1F3D9;&#xFE0F;</span>
-          <div>
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-mid);">Ville</div>
-            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);">Uvira (Ville)</div>
-          </div>
-          <span style="margin-left:auto;color:var(--blue-mid);">&#x2192;</span>
-        </a>
-        <a href="territoire-kamituga.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:24px;">&#x26CF;&#xFE0F;</span>
-          <div>
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-mid);">Ville</div>
-            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);">Kamituga</div>
-          </div>
-          <span style="margin-left:auto;color:var(--blue-mid);">&#x2192;</span>
-        </a>
-        <a href="territoire-fizi.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:24px;">&#x1F30A;</span>
-          <div>
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-mid);">Territoire</div>
-            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);">Fizi</div>
-          </div>
-          <span style="margin-left:auto;color:var(--blue-mid);">&#x2192;</span>
-        </a>
-      </div>
-      <div style="text-align:center;margin-top:28px;">
-        <a href="territoires.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-deep);color:var(--white);padding:12px 28px;border-radius:8px;font-weight:700;font-size:14px;">
-          &#x1F5FA;&#xFE0F; Voir tous les territoires
-        </a>
+        </div>
       </div>
     </div>
   </section>
 
   </main>
 
-    <footer>
+  <footer>
     <div class="section-inner">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="logo-wrap">
-            <div class="logo-emblem" style="background:none; padding:0; overflow:hidden;"><img src="https://github.com/user-attachments/assets/47a9213d-48b5-46e7-a4b8-d572d2c6e33c" alt="Logo Sud-Kivu" style="width:54px; height:54px; object-fit:contain; border-radius:50%;"></div>
+            <div class="logo-emblem" style="background:none;padding:0;overflow:hidden;"><img src="https://github.com/user-attachments/assets/47a9213d-48b5-46e7-a4b8-d572d2c6e33c" alt="Logo Sud-Kivu" style="width:54px; height:54px; object-fit:contain; border-radius:50%;"></div>
             <div class="logo-text">
               <div class="province">Province du Sud-Kivu</div>
               <div class="country">Gouvernement Provincial</div>
             </div>
           </div>
-          <p class="footer-desc">Le Gouvernement Provincial du Sud-Kivu s&apos;engage pour l&apos;&eacute;mergence de la province &agrave; travers un programme ambitieux de d&eacute;veloppement 2024&ndash;2028.</p>
+          <p class="footer-desc">Le Gouvernement Provincial du Sud-Kivu s&#39;engage pour l&#39;&eacute;mergence de la province &agrave; travers un programme ambitieux de d&eacute;veloppement 2024&ndash;2028.</p>
         </div>
         <div class="footer-col">
-          <h4>Territoires</h4>
+          <h4>Programme</h4>
           <ul class="footer-links">
-            <li><a href="territoires.html">Vue d&apos;ensemble</a></li>
-            <li><a href="territoire-bukavu.html">Bukavu</a></li>
-            <li><a href="territoire-fizi.html">Fizi</a></li>
-            <li><a href="territoire-idjwi.html">Idjwi</a></li>
-            <li><a href="territoire-kabare.html">Kabare</a></li>
-            <li><a href="territoire-kalehe.html">Kalehe</a></li>
-            <li><a href="territoire-mwenga.html">Mwenga</a></li>
-            <li><a href="territoire-shabunda.html">Shabunda</a></li>
-            <li><a href="territoire-walungu.html">Walungu</a></li>
+            <li><a href="programme-2024-2028.html">Plan Quinquennal 2024&ndash;2028</a></li>
+            <li><a href="programme-2024-2028.html#secteurs">Axes Strat&eacute;giques</a></li>
+            <li><a href="index.html#finances">Finances Provinciales</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Province</h4>
+          <ul class="footer-links">
+            <li><a href="province.html">Profil g&eacute;ographique</a></li>
+            <li><a href="index.html#territoires">8 Territoires</a></li>
+            <li><a href="index.html#carte">Carte Interactive</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -499,21 +492,12 @@
             <li><a href="gouverneur.html">Le Gouverneur</a></li>
             <li><a href="vice-gouverneur.html">Le Vice-Gouverneur</a></li>
             <li><a href="cabinet.html">Cabinet du Gouverneur</a></li>
-            <li><a href="ministeres.html">Les Minist&egrave;res</a></li>
+            <li><a href="ministeres.html">Les Ministres</a></li>
             <li><a href="membres-cabinet.html">Membres du Cabinet</a></li>
             <li><a href="secretariat-executif.html">Secr&eacute;tariat Ex&eacute;cutif</a></li>
             <li><a href="secretariat-administratif.html">Secr&eacute;tariat Administratif</a></li>
             <li><a href="service-courrier.html">Service Courrier</a></li>
             <li><a href="assemblee.html">Assembl&eacute;e Provinciale</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Province</h4>
-          <ul class="footer-links">
-            <li><a href="province.html">Profil g&eacute;ographique</a></li>
-            <li><a href="programme-2024-2028.html">Plan Quinquennal 2024&ndash;2028</a></li>
-            <li><a href="programme-2024-2028.html#secteurs">Axes Strat&eacute;giques</a></li>
-            <li><a href="index.html#finances">Finances Provinciales</a></li>
           </ul>
         </div>
       </div>
