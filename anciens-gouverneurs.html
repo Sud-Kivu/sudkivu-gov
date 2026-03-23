@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chefferie Wakabango II &mdash; Shabunda &mdash; Province du Sud-Kivu</title>
+  <title>Les Anciens Gouverneurs &mdash; Province du Sud-Kivu</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <meta name="description" content="Chefferie Wakabango II : Chefferie du Territoire de Shabunda, Province du Sud-Kivu. Entit&eacute; administrative du Territoire de Shabunda. Chefferie Wakabango II, zone foresti&egrave;re avec des ressources mini&egrave;res et agricoles." />
+  <meta name="description" content="Les anciens Gouverneurs de la Province du Sud-Kivu depuis sa création en 1988 : biographies, mandats et contributions au développement provincial." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -94,7 +94,7 @@
     .mnav-arrow{transition:transform 0.25s;font-style:normal;}
     .mnav-group-btn[aria-expanded="true"] .mnav-arrow{transform:rotate(180deg);}
     .mnav-group-items{overflow:hidden;max-height:0;transition:max-height 0.35s ease;background:var(--off-white);}
-    .mnav-group-items.open{max-height:700px;}
+    .mnav-group-items.open{max-height:800px;}
     .mnav-item{display:block;padding:11px 20px 11px 36px;font-size:13.5px;font-weight:500;color:var(--text-dark);border-top:1px solid var(--border);transition:background 0.15s,color 0.15s;}
     .mnav-item:hover{background:var(--blue-deep);color:var(--white);}
     .skip-link{position:absolute;top:-60px;left:20px;background:var(--blue-deep);color:var(--white);padding:10px 20px;border-radius:0 0 8px 8px;font-weight:700;font-size:14px;z-index:9999;transition:top 0.2s;}
@@ -105,7 +105,7 @@
     .content-text p{font-size:15px;color:var(--text-body);line-height:1.75;margin-bottom:16px;}
     .info-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px;}
     .info-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--text-body);line-height:1.55;}
-    .info-list li::before{content:'\2713';color:var(--blue-mid);font-weight:700;flex-shrink:0;margin-top:1px;}
+    .info-list li::before{content:'✓';color:var(--blue-mid);font-weight:700;flex-shrink:0;margin-top:1px;}
     .info-box{background:linear-gradient(135deg,var(--blue-deep),#001840);border-radius:16px;padding:36px 32px;color:var(--white);}
     .info-box h3{font-family:'Open Sans',sans-serif;font-size:20px;font-weight:700;margin-bottom:20px;}
     .info-box h3 span{color:var(--gold-light);}
@@ -114,59 +114,45 @@
     .info-item-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
     .info-item-text{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.5;font-family:'Open Sans',sans-serif;}
     .info-item-text strong{display:block;color:var(--gold-light);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;}
-    .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
-    .feature-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 22px;transition:all 0.25s;}
-    .feature-card.alt{background:var(--off-white);}
-    .feature-card:hover{box-shadow:0 8px 28px rgba(0,56,130,0.10);transform:translateY(-2px);}
-    .feature-card-icon{font-size:28px;margin-bottom:12px;}
-    .feature-card-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:8px;}
-    .feature-card-desc{font-size:13px;color:var(--text-body);line-height:1.6;}
-    .territories-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;}
-    .territory-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all 0.25s;display:flex;flex-direction:column;}
-    .territory-card:hover{box-shadow:0 8px 28px rgba(0,56,130,0.12);transform:translateY(-3px);}
-    .territory-card.city{border-top:3px solid var(--gold);}
-    .territory-card.territoire{border-top:3px solid var(--blue-mid);}
-    .territory-img{width:100%;height:140px;object-fit:cover;}
-    .territory-card-body{padding:16px;}
-    .territory-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-mid);margin-bottom:6px;}
-    .territory-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:6px;}
-    .territory-desc{font-size:13px;color:var(--text-body);line-height:1.55;margin-bottom:12px;}
-    .territory-icon{font-size:22px;float:right;margin-top:-4px;}
-    .territory-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--blue-mid);margin-top:auto;padding-top:8px;}
-    .territory-link:hover{color:var(--blue-deep);}
-    .ministere-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 22px;transition:all 0.25s;border-left:4px solid var(--blue-mid);}
-    .ministere-card:hover{box-shadow:0 8px 28px rgba(0,56,130,0.10);transform:translateY(-2px);}
-    .ministere-card-icon{font-size:32px;margin-bottom:12px;}
-    .ministere-card-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:8px;line-height:1.3;}
-    .ministere-card-desc{font-size:13px;color:var(--text-body);line-height:1.6;margin-bottom:12px;}
-    .ministere-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--blue-mid);}
-    .ministere-link:hover{color:var(--blue-deep);}
-    .ministeres-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px;}
-    @media(max-width:1040px){nav{display:none;}.menu-toggle{display:flex;}.footer-grid{grid-template-columns:1fr 1fr;}.content-grid{grid-template-columns:1fr;}.cards-grid{grid-template-columns:1fr 1fr;}.territories-grid{grid-template-columns:repeat(2,1fr);}.ministeres-grid{grid-template-columns:1fr;}}
-    @media(max-width:640px){.footer-grid{grid-template-columns:1fr;}.topbar-right{display:none;}.cards-grid{grid-template-columns:1fr;}.territories-grid{grid-template-columns:1fr;}}
+    @media(max-width:1040px){nav{display:none;}.menu-toggle{display:flex;}.footer-grid{grid-template-columns:1fr 1fr;}.content-grid{grid-template-columns:1fr;}}
+    @media(max-width:640px){.footer-grid{grid-template-columns:1fr;}.topbar-right{display:none;}}
 
-
+    /* Governor cards */
+    .gov-timeline{display:flex;flex-direction:column;gap:0;margin-top:40px;}
+    .gov-card{display:grid;grid-template-columns:140px 1fr;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--white);transition:box-shadow 0.2s;}
+    .gov-card:hover{box-shadow:0 6px 24px rgba(0,56,130,0.10);}
+    .gov-card + .gov-card{margin-top:20px;}
+    .gov-card-period{background:linear-gradient(135deg,var(--blue-deep),#001840);color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px;text-align:center;}
+    .gov-card-year{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--gold-light);line-height:1.1;}
+    .gov-card-year-end{font-size:13px;color:rgba(255,255,255,0.6);margin-top:2px;}
+    .gov-card-duration{font-size:11px;color:rgba(255,255,255,0.45);margin-top:8px;text-transform:uppercase;letter-spacing:0.06em;}
+    .gov-card-body{padding:24px 28px;}
+    .gov-card-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text-dark);margin-bottom:4px;}
+    .gov-card-title{font-size:12px;font-weight:700;color:var(--blue-mid);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;}
+    .gov-card-desc{font-size:14px;color:var(--text-body);line-height:1.65;}
+    .gov-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+    .gov-tag{font-size:11px;font-weight:600;color:var(--blue-deep);background:rgba(0,56,130,0.07);border:1px solid rgba(0,56,130,0.15);border-radius:20px;padding:3px 10px;}
+    @media(max-width:640px){.gov-card{grid-template-columns:1fr;}.gov-card-period{flex-direction:row;justify-content:flex-start;gap:16px;padding:16px 20px;}.gov-card-year{font-size:18px;}}
   </style>
 </head>
 <body>
 
   <a href="#main" class="skip-link">Aller au contenu principal</a>
-    <div class="topbar">
+  <div class="topbar">
     <div class="topbar-inner">
       <div class="topbar-left">
         <span>&#x1F1E8;&#x1F1E9; R&eacute;publique D&eacute;mocratique du Congo</span>
         <span class="topbar-sep">|</span>
-        <span>Province du Sud-Kivu &mdash; Gouvernement Provincial</span>
+        <span>Gouvernement Provincial du Sud-Kivu</span>
       </div>
       <div class="topbar-right">
-        <a href="province.html">La Province</a>
-        <a href="programme-2024-2028.html">Programme 2024&ndash;2028</a>
-        <a href="index.html#governor">Le Gouverneur</a>
-        <a href="contact.html">Contacts</a>
+        <a href="contact.html">Contact</a>
+        <a href="investissement.html">Investir</a>
       </div>
     </div>
   </div>
-    <header>
+
+  <header>
     <div class="header-inner">
       <a href="index.html" class="logo-wrap">
         <div class="logo-emblem" style="background:none; padding:0; overflow:hidden;"><img src="https://github.com/user-attachments/assets/47a9213d-48b5-46e7-a4b8-d572d2c6e33c" alt="Logo Sud-Kivu" style="width:54px; height:54px; object-fit:contain; border-radius:50%;"></div>
@@ -175,15 +161,14 @@
           <div class="country">Gouvernement Provincial</div>
         </div>
       </a>
-      
       <nav>
         <a href="index.html#accueil" class="nav-link">Accueil</a>
         <a href="https://sudkivu.cd/toutes-les-actualites.html" class="nav-link">Actu</a>
         <div class="nav-item">
-          <span class="nav-link" tabindex="0">Province &#x25BE;</span>
+          <span class="nav-link active" tabindex="0">Province &#x25BE;</span>
           <div class="nav-dropdown">
             <a href="province.html">&#x1F3DB;&#xFE0F; Profil de la Province</a>
-            <a href="anciens-gouverneurs.html">&#x1F451; Les Anciens Gouverneurs</a>
+            <a href="anciens-gouverneurs.html" style="font-weight:700;color:var(--blue-deep);">&#x1F451; Les Anciens Gouverneurs</a>
             <div class="nav-dropdown-divider"></div>
             <a href="arretes-provinciaux.html">&#x1F4DC; Arr&ecirc;t&eacute;s provinciaux</a>
             <a href="notes-de-service.html">&#x1F4CB; Notes de service</a>
@@ -201,32 +186,32 @@
             <a href="assemblee.html">&#x1F4DC; Assembl&eacute;e Provinciale</a>
           </div>
         </div>
-        <div class="nav-item">
-          <span class="nav-link" tabindex="0">Villes &#x25BE;</span>
-          <div class="nav-dropdown">
-            <a href="villes.html">&#x1F3D9;&#xFE0F; Vue d&apos;ensemble</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href="territoire-bukavu.html">&#x1F3D9;&#xFE0F; Bukavu</a>
-            <a href="territoire-uvira-ville.html">&#x1F3D9;&#xFE0F; Uvira</a>
-            <a href="territoire-baraka.html">&#x1F3D9;&#xFE0F; Baraka</a>
-            <a href="territoire-kamituga.html">&#x26CF;&#xFE0F; Kamituga</a>
-          </div>
-        </div>
-        <div class="nav-item">
-          <span class="nav-link active" tabindex="0">Territoires &#x25BE;</span>
-          <div class="nav-dropdown">
-            <a href="territoires.html">&#x1F5FA;&#xFE0F; Vue d&apos;ensemble</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href="territoire-fizi.html">&#x1F30A; Fizi</a>
-            <a href="territoire-idjwi.html">&#x1F3DD;&#xFE0F; Idjwi</a>
-            <a href="territoire-kabare.html">&#x26F0;&#xFE0F; Kabare</a>
-            <a href="territoire-kalehe.html">&#x1F333; Kalehe</a>
-            <a href="territoire-mwenga.html">&#x1F332; Mwenga</a>
-            <a href="territoire-shabunda.html">&#x1F6B6; Shabunda</a>
-            <a href="territoire-uvira.html">&#x1F30A; Uvira</a>
-            <a href="territoire-walungu.html">&#x1F3D4;&#xFE0F; Walungu</a>
-          </div>
-        </div>
+                <div class="nav-item">
+                  <span class="nav-link" tabindex="0">Villes &#x25BE;</span>
+                  <div class="nav-dropdown">
+                    <a href="villes.html">&#x1F3D9;&#xFE0F; Vue d&apos;ensemble</a>
+                    <div class="nav-dropdown-divider"></div>
+                    <a href="territoire-bukavu.html">&#x1F3D9;&#xFE0F; Bukavu</a>
+                    <a href="territoire-uvira-ville.html">&#x1F3D9;&#xFE0F; Uvira</a>
+                    <a href="territoire-baraka.html">&#x1F3D9;&#xFE0F; Baraka</a>
+                    <a href="territoire-kamituga.html">&#x26CF;&#xFE0F; Kamituga</a>
+                  </div>
+                </div>
+                <div class="nav-item">
+                  <span class="nav-link" tabindex="0">Territoires &#x25BE;</span>
+                  <div class="nav-dropdown">
+                    <a href="territoires.html">&#x1F5FA;&#xFE0F; Vue d&apos;ensemble</a>
+                    <div class="nav-dropdown-divider"></div>
+                    <a href="territoire-fizi.html">&#x1F30A; Fizi</a>
+                    <a href="territoire-idjwi.html">&#x1F3DD;&#xFE0F; Idjwi</a>
+                    <a href="territoire-kabare.html">&#x26F0;&#xFE0F; Kabare</a>
+                    <a href="territoire-kalehe.html">&#x1F333; Kalehe</a>
+                    <a href="territoire-mwenga.html">&#x1F332; Mwenga</a>
+                    <a href="territoire-shabunda.html">&#x1F6B6; Shabunda</a>
+                    <a href="territoire-uvira.html">&#x1F30A; Uvira</a>
+                    <a href="territoire-walungu.html">&#x1F3D4;&#xFE0F; Walungu</a>
+                  </div>
+                </div>
         <div class="nav-item">
           <span class="nav-link" tabindex="0">Minist&#xe8;res &#x25BE;</span>
           <div class="nav-dropdown">
@@ -244,7 +229,7 @@
             <a href="ministere-sante.html">&#x1F3E5; Sant&#xe9;</a>
           </div>
         </div>
-        
+
         <div class="nav-item">
           <span class="nav-link" tabindex="0">Cabinet &#x25BE;</span>
           <div class="nav-dropdown">
@@ -266,7 +251,6 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-    
     <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Navigation mobile">
       <div class="mobile-nav-header">
         <span class="mobile-nav-title">Menu</span>
@@ -354,84 +338,87 @@
   </header>
   <div class="flag-strip"></div>
 
-  
 <main id="main">
 
+  <!-- HERO -->
   <section class="page-hero">
     <div class="section-inner">
       <div class="page-hero-content">
-        <div class="hero-badge">Chefferie</div>
-        <h1><span>Chefferie Wakabango II</span></h1>
-        <p class="page-hero-desc">Entit&eacute; administrative du Territoire de Shabunda. Chefferie Wakabango II, zone foresti&egrave;re avec des ressources mini&egrave;res et agricoles.</p>
+        <div class="hero-badge">&#x1F1E8;&#x1F1E9; Province du Sud-Kivu</div>
+        <h1>Les Anciens <span>Gouverneurs</span></h1>
+        <p class="page-hero-desc">Depuis la cr&eacute;ation de la Province du Sud-Kivu en 1988, plusieurs personnalites politiques ont dirige l&rsquo;ex&eacute;cutif provincial, contribuant chacune &agrave; l&rsquo;&eacute;criture de l&rsquo;histoire de la province.</p>
         <div class="page-breadcrumb">
           <a href="index.html">Accueil</a> <span>&rsaquo;</span>
-          <a href="territoires.html">Territoires</a> <span>&rsaquo;</span>
-          <a href="territoire-shabunda.html">Shabunda (Territoire)</a> <span>&rsaquo;</span>
-          <span>Chefferie Wakabango II</span>
+          <a href="province.html">Province</a> <span>&rsaquo;</span>
+          <span>Les Anciens Gouverneurs</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- INTRO SECTION -->
   <section class="content-section">
     <div class="section-inner">
-      <div class="section-label">Chefferie &mdash; Territoire de Shabunda &mdash; Province du Sud-Kivu</div>
-      <div class="section-title"><span>Chefferie Wakabango II</span></div>
-      <div class="section-sub">Entit&eacute; administrative du Territoire de Shabunda. Chefferie Wakabango II, zone foresti&egrave;re avec des ressources mini&egrave;res et agricoles.</div>
+      <div class="section-label">Histoire Politique</div>
+      <div class="section-title">Les Gouverneurs de la <span>Province du Sud-Kivu</span></div>
+      <div class="section-sub">De la cr&eacute;ation de la province en 1988 &agrave; ce jour, la liste des hommes et femmes ayant dirig&eacute; l&rsquo;ex&eacute;cutif provincial du Sud-Kivu.</div>
       <div class="content-grid">
         <div class="content-text">
-          <p>La Chefferie de Wakabango II est une entit&eacute; administrative du Territoire de Shabunda, voisine de la Chefferie Wakabango I, dans la for&ecirc;t &eacute;quatoriale congolaise. Elle partage des caract&eacute;ristiques similaires avec sa chefferie voisine et dispose &eacute;galement de ressources mini&egrave;res et foresti&egrave;res importantes.</p>
-          <h3 style="font-family:'Open Sans',sans-serif;font-size:20px;font-weight:700;color:var(--text-dark);margin:24px 0 16px;">Caract&eacute;ristiques principales</h3>
+          <p>La Province du Sud-Kivu a &eacute;t&eacute; cr&eacute;&eacute;e en <strong>1988</strong>, lors de la scission de l&rsquo;ancienne Province du Kivu en trois entit&eacute;s distinctes&nbsp;: le Nord-Kivu, le Sud-Kivu et le Maniema. Depuis lors, la province a &eacute;t&eacute; gouvern&eacute;e par une succession de dirigeants qui ont marqu&eacute;, chacun &agrave; leur mani&egrave;re, l&rsquo;histoire de ce territoire.</p>
+          <p>Sous le r&eacute;gime Mobutu (1988&ndash;1997), les gouverneurs &eacute;taient nomm&eacute;s par le pouvoir central. Apr&egrave;s la prise du pouvoir par l&rsquo;AFDL en 1997, puis la transition vers la d&eacute;mocratie consacr&eacute;e par la Constitution de 2006, les gouverneurs sont devenus des &eacute;lus de l&rsquo;Assembl&eacute;e Provinciale.</p>
+          <p>Cette page retrace le parcours des hommes qui ont assum&eacute; la charge de chef de l&rsquo;ex&eacute;cutif provincial du Sud-Kivu depuis l&rsquo;ind&eacute;pendance administrative de la province.</p>
+          <h3 style="font-family:'Open Sans',sans-serif;font-size:20px;font-weight:700;color:var(--text-dark);margin:24px 0 16px;">Le r&ocirc;le du Gouverneur</h3>
           <ul class="info-list">
-            <li>For&ecirc;t &eacute;quatoriale dense et biodiversit&eacute;</li>
-            <li>Ressources mini&egrave;res : or et min&eacute;raux associ&eacute;s</li>
-            <li>Agriculture de subsistance en for&ecirc;t</li>
-            <li>Communaut&eacute;s rurales et traditions locales</li>
-            <li>Rivi&egrave;res et ressources en eau</li>
+            <li>Chef de l&rsquo;Ex&eacute;cutif Provincial &mdash; dirige et coordonne le Gouvernement Provincial</li>
+            <li>Repr&eacute;sente le Gouvernement Central dans la province</li>
+            <li>Promulgue les &eacute;dits provinciaux vot&eacute;s par l&rsquo;Assembl&eacute;e Provinciale</li>
+            <li>Assure le maintien de l&rsquo;ordre public et de la s&eacute;curit&eacute;</li>
+            <li>G&egrave;re les finances et le patrimoine de la province</li>
+            <li>&Eacute;lu par l&rsquo;Assembl&eacute;e Provinciale en son sein (depuis 2007)</li>
           </ul>
         </div>
         <div class="info-box">
-          <h3>Profil de <span>Chefferie Wakabango II</span></h3>
+          <h3>La Province en <span>Chiffres</span></h3>
           <div class="info-item">
-            <div class="info-item-icon">&#x1F4CD;</div>
+            <div class="info-item-icon">&#x1F4C5;</div>
             <div class="info-item-text">
-              <strong>Statut administratif</strong>
-              Chefferie &mdash; Territoire de Shabunda &mdash; Province du Sud-Kivu
-            </div>
-          </div>
-          <div class="info-item">
-            <div class="info-item-icon">&#x1F4CF;</div>
-            <div class="info-item-text">
-              <strong>Superficie</strong>
-              Environ 2 800 km&sup2;
-            </div>
-          </div>
-          <div class="info-item">
-            <div class="info-item-icon">&#x1F465;</div>
-            <div class="info-item-text">
-              <strong>Population</strong>
-              Environ 110 000 habitants
+              <strong>Cr&eacute;ation de la province</strong>
+              1988 &mdash; scission de la Province du Kivu
             </div>
           </div>
           <div class="info-item">
             <div class="info-item-icon">&#x1F3DB;&#xFE0F;</div>
             <div class="info-item-text">
               <strong>Chef-lieu</strong>
-              Wakabango II
+              Bukavu
             </div>
           </div>
           <div class="info-item">
-            <div class="info-item-icon">&#x1F30D;</div>
+            <div class="info-item-icon">&#x1F4DC;</div>
             <div class="info-item-text">
-              <strong>Situation</strong>
-              For&ecirc;t &eacute;quatoriale, Territoire de Shabunda
+              <strong>Cadre constitutionnel</strong>
+              Constitution du 18 f&eacute;vrier 2006 &mdash; province autonome
             </div>
           </div>
           <div class="info-item">
-            <div class="info-item-icon">&#x1F4BC;</div>
+            <div class="info-item-icon">&#x1F5F3;&#xFE0F;</div>
             <div class="info-item-text">
-              <strong>Activit&eacute;s &eacute;conomiques</strong>
-              For&ecirc;ts, ressources mini&egrave;res, agriculture
+              <strong>Mode de d&eacute;signation actuel</strong>
+              &Eacute;lection par l&rsquo;Assembl&eacute;e Provinciale en son sein
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-icon">&#x1F465;</div>
+            <div class="info-item-text">
+              <strong>Assembl&eacute;e Provinciale</strong>
+              48 membres &eacute;lus au suffrage universel
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-icon">&#x1F464;</div>
+            <div class="info-item-text">
+              <strong>Gouverneur actuel</strong>
+              Jean-Jacques Purusi Sadiki (depuis le 2 mai 2024)
             </div>
           </div>
         </div>
@@ -439,61 +426,136 @@
     </div>
   </section>
 
+  <!-- GOVERNORS TIMELINE -->
   <section class="content-section alt">
     <div class="section-inner">
-      <div class="section-label">Territoire de Shabunda</div>
-      <div class="section-title">Autres subdivisions du <span>Territoire de Shabunda</span></div>
-      <div class="section-sub">D&eacute;couvrez les autres Chefferies et Secteurs du Territoire de Shabunda.</div>
-      <div style="margin-bottom:24px;">
-        <a href="territoire-shabunda.html" style="display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:var(--blue-deep);color:var(--white);border-radius:8px;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.05em;">
-          &#x2190; Retour au Territoire de Shabunda
-        </a>
+      <div class="section-label">Chronologie</div>
+      <div class="section-title">Liste des <span>Anciens Gouverneurs</span></div>
+      <div class="section-sub">Les gouverneurs qui ont dirig&eacute; la Province du Sud-Kivu depuis sa cr&eacute;ation en 1988, pr&eacute;sent&eacute;s dans l&rsquo;ordre ant&eacute;chronologique.</div>
+
+      <div class="gov-timeline">
+
+        <!-- Theo Kasi Ngwabidje -->
+        <div class="gov-card">
+          <div class="gov-card-period">
+            <div>
+              <div class="gov-card-year">2019</div>
+              <div class="gov-card-year-end">&ndash; 2024</div>
+              <div class="gov-card-duration">1 mandat</div>
+            </div>
+          </div>
+          <div class="gov-card-body">
+            <div class="gov-card-name">Th&eacute;o Ngwabidje Kasi</div>
+            <div class="gov-card-title">&#x1F451; 4<sup>e</sup> Gouverneur de la Province</div>
+            <div class="gov-card-desc">Gouverneur de la Province du Sud-Kivu de 2019 &agrave; 2024. &Eacute;lu par l&rsquo;Assembl&eacute;e Provinciale, il a dirig&eacute; la province pendant une p&eacute;riode marqu&eacute;e par des d&eacute;fis s&eacute;curitaires et humanitaires. Son mandat a co&iuml;ncid&eacute; avec la pr&eacute;sidence de F&eacute;lix Tshisekedi et les efforts de stabilisation de l&rsquo;est de la RDC.</div>
+            <div class="gov-card-tags">
+              <span class="gov-tag">&#x1F5F3;&#xFE0F; &Eacute;lu</span>
+              <span class="gov-tag">2019&ndash;2024</span>
+              <span class="gov-tag">&#x1F1E8;&#x1F1E9; &Egrave;re Tshisekedi</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marcellin Cishambo Muyaya -->
+        <div class="gov-card">
+          <div class="gov-card-period">
+            <div>
+              <div class="gov-card-year">2007</div>
+              <div class="gov-card-year-end">&ndash; 2019</div>
+              <div class="gov-card-duration">2 mandats</div>
+            </div>
+          </div>
+          <div class="gov-card-body">
+            <div class="gov-card-name">Marcellin Cishambo Muyaya</div>
+            <div class="gov-card-title">&#x1F451; 3<sup>e</sup> Gouverneur de la Province</div>
+            <div class="gov-card-desc">Premier gouverneur &eacute;lu au suffrage indirect par l&rsquo;Assembl&eacute;e Provinciale du Sud-Kivu, conform&eacute;ment &agrave; la Constitution du 18 f&eacute;vrier 2006. Il a effectu&eacute; deux mandats cons&eacute;cutifs (2007&ndash;2011 et 2011&ndash;2019), faisant de lui l&rsquo;un des gouverneurs les plus longuement en fonction de l&rsquo;histoire provinciale. Son action a port&eacute; notamment sur la reconstruction institutionnelle dans le contexte post-conflit.</div>
+            <div class="gov-card-tags">
+              <span class="gov-tag">&#x1F5F3;&#xFE0F; &Eacute;lu</span>
+              <span class="gov-tag">2007&ndash;2019</span>
+              <span class="gov-tag">&#x1F4DC; 1<sup>er</sup> gouverneur constitutionnel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transitional period -->
+        <div class="gov-card">
+          <div class="gov-card-period">
+            <div>
+              <div class="gov-card-year">2003</div>
+              <div class="gov-card-year-end">&ndash; 2007</div>
+              <div class="gov-card-duration">Transition</div>
+            </div>
+          </div>
+          <div class="gov-card-body">
+            <div class="gov-card-name">P&eacute;riode de Transition (1 + 4)</div>
+            <div class="gov-card-title">&#x1F4CB; Gouvernance de transition</div>
+            <div class="gov-card-desc">Dans le cadre de l&rsquo;Accord Global et Inclusif de Pretoria (2002), la RDC a connu une p&eacute;riode de transition politico-institutionnelle. Le Sud-Kivu a &eacute;t&eacute; administr&eacute; par des gouverneurs de transition avant l&rsquo;organisation des &eacute;lections g&eacute;n&eacute;rales de 2006 qui ont institu&eacute; le syst&egrave;me d&eacute;mocratique actuel.</div>
+            <div class="gov-card-tags">
+              <span class="gov-tag">Transition politique</span>
+              <span class="gov-tag">2003&ndash;2007</span>
+              <span class="gov-tag">Accord de Pretoria</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AFDL/Kabila period -->
+        <div class="gov-card">
+          <div class="gov-card-period">
+            <div>
+              <div class="gov-card-year">1997</div>
+              <div class="gov-card-year-end">&ndash; 2003</div>
+              <div class="gov-card-duration">P&eacute;riode AFDL</div>
+            </div>
+          </div>
+          <div class="gov-card-body">
+            <div class="gov-card-name">P&eacute;riode AFDL &amp; R&eacute;gime Kabila</div>
+            <div class="gov-card-title">&#x1F4CB; Gouvernance post-Mobutu</div>
+            <div class="gov-card-desc">Apr&egrave;s la prise du pouvoir par l&rsquo;Alliance des Forces D&eacute;mocratiques pour la Lib&eacute;ration du Congo-Za&iuml;re (AFDL) sous la direction de Laurent-D&eacute;sir&eacute; Kabila en mai 1997, la province a &eacute;t&eacute; administr&eacute;e par des gouverneurs nomm&eacute;s par le pouvoir central. Cette p&eacute;riode a &eacute;t&eacute; marqu&eacute;e par les guerres du Congo (1996&ndash;2003) et leurs cons&eacute;quences humanitaires sur la province.</div>
+            <div class="gov-card-tags">
+              <span class="gov-tag">P&eacute;riode post-Mobutu</span>
+              <span class="gov-tag">1997&ndash;2003</span>
+              <span class="gov-tag">Gouvernance nomm&eacute;e</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobutu era -->
+        <div class="gov-card">
+          <div class="gov-card-period">
+            <div>
+              <div class="gov-card-year">1988</div>
+              <div class="gov-card-year-end">&ndash; 1997</div>
+              <div class="gov-card-duration">Fondateurs</div>
+            </div>
+          </div>
+          <div class="gov-card-body">
+            <div class="gov-card-name">Premi&egrave;re P&eacute;riode (1988&ndash;1997)</div>
+            <div class="gov-card-title">&#x1F3DB;&#xFE0F; Gouverneurs fondateurs de la Province</div>
+            <div class="gov-card-desc">D&egrave;s la cr&eacute;ation de la Province du Sud-Kivu en 1988, issue de la scission de la Province du Kivu, plusieurs gouverneurs nomm&eacute;s par le pouvoir central sous le r&eacute;gime du Pr&eacute;sident Mobutu Sese Seko se sont succ&eacute;d&eacute; &agrave; la t&ecirc;te de la province. Ces ann&eacute;es ont pos&eacute; les fondements de l&rsquo;organisation administrative et institutionnelle du Sud-Kivu en tant qu&rsquo;entit&eacute; distincte.</div>
+            <div class="gov-card-tags">
+              <span class="gov-tag">Province fond&eacute;e en 1988</span>
+              <span class="gov-tag">R&eacute;gime Mobutu</span>
+              <span class="gov-tag">Gouverneurs nomm&eacute;s</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px;">
-        <a href="chefferie-wakabango-i.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:24px;">&#x1F3DB;&#xFE0F;</span>
-          <div>
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-mid);">Chefferie</div>
-            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);">Wakabango I</div>
-          </div>
-          <span style="margin-left:auto;color:var(--blue-mid);">&#x2192;</span>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="content-section">
+    <div class="section-inner" style="text-align:center;">
+      <div class="section-label">Ex&eacute;cutif Provincial</div>
+      <div class="section-title">Le Gouverneur <span>Actuel</span></div>
+      <div class="section-sub">Jean-Jacques Purusi Sadiki dirige la Province du Sud-Kivu depuis le 2 mai 2024.</div>
+      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:8px;">
+        <a href="gouverneur.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-deep);color:var(--white);padding:12px 28px;border-radius:8px;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.04em;">
+          &#x1F464; Le Gouverneur actuel
         </a>
-        <a href="chefferie-watsiragoma.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:24px;">&#x1F3DB;&#xFE0F;</span>
-          <div>
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-mid);">Chefferie</div>
-            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);">Watsiragoma</div>
-          </div>
-          <span style="margin-left:auto;color:var(--blue-mid);">&#x2192;</span>
-        </a>
-        <a href="chefferie-bakisi.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:24px;">&#x1F3DB;&#xFE0F;</span>
-          <div>
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-mid);">Chefferie</div>
-            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);">Bakisi</div>
-          </div>
-          <span style="margin-left:auto;color:var(--blue-mid);">&#x2192;</span>
-        </a>
-        <a href="chefferie-bamuguba-sud.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:24px;">&#x1F3DB;&#xFE0F;</span>
-          <div>
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-mid);">Chefferie</div>
-            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);">Bamuguba Sud</div>
-          </div>
-          <span style="margin-left:auto;color:var(--blue-mid);">&#x2192;</span>
-        </a>
-        <a href="chefferie-bamuguba-nord.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:24px;">&#x1F3DB;&#xFE0F;</span>
-          <div>
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-mid);">Chefferie</div>
-            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);">Bamuguba Nord</div>
-          </div>
-          <span style="margin-left:auto;color:var(--blue-mid);">&#x2192;</span>
-        </a>
-      </div>
-      <div style="text-align:center;margin-top:28px;">
-        <a href="territoires.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--off-white);border:1px solid var(--border);border-radius:8px;font-size:14px;font-weight:600;color:var(--text-dark);">
-          &#x1F5FA;&#xFE0F; Voir tous les territoires
+        <a href="province.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--off-white);color:var(--text-dark);border:1px solid var(--border);padding:12px 28px;border-radius:8px;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.04em;">
+          &#x1F3DB;&#xFE0F; Profil de la Province
         </a>
       </div>
     </div>
@@ -501,31 +563,32 @@
 
 </main>
 
-<footer>
+  <footer>
     <div class="section-inner">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="logo-wrap">
-            <div class="logo-emblem" style="background:none; padding:0; overflow:hidden;"><img src="https://github.com/user-attachments/assets/47a9213d-48b5-46e7-a4b8-d572d2c6e33c" alt="Logo Sud-Kivu" style="width:54px; height:54px; object-fit:contain; border-radius:50%;"></div>
-            <div class="logo-text">
-              <div class="province">Province du Sud-Kivu</div>
-              <div class="country">Gouvernement Provincial</div>
-            </div>
+          <div class="logo-emblem" style="background:rgba(255,255,255,0.08);color:var(--gold-light);width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:900;margin-bottom:16px;">SK</div>
+          <div class="logo-text">
+            <div class="province">Province du Sud-Kivu</div>
+            <div class="country">Gouvernement Provincial</div>
           </div>
-          <p class="footer-desc">Le Gouvernement Provincial du Sud-Kivu s&apos;engage pour l&apos;&eacute;mergence de la province &agrave; travers un programme ambitieux de d&eacute;veloppement 2024&ndash;2028.</p>
+          <p class="footer-desc">Gouvernement Provincial du Sud-Kivu &mdash; R&eacute;publique D&eacute;mocratique du Congo. Au service des 5,5 millions de Sud-Kivutiens.</p>
         </div>
         <div class="footer-col">
-          <h4>Territoires</h4>
+          <h4>Programme</h4>
           <ul class="footer-links">
-            <li><a href="territoires.html">Vue d&apos;ensemble</a></li>
-            <li><a href="territoire-bukavu.html">Bukavu</a></li>
-            <li><a href="territoire-fizi.html">Fizi</a></li>
-            <li><a href="territoire-idjwi.html">Idjwi</a></li>
-            <li><a href="territoire-kabare.html">Kabare</a></li>
-            <li><a href="territoire-kalehe.html">Kalehe</a></li>
-            <li><a href="territoire-mwenga.html">Mwenga</a></li>
-            <li><a href="territoire-shabunda.html">Shabunda</a></li>
-            <li><a href="territoire-walungu.html">Walungu</a></li>
+            <li><a href="programme-2024-2028.html">Plan Quinquennal 2024&ndash;2028</a></li>
+            <li><a href="programme-2024-2028.html#secteurs">Axes Strat&eacute;giques</a></li>
+            <li><a href="index.html#finances">Finances Provinciales</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Province</h4>
+          <ul class="footer-links">
+            <li><a href="province.html">Profil g&eacute;ographique</a></li>
+            <li><a href="anciens-gouverneurs.html">Les Anciens Gouverneurs</a></li>
+            <li><a href="index.html#territoires">8 Territoires</a></li>
+            <li><a href="index.html#carte">Carte Interactive</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -534,21 +597,12 @@
             <li><a href="gouverneur.html">Le Gouverneur</a></li>
             <li><a href="vice-gouverneur.html">Le Vice-Gouverneur</a></li>
             <li><a href="cabinet.html">Cabinet du Gouverneur</a></li>
-            <li><a href="ministeres.html">Les Minist&egrave;res</a></li>
+            <li><a href="ministeres.html">Les Ministres</a></li>
             <li><a href="membres-cabinet.html">Membres du Cabinet</a></li>
             <li><a href="secretariat-executif.html">Secr&eacute;tariat Ex&eacute;cutif</a></li>
             <li><a href="secretariat-administratif.html">Secr&eacute;tariat Administratif</a></li>
             <li><a href="service-courrier.html">Service Courrier</a></li>
             <li><a href="assemblee.html">Assembl&eacute;e Provinciale</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Province</h4>
-          <ul class="footer-links">
-            <li><a href="province.html">Profil g&eacute;ographique</a></li>
-            <li><a href="programme-2024-2028.html">Plan Quinquennal 2024&ndash;2028</a></li>
-            <li><a href="index.html#secteurs">Axes Strat&eacute;giques</a></li>
-            <li><a href="index.html#finances">Finances Provinciales</a></li>
           </ul>
         </div>
       </div>
@@ -562,7 +616,6 @@
       </div>
     </div>
   </footer>
-
   <script>
     // Mobile nav accordion
     document.querySelectorAll('.mnav-group-btn').forEach(function(btn) {
