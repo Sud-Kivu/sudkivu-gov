@@ -102,6 +102,7 @@
     .video-card:hover{box-shadow:0 12px 36px rgba(0,56,130,0.12);transform:translateY(-4px);}
     .video-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,var(--blue-deep),var(--blue-light));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
     .video-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+    .video-thumb::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.10) 0%,rgba(0,0,0,0.45) 100%);z-index:0;}
     .video-play{width:56px;height:56px;background:rgba(255,255,255,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;position:relative;z-index:1;transition:transform 0.2s,background 0.2s;}
     .video-card:hover .video-play{transform:scale(1.1);background:var(--white);}
     .video-cat{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--white);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:3px 10px;border-radius:4px;z-index:1;}
@@ -385,105 +386,135 @@
             <div class="section-label">Vid&eacute;oth&egrave;que</div>
             <h2 class="section-title">Vid&eacute;os &amp; <span>Documents audiovisuels</span></h2>
           </div>
+          <a href="https://www.youtube.com/@JeanJacquesPurusiSadikiTV/videos?view=0&amp;sort=dd&amp;shelf_id=2" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-deep);color:var(--white);padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;text-decoration:none;transition:background 0.2s;white-space:nowrap;" onmouseover="this.style.background='var(--blue-mid)'" onmouseout="this.style.background='var(--blue-deep)'">&#x1F534; Voir toutes les vid&eacute;os sur YouTube</a>
         </div>
         <div class="video-grid">
 
-          <!-- Video 0 -->
-          <a class="video-card" href="Le%20Gouverneur%20de%20la%20province%20du%20sud-kivu%20le%20Professeur%20Jean-Jacques%20PURUSI%20SADIKI%2C%20Porte-parole%20des%20Gouverneurs%20des%2026%20provinces%20de%20la%20RDC%20porte%20la%20voix%20de%20ses%20pairs%20aupr%C3%A8s%20du%20Pr%C3%A9sident%20de%20la%20R%C3%A9.mp4" target="_blank">
-            <div class="video-thumb" style="background:linear-gradient(135deg,#002255,#0052B4);">
+          <!-- Video 1 — Vœux de Nouvel An 2025 -->
+          <a class="video-card" href="https://www.youtube.com/watch?v=G0HFMtcLrJI" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/G0HFMtcLrJI/hqdefault.jpg" alt="V&oelig;ux de Nouvel An du Gouverneur Jean-Jacques Purusi Sadiki" loading="lazy">
               <span class="video-cat">Gouvernance</span>
               <div class="video-play">&#x25B6;&#xFE0F;</div>
             </div>
             <div class="video-card-body">
-              <div class="video-date">24 mars 2026</div>
-              <div class="video-card-title">Le Gouverneur Purusi Sadiki, Porte-parole des Gouverneurs des 26 provinces, porte la voix de ses pairs aupr&egrave;s du Pr&eacute;sident de la R&eacute;publique</div>
-              <div class="video-card-desc">Lors de la 13e Conf&eacute;rence des Gouverneurs &agrave; Bandundu, le Gouverneur Jean-Jacques Purusi Sadiki, d&eacute;sign&eacute; Porte-parole des 26 provinces de la RDC, porte la voix de ses pairs aupr&egrave;s du Pr&eacute;sident F&eacute;lix Tshisekedi.</div>
+              <div class="video-date">Janvier 2025</div>
+              <div class="video-card-title">V&oelig;ux de Nouvel An du Gouverneur Jean-Jacques Purusi Sadiki</div>
+              <div class="video-card-desc">Le Gouverneur Jean-Jacques Purusi Sadiki adresse ses v&oelig;ux de Nouvel An &agrave; la population du Sud-Kivu et &agrave; ses partenaires.</div>
             </div>
           </a>
 
-          <!-- Video 1 -->
-          <div class="video-card">
-            <div class="video-thumb" style="background:linear-gradient(135deg,#002255,#0052B4);">
+          <!-- Video 2 — Redevabilité 08.09.2024 -->
+          <a class="video-card" href="https://www.youtube.com/watch?v=ixNLlwhLdE0" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/ixNLlwhLdE0/hqdefault.jpg" alt="REDEVABILIT&Eacute; : le Gouverneur Jean Jacques Purusi s&apos;est expliqu&eacute; devant la population" loading="lazy">
               <span class="video-cat">Gouvernance</span>
               <div class="video-play">&#x25B6;&#xFE0F;</div>
-              <span class="video-duration">4:32</span>
             </div>
             <div class="video-card-body">
-              <div class="video-date">Mars 2026</div>
-              <div class="video-card-title">Discours du Gouverneur &mdash; Bilan et perspectives 2026</div>
-              <div class="video-card-desc">Le Gouverneur Jean-Jacques Purusi Sadiki pr&eacute;sente le bilan des r&eacute;alisations et les perspectives pour l&apos;ann&eacute;e 2026.</div>
+              <div class="video-date">8 septembre 2024</div>
+              <div class="video-card-title">REDEVABILIT&Eacute; : le Gouverneur Jean Jacques Purusi s&apos;est expliqu&eacute; devant la population</div>
+              <div class="video-card-desc">Le Gouverneur Jean-Jacques Purusi Sadiki tient un meeting de redevabilit&eacute; devant la population au stade de la Concorde &agrave; Kadutu (Bukavu).</div>
             </div>
-          </div>
+          </a>
 
-          <!-- Video 2 -->
-          <div class="video-card">
-            <div class="video-thumb" style="background:linear-gradient(135deg,#1a5c2a,#2a8a40);">
-              <span class="video-cat">Agriculture</span>
-              <div class="video-play">&#x25B6;&#xFE0F;</div>
-              <span class="video-duration">6:15</span>
-            </div>
-            <div class="video-card-body">
-              <div class="video-date">F&eacute;vrier 2026</div>
-              <div class="video-card-title">Lancement de la campagne agricole saison B 2026</div>
-              <div class="video-card-desc">C&eacute;r&eacute;monie officielle de lancement de la campagne agricole saison B 2026 en pr&eacute;sence du Ministre de l&apos;Agriculture.</div>
-            </div>
-          </div>
-
-          <!-- Video 3 -->
-          <div class="video-card">
-            <div class="video-thumb" style="background:linear-gradient(135deg,#7a3800,#C8102E);">
-              <span class="video-cat">S&eacute;curit&eacute;</span>
-              <div class="video-play">&#x25B6;&#xFE0F;</div>
-              <span class="video-duration">3:48</span>
-            </div>
-            <div class="video-card-body">
-              <div class="video-date">Janvier 2026</div>
-              <div class="video-card-title">Point de presse &mdash; Situation s&eacute;curitaire du Sud-Kivu</div>
-              <div class="video-card-desc">Le Gouverneur fait le point sur la situation s&eacute;curitaire de la province et les mesures prises pour prot&eacute;ger la population.</div>
-            </div>
-          </div>
-
-          <!-- Video 4 -->
-          <div class="video-card">
-            <div class="video-thumb" style="background:linear-gradient(135deg,#3d2080,#6a35cc);">
+          <!-- Video 3 — Réhabilitation des routes -->
+          <a class="video-card" href="https://www.youtube.com/watch?v=QfIvllNkcVo" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/QfIvllNkcVo/hqdefault.jpg" alt="R&eacute;habilitation des routes au Sud-Kivu" loading="lazy">
               <span class="video-cat">Infrastructure</span>
               <div class="video-play">&#x25B6;&#xFE0F;</div>
-              <span class="video-duration">5:20</span>
             </div>
             <div class="video-card-body">
-              <div class="video-date">D&eacute;cembre 2025</div>
-              <div class="video-card-title">Inauguration de la route nationale RN30 &mdash; Uvira</div>
-              <div class="video-card-desc">C&eacute;r&eacute;monie d&apos;inauguration des travaux de r&eacute;habilitation de la route nationale RN30 reliant Uvira au reste de la province.</div>
+              <div class="video-date">2024</div>
+              <div class="video-card-title">R&eacute;habilitation des routes au Sud-Kivu : Un engagement ferme du Gouverneur Jean Jacques Purusi</div>
+              <div class="video-card-desc">Le Gouverneur Jean-Jacques Purusi Sadiki d&eacute;montre son engagement ferme dans la r&eacute;habilitation des routes de la province du Sud-Kivu.</div>
             </div>
-          </div>
+          </a>
 
-          <!-- Video 5 -->
-          <div class="video-card">
-            <div class="video-thumb" style="background:linear-gradient(135deg,#004d40,#00796b);">
-              <span class="video-cat">Sant&eacute;</span>
+          <!-- Video 4 — Coopération / Flahaut -->
+          <a class="video-card" href="https://www.youtube.com/watch?v=ZPPP0ZT4GFM" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/ZPPP0ZT4GFM/hqdefault.jpg" alt="Coop&eacute;ration : le Gouverneur Jean Jacques Purusi accueille le Ministre d&apos;&Eacute;tat belge Andr&eacute; Flahaut" loading="lazy">
+              <span class="video-cat">Diplomatie</span>
               <div class="video-play">&#x25B6;&#xFE0F;</div>
-              <span class="video-duration">7:05</span>
             </div>
             <div class="video-card-body">
-              <div class="video-date">Novembre 2025</div>
-              <div class="video-card-title">Campagne de vaccination &mdash; Sud-Kivu en bonne sant&eacute;</div>
-              <div class="video-card-desc">Le gouvernement provincial lance une vaste campagne de vaccination dans les zones de sant&eacute; de la province.</div>
+              <div class="video-date">2024</div>
+              <div class="video-card-title">Coop&eacute;ration : le Gouverneur Jean Jacques Purusi accueille le Ministre d&apos;&Eacute;tat belge Andr&eacute; Flahaut</div>
+              <div class="video-card-desc">Le Gouverneur Jean-Jacques Purusi Sadiki accueille le Ministre d&apos;&Eacute;tat belge Andr&eacute; Flahaut dans le cadre de la coop&eacute;ration bilatérale Belgique&ndash;Sud-Kivu.</div>
             </div>
-          </div>
+          </a>
 
-          <!-- Video 6 -->
-          <div class="video-card">
-            <div class="video-thumb" style="background:linear-gradient(135deg,#002255,#003882);">
+          <!-- Video 5 — Accueil Première Ministre -->
+          <a class="video-card" href="https://www.youtube.com/watch?v=dp0pSe0PbHQ" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/dp0pSe0PbHQ/hqdefault.jpg" alt="Le Gouverneur Jean Jacques Purusi accueille la Premi&egrave;re Ministre Judith Suminwa Tuluka au Sud-Kivu" loading="lazy">
+              <span class="video-cat">Gouvernance</span>
+              <div class="video-play">&#x25B6;&#xFE0F;</div>
+            </div>
+            <div class="video-card-body">
+              <div class="video-date">2024</div>
+              <div class="video-card-title">Le Gouverneur Jean Jacques Purusi accueille la Premi&egrave;re Ministre Judith Suminwa Tuluka au Sud-Kivu</div>
+              <div class="video-card-desc">Le Gouverneur Provincial du Sud-Kivu accueille la Premi&egrave;re Ministre nationale Judith Suminwa Tuluka lors de sa visite officielle dans la province.</div>
+            </div>
+          </a>
+
+          <!-- Video 6 — Dimanche de travail -->
+          <a class="video-card" href="https://www.youtube.com/watch?v=wL8vdMCGc1U" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/wL8vdMCGc1U/hqdefault.jpg" alt="Un dimanche de travail pour le Gouverneur Jean Jacques Purusi Sadiki" loading="lazy">
+              <span class="video-cat">Gouvernance</span>
+              <div class="video-play">&#x25B6;&#xFE0F;</div>
+            </div>
+            <div class="video-card-body">
+              <div class="video-date">28 juillet 2024</div>
+              <div class="video-card-title">Un dimanche de travail pour le Gouverneur Jean Jacques Purusi Sadiki</div>
+              <div class="video-card-desc">T&eacute;moignage de l&apos;engagement constant du Gouverneur Jean-Jacques Purusi Sadiki au service de la population, m&ecirc;me le dimanche.</div>
+            </div>
+          </a>
+
+          <!-- Video 7 — Bismarck Biyombo / Cité de la science -->
+          <a class="video-card" href="https://www.youtube.com/watch?v=nPMb82B5MFE" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/nPMb82B5MFE/hqdefault.jpg" alt="Le Gouverneur Jean Jacques Purusi fait visiter Bismarck Biyombo la cit&eacute; de la science &agrave; Nyakadaka" loading="lazy">
+              <span class="video-cat">Jeunesse &amp; Sport</span>
+              <div class="video-play">&#x25B6;&#xFE0F;</div>
+            </div>
+            <div class="video-card-body">
+              <div class="video-date">2024</div>
+              <div class="video-card-title">Le Gouverneur Jean Jacques Purusi fait visiter Bismarck Biyombo la cit&eacute; de la science &agrave; Nyakadaka</div>
+              <div class="video-card-desc">Le basketteur international Bismarck Biyombo d&eacute;couvre la cit&eacute; de la science de Nyakadaka en compagnie du Gouverneur Jean-Jacques Purusi Sadiki.</div>
+            </div>
+          </a>
+
+          <!-- Video 8 — Le rêve d'un ouvrier Partie 2 -->
+          <a class="video-card" href="https://www.youtube.com/watch?v=heJUTyQqycw" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/heJUTyQqycw/hqdefault.jpg" alt="Jean Jacques Purusi Sadiki, le r&ecirc;ve d&apos;un ouvrier. Partie 2" loading="lazy">
+              <span class="video-cat">Documentaire</span>
+              <div class="video-play">&#x25B6;&#xFE0F;</div>
+            </div>
+            <div class="video-card-body">
+              <div class="video-date">2024</div>
+              <div class="video-card-title">Jean Jacques Purusi Sadiki, le r&ecirc;ve d&apos;un ouvrier. Partie 2</div>
+              <div class="video-card-desc">Deuxi&egrave;me partie du documentaire retra&ccedil;ant le parcours exceptionnel du Professeur Jean-Jacques Purusi Sadiki, de ses origines &agrave; la gouvernance provinciale.</div>
+            </div>
+          </a>
+
+          <!-- Video 9 — Investiture du Gouvernement Provincial -->
+          <a class="video-card" href="https://www.youtube.com/watch?v=Sc_rOxpx6BQ" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/Sc_rOxpx6BQ/hqdefault.jpg" alt="Investiture du Gouvernement Provincial dirig&eacute; par le Professeur Jean-Jacques PURUSI SADIKI" loading="lazy">
               <span class="video-cat">Investiture</span>
               <div class="video-play">&#x25B6;&#xFE0F;</div>
-              <span class="video-duration">12:40</span>
             </div>
             <div class="video-card-body">
-              <div class="video-date">02 mai 2024</div>
-              <div class="video-card-title">Investiture du Gouvernement Provincial du Sud-Kivu</div>
-              <div class="video-card-desc">C&eacute;r&eacute;monie officielle d&apos;investiture du Gouverneur Jean-Jacques Purusi Sadiki &agrave; la t&ecirc;te du Gouvernement Provincial du Sud-Kivu.</div>
+              <div class="video-date">2 mai 2024</div>
+              <div class="video-card-title">Investiture du Gouvernement Provincial dirig&eacute; par le Professeur Jean-Jacques PURUSI SADIKI</div>
+              <div class="video-card-desc">C&eacute;r&eacute;monie officielle d&apos;investiture du Gouvernement Provincial du Sud-Kivu sous la direction du Professeur Jean-Jacques Purusi Sadiki.</div>
             </div>
-          </div>
+          </a>
 
         </div>
       </div>
