@@ -142,8 +142,18 @@
     .ministere-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--blue-mid);}
     .ministere-link:hover{color:var(--blue-deep);}
     .ministeres-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px;}
-    @media(max-width:1040px){nav{display:none;}.menu-toggle{display:flex;}.footer-grid{grid-template-columns:1fr 1fr;}.content-grid{grid-template-columns:1fr;}.cards-grid{grid-template-columns:1fr 1fr;}.territories-grid{grid-template-columns:repeat(2,1fr);}.ministeres-grid{grid-template-columns:1fr;}}
-    @media(max-width:640px){.footer-grid{grid-template-columns:1fr;}.topbar-right{display:none;}.cards-grid{grid-template-columns:1fr;}.territories-grid{grid-template-columns:1fr;}}
+    .ministers-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px;}
+    .minister-card{background:var(--blue-deep);border:1px solid rgba(255,255,255,0.15);border-radius:14px;overflow:hidden;transition:all 0.25s;display:flex;flex-direction:column;}
+    .minister-card:hover{box-shadow:0 12px 36px rgba(0,56,130,0.35);transform:translateY(-3px);}
+    .minister-photo{width:100%;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,var(--blue-deep) 0%,#001840 100%);position:relative;flex-shrink:0;}
+    .minister-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+    .minister-photo-badge{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,20,60,0.85) 0%,transparent 100%);padding:14px 12px 10px;color:var(--white);}
+    .minister-photo-badge .badge-role{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold-light);margin-bottom:2px;}
+    .minister-card-body{padding:16px 16px 20px;display:flex;flex-direction:column;flex:1;}
+    .minister-name{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--gold-light);margin-bottom:8px;line-height:1.3;}
+    .minister-ministry{font-size:16px;color:var(--white);line-height:1.55;flex:1;}
+    @media(max-width:1040px){nav{display:none;}.menu-toggle{display:flex;}.footer-grid{grid-template-columns:1fr 1fr;}.content-grid{grid-template-columns:1fr;}.cards-grid{grid-template-columns:1fr 1fr;}.territories-grid{grid-template-columns:repeat(2,1fr);}.ministeres-grid{grid-template-columns:1fr;}.ministers-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:640px){.footer-grid{grid-template-columns:1fr;}.topbar-right{display:none;}.cards-grid{grid-template-columns:1fr;}.territories-grid{grid-template-columns:1fr;}.ministers-grid{grid-template-columns:1fr;}}
 
 
   </style>
@@ -461,16 +471,26 @@
       <div class="section-label">Administration de la Ville</div>
       <div class="section-title">Leadership de <span>Uvira (Ville)</span></div>
       <div class="section-sub">Autorit&eacute;s municipales en charge de la gestion de la Ville d&rsquo;Uvira.</div>
-      <div class="cards-grid">
-        <div class="feature-card">
-          <div class="feature-card-icon">&#x1F451;</div>
-          <div class="feature-card-title">Pasteur KIZA MUHATO</div>
-          <div class="feature-card-desc"><strong>Maire de la Ville</strong><br>Uvira &mdash; Province du Sud-Kivu</div>
+      <div class="ministers-grid">
+        <div class="minister-card">
+          <div class="minister-photo">
+            <img src="https://github.com/user-attachments/assets/c84f4e6c-509c-42cb-aef4-b9d658c6b611" alt="Pasteur KIZA MUHATO &mdash; Maire de la Ville d&apos;Uvira" />
+            <div class="minister-photo-badge"><div class="badge-role">Maire de la Ville</div></div>
+          </div>
+          <div class="minister-card-body">
+            <div class="minister-name">Pasteur KIZA MUHATO</div>
+            <div class="minister-ministry">Maire de la Ville d&rsquo;Uvira &mdash; Province du Sud-Kivu</div>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-card-icon">&#x1F464;</div>
-          <div class="feature-card-title">Monsieur KAPENDA KIFARA Kik&rsquo;y</div>
-          <div class="feature-card-desc"><strong>Maire de la Ville Adjoint</strong><br>Uvira &mdash; Province du Sud-Kivu</div>
+        <div class="minister-card">
+          <div class="minister-photo">
+            <img src="https://github.com/user-attachments/assets/40b7e21c-af53-46c1-bede-53a0b385f5fd" alt="Monsieur KAPENDA KIFARA Kik&rsquo;y &mdash; Maire de la Ville Adjoint d&apos;Uvira" />
+            <div class="minister-photo-badge"><div class="badge-role">Maire de la Ville Adjoint</div></div>
+          </div>
+          <div class="minister-card-body">
+            <div class="minister-name">Monsieur KAPENDA KIFARA Kik&rsquo;y</div>
+            <div class="minister-ministry">Maire de la Ville Adjoint &mdash; Maire de la Ville <em>Ad Int&eacute;rim</em> depuis le 16 f&eacute;vrier 2025<br>Uvira &mdash; Province du Sud-Kivu</div>
+          </div>
         </div>
       </div>
     </div>
