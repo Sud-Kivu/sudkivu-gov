@@ -1,0 +1,25 @@
+{
+  "name": "sudkivu",
+  "version": "1.0.0",
+  "description": "Province du Sud-Kivu – site officiel du gouvernement provincial",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/static",
+    "start": "node .next/standalone/server.js",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.2.29",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.29"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

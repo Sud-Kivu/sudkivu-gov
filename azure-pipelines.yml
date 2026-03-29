@@ -1,0 +1,112 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# azure-pipelines.yml – CI/CD for the Sud-Kivu Next.js application
+#
+# Pipeline stages:
+#   1. ci    – install, lint, build (runs on every push)
+#   2. docker – build & push Docker image to Azure Container Registry (ACR)
+#   3. deploy – deploy the image to Azure App Service
+#
+# Before use, replace every <placeholder> with your actual Azure resource names
+# and create the corresponding service connections in Azure DevOps.
+# ──────────────────────────────────────────────────────────────────────────────
+
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  # ── Azure Container Registry ──────────────────────────────────────────────
+  # Create a service connection in Azure DevOps → Project Settings → Service connections
+  containerRegistryServiceConnection: '<acr-service-connection-name>'
+  containerRegistry: '<your-registry>.azurecr.io'
+  imageRepository: 'sudkivu'
+  dockerfilePath: 'Dockerfile'
+  tag: '$(Build.BuildId)'
+
+  # ── Azure App Service ─────────────────────────────────────────────────────
+  azureSubscriptionServiceConnection: '<azure-subscription-service-connection>'
+  appServiceName: '<your-app-service-name>'
+  resourceGroupName: '<your-resource-group>'
+
+  # ── Node.js version ───────────────────────────────────────────────────────
+  nodeVersion: '18.x'
+
+# ── Stage 1: Install, lint, build ─────────────────────────────────────────────
+stages:
+  - stage: CI
+    displayName: 'Build & Lint'
+    jobs:
+      - job: Build
+        displayName: 'npm ci → lint → build'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+            displayName: 'Install Node.js $(nodeVersion)'
+
+          - script: npm ci
+            displayName: 'Install dependencies'
+
+          - script: npm run lint
+            displayName: 'Lint'
+            continueOnError: true
+
+          - script: npm run build
+            displayName: 'Next.js build'
+
+          - publish: .next
+            artifact: nextjs-build
+            displayName: 'Publish build artifact'
+
+# ── Stage 2: Docker build & push to ACR ───────────────────────────────────────
+  - stage: Docker
+    displayName: 'Docker – Build & Push'
+    dependsOn: CI
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - job: DockerBuildPush
+        displayName: 'Build and push image to ACR'
+        steps:
+          - task: Docker@2
+            displayName: 'Build and push to $(containerRegistry)'
+            inputs:
+              command: buildAndPush
+              repository: $(imageRepository)
+              dockerfile: $(dockerfilePath)
+              containerRegistry: $(containerRegistryServiceConnection)
+              tags: |
+                $(tag)
+                latest
+
+# ── Stage 3: Deploy to Azure App Service ──────────────────────────────────────
+  - stage: Deploy
+    displayName: 'Deploy to Azure App Service'
+    dependsOn: Docker
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - deployment: DeployWebApp
+        displayName: 'Deploy container to App Service'
+        environment: 'production'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureWebAppContainer@1
+                  displayName: 'Deploy $(imageRepository):$(tag) to $(appServiceName)'
+                  inputs:
+                    azureSubscription: $(azureSubscriptionServiceConnection)
+                    appName: $(appServiceName)
+                    containers: '$(containerRegistry)/$(imageRepository):$(tag)'
+                    appSettings: |
+                      -WEBSITES_PORT 3000
+                      -NODE_ENV production
+                      -NEXT_PUBLIC_BASE_URL https://sudkivu.cd

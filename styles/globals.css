@@ -1,0 +1,68 @@
+/*
+ * globals.css
+ * Applied to all Next.js-rendered pages via pages/_app.js.
+ * Legacy HTML pages (served via the catch-all route) carry their own inline styles.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --blue-deep: #003882;
+  --blue-mid: #0052b4;
+  --blue-light: #1a6fd4;
+  --gold: #ce8a00;
+  --gold-light: #f5b800;
+  --red-drc: #c8102e;
+  --white: #ffffff;
+  --off-white: #f4f6fa;
+  --gray-light: #e8ecf3;
+  --gray-mid: #8d9bb5;
+  --gray-dark: #3a4561;
+  --text-dark: #1c2340;
+  --text-body: #3a4561;
+  --border: rgba(0, 56, 130, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', 'Source Sans 3', sans-serif;
+  color: var(--text-body);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessibility: skip-to-main-content link */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 0;
+  padding: 0.5rem 1rem;
+  background: var(--blue-deep);
+  color: var(--white);
+  font-weight: 600;
+  z-index: 9999;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--blue-mid);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
