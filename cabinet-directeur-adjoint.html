@@ -115,7 +115,21 @@
     .cv-table tr:nth-child(even) td{background:var(--off-white);}
     .profile-photo{width:100%;max-width:220px;border-radius:10px;border:3px solid rgba(245,184,0,0.6);display:block;margin:0 auto 20px;}
     @media(max-width:1040px){nav{display:none;}.menu-toggle{display:flex;}.footer-grid{grid-template-columns:1fr 1fr;}.content-grid{grid-template-columns:1fr;}}
-    @media(max-width:640px){.footer-grid{grid-template-columns:1fr;}  </style>
+    @media(max-width:640px){.footer-grid{grid-template-columns:1fr;}}
+    .quote-card{display:grid;grid-template-columns:260px 1fr;gap:48px;background:linear-gradient(135deg,var(--blue-deep) 0%,#001840 100%);border-radius:16px;padding:40px;color:var(--white);position:relative;overflow:hidden;margin-top:32px;}
+    .quote-card::before{content:'';position:absolute;top:-30px;right:-30px;width:200px;height:200px;background:radial-gradient(circle,rgba(245,184,0,0.15),transparent 70%);border-radius:50%;pointer-events:none;}
+    .quote-photo-side{display:flex;flex-direction:column;align-items:center;gap:16px;position:relative;z-index:1;}
+    .quote-photo{width:190px;height:230px;object-fit:cover;object-position:top center;border-radius:10px;border:3px solid rgba(245,184,0,0.6);display:block;box-shadow:0 8px 32px rgba(0,0,0,0.4);}
+    .quote-attribution{text-align:center;font-size:13px;color:rgba(255,255,255,0.75);line-height:1.5;}
+    .quote-attribution strong{display:block;color:var(--gold-light);font-size:14px;font-weight:700;margin-bottom:4px;font-family:'Open Sans',sans-serif;}
+    .quote-content-side{display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;}
+    .quote-mark{font-family:'Playfair Display',serif;font-size:100px;line-height:0.75;color:rgba(245,184,0,0.35);margin-bottom:8px;user-select:none;}
+    .quote-title{font-size:12px;font-weight:700;color:var(--gold-light);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;}
+    .quote-text{font-style:italic;line-height:1.75;color:rgba(255,255,255,0.95);margin-bottom:24px;}
+    .quote-text p{margin-bottom:14px;font-family:'Playfair Display',serif;font-size:clamp(16px,1.8vw,20px);}
+    .quote-text p:last-child{margin-bottom:0;}
+    .quote-occasion{display:inline-flex;align-items:center;gap:8px;background:rgba(245,184,0,0.18);border:1px solid rgba(245,184,0,0.4);color:var(--gold-light);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;}
+    @media(max-width:700px){.quote-card{grid-template-columns:1fr;gap:28px;padding:28px 20px;}.quote-photo{width:140px;height:170px;}}  </style>
 </head>
 <body>
 
@@ -424,6 +438,33 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section alt" id="message-paques">
+    <div class="section-inner">
+      <div class="section-label">&#x1F338; Message de F&ecirc;te</div>
+      <div class="section-title">Message de <span>P&acirc;ques</span></div>
+      <div class="section-sub">Souhait de la f&ecirc;te de P&acirc;ques &agrave; la Population du Territoire de Fizi et de la Ville de Baraka</div>
+      <div class="quote-card">
+        <div class="quote-photo-side">
+          <img src="https://sudkivu.cd/images/actualites/da2501f7-faa6-4b44-8bf3-a4428a09c141.png" alt="Me Albert LABANI MSAMBYA &mdash; Directeur de Cabinet Adjoint" class="quote-photo">
+          <div class="quote-attribution">
+            <strong>Me Albert LABANI MSAMBYA</strong>
+            Directeur de Cabinet Adjoint<br>Province du Sud-Kivu
+          </div>
+        </div>
+        <div class="quote-content-side">
+          <div class="quote-title">&#x1F338; Appel &agrave; la r&eacute;silience et au patriotisme</div>
+          <div class="quote-mark">&ldquo;</div>
+          <div class="quote-text">
+            <p>Joyeuses f&ecirc;tes de P&acirc;ques &agrave; toute la Population du Territoire de Fizi et de la Ville de Baraka&nbsp;!</p>
+            <p>En ce moment solennel de r&eacute;surrection et d&rsquo;espoir, j&rsquo;adresse un appel vibrant &agrave; la r&eacute;silience et au patriotisme de chacun et de chacune d&rsquo;entre vous.</p>
+            <p>Avec l&rsquo;engagement de Son Excellence Monsieur le Pr&eacute;sident de la R&eacute;publique, F&eacute;lix-Antoine Tshisekedi Tshilombo, la paix sera restaur&eacute;e sur toute la partie Est de la RDC et les initiatives de d&eacute;veloppement vont reprendre.</p>
+          </div>
+          <div class="quote-occasion">&#x1F338;&nbsp; F&ecirc;te de P&acirc;ques &mdash; Avril 2025</div>
         </div>
       </div>
     </div>
