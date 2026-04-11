@@ -224,9 +224,10 @@ After this step, your site will be accessible at `https://sudkivu.cd`.
 
 ## Step 10 — Update the Site (Manual)
 
-To push new content to the server after making changes locally:
+Run all commands below on your **local machine** (not on the Droplet).
 
 ```bash
+# Navigate to your local clone of the repository
 cd sudkivu
 
 # Pull the latest changes from GitHub
@@ -240,6 +241,30 @@ rsync -avz --progress \
 ```
 
 No Nginx restart is needed — static files are served directly from disk.
+
+> **GitHub authentication note:** GitHub no longer accepts username/password for Git over HTTPS.
+> Use one of the following methods instead:
+>
+> **Option A — SSH (recommended):**
+> ```bash
+> # Add your SSH public key to GitHub → Settings → SSH and GPG keys
+> # Then set the remote to use SSH
+> git remote set-url origin git@github.com:cerccongo/sudkivu.git
+> git pull origin main
+> ```
+>
+> **Option B — Personal Access Token (HTTPS):**
+> ```bash
+> # Create a token at GitHub → Settings → Developer settings → Personal access tokens
+> # Then clone/pull using the token in the URL
+> git remote set-url origin https://<YOUR_TOKEN>@github.com/cerccongo/sudkivu.git
+> git pull origin main
+> ```
+
+> **rsync SSH note:** `rsync` connects to the Droplet over SSH.
+> If you see `Permission denied`, verify that the SSH public key on your local machine
+> (`~/.ssh/id_rsa.pub` or `~/.ssh/id_ed25519.pub`) is listed in
+> `/root/.ssh/authorized_keys` on the Droplet.
 
 ---
 
