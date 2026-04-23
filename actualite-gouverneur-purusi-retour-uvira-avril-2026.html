@@ -12,14 +12,14 @@
   <meta property="og:url" content="https://sudkivu.cd/actualite-gouverneur-purusi-retour-uvira-avril-2026.html" />
   <meta property="og:title" content="Retour du Gouverneur Purusi Sadiki à Uvira après ses missions au Bandundu, à Kinshasa et en Tanzanie — Sud-Kivu" />
   <meta property="og:description" content="Après près d'un mois de missions officielles, le Gouverneur Jean-Jacques Purusi Sadiki est rentré à Uvira ce jeudi 23 avril 2026, accueilli chaleureusement à la frontière de Kavimvira." />
-  <meta property="og:image" content="https://sudkivu.cd/images/actualites/948335b5-af1b-4b9d-b6da-b5d208d3a69b.png" />
+  <meta property="og:image" content="https://github.com/user-attachments/assets/ebadeb71-1530-4b04-9204-24e05a9b39be" />
   <meta property="og:image:alt" content="Retour du Gouverneur Jean-Jacques Purusi Sadiki à Uvira à la frontière de Kavimvira, avril 2026" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="800" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Retour du Gouverneur Purusi Sadiki à Uvira après ses missions au Bandundu, à Kinshasa et en Tanzanie — Sud-Kivu" />
   <meta name="twitter:description" content="Après près d'un mois de missions officielles, le Gouverneur Jean-Jacques Purusi Sadiki est rentré à Uvira ce jeudi 23 avril 2026, accueilli chaleureusement à la frontière de Kavimvira." />
-  <meta name="twitter:image" content="https://sudkivu.cd/images/actualites/948335b5-af1b-4b9d-b6da-b5d208d3a69b.png" />
+  <meta name="twitter:image" content="https://github.com/user-attachments/assets/ebadeb71-1530-4b04-9204-24e05a9b39be" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -128,6 +128,17 @@
     .footer-bottom-links a:hover{color:var(--white);}
     @media(max-width:1040px){nav{display:none;}.menu-toggle{display:flex;}.mobile-nav{display:block;}.footer-grid{grid-template-columns:1fr 1fr;}.post-grid{grid-template-columns:1fr;}}
     @media(max-width:640px){.footer-grid{grid-template-columns:1fr;}}
+    .post-gallery{position:relative;width:100%;margin-top:40px;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9;}
+    .post-gallery-track{display:flex;height:100%;transition:transform 0.45s cubic-bezier(.4,0,.2,1);}
+    .post-gallery-slide{flex:0 0 100%;height:100%;}
+    .post-gallery-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+    .post-gallery-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.45);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:5;}
+    .post-gallery-btn:hover{background:rgba(0,56,130,0.8);}
+    .post-gallery-prev{left:12px;}
+    .post-gallery-next{right:12px;}
+    .post-gallery-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:5;}
+    .post-gallery-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);border:none;cursor:pointer;padding:0;transition:background 0.2s;}
+    .post-gallery-dot.active{background:#fff;}
   </style>
 </head>
 <body>
@@ -231,7 +242,7 @@
         <div class="post-grid">
           <article>
             <div class="post-featured-img">
-              <img src="https://sudkivu.cd/images/actualites/948335b5-af1b-4b9d-b6da-b5d208d3a69b.png" alt="Retour du Gouverneur Jean-Jacques Purusi Sadiki à la frontière de Kavimvira, accueilli par le Vice-Gouverneur et les membres du gouvernement provincial, avril 2026" />
+              <img src="https://github.com/user-attachments/assets/ebadeb71-1530-4b04-9204-24e05a9b39be" alt="Retour du Gouverneur Jean-Jacques Purusi Sadiki à la frontière de Kavimvira, accueilli par le Vice-Gouverneur et les membres du gouvernement provincial, avril 2026" />
             </div>
             <div class="post-body">
               <p>Apr&egrave;s pr&egrave;s d&apos;un mois de missions officielles en dehors de sa Province, le Gouverneur du Sud-Kivu Professeur Jean-Jacques PURUSI SADIKI est rentr&eacute; &agrave; Uvira, si&egrave;ge provisoire des institutions provinciales, ce jeudi 23 avril 2026.</p>
@@ -258,6 +269,17 @@
               <div class="post-source">
                 <strong>Source :</strong> Cellule de Communication du Gouverneur de Province &mdash; Uvira, 23 avril 2026.
               </div>
+            </div>
+            <div class="post-gallery" id="postGallery">
+              <div class="post-gallery-track" id="galleryTrack">
+                <div class="post-gallery-slide"><img src="https://github.com/user-attachments/assets/9678f5ee-eae1-4298-9edc-219c2d805c44" alt="Le Gouverneur Purusi serre la main de la population à son retour à Uvira, avril 2026" /></div>
+                <div class="post-gallery-slide"><img src="https://github.com/user-attachments/assets/82b4987c-8485-4bc3-930d-e4b8566a564c" alt="Le Gouverneur Purusi lors de la cérémonie d'accueil à la frontière de Kavimvira, avril 2026" /></div>
+                <div class="post-gallery-slide"><img src="https://github.com/user-attachments/assets/2120ed46-61e2-4c7c-9c8a-491be3510152" alt="La population exprime sa joie du retour du Gouverneur Purusi à Uvira, avril 2026" /></div>
+                <div class="post-gallery-slide"><img src="https://github.com/user-attachments/assets/70e0e134-fd9d-449f-bd6c-e232e1c9ab09" alt="Le Gouverneur Purusi accueilli à la frontière RDC de Kavimvira, avril 2026" /></div>
+              </div>
+              <button class="post-gallery-btn post-gallery-prev" aria-label="Image précédente">&#8249;</button>
+              <button class="post-gallery-btn post-gallery-next" aria-label="Image suivante">&#8250;</button>
+              <div class="post-gallery-dots" id="galleryDots"></div>
             </div>
           </article>
           <aside>
@@ -311,6 +333,19 @@
   </footer>
   <script>
     document.querySelectorAll('.mnav-group-btn').forEach(function(btn){btn.addEventListener('click',function(){var expanded=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',!expanded);var items=this.nextElementSibling;if(items)items.classList.toggle('open',!expanded);});});
+    (function(){
+      var track=document.getElementById('galleryTrack');
+      var dotsContainer=document.getElementById('galleryDots');
+      if(!track)return;
+      var slides=track.children;
+      var total=slides.length;
+      var current=0;
+      for(var i=0;i<total;i++){var d=document.createElement('button');d.className='post-gallery-dot'+(i===0?' active':'');d.setAttribute('aria-label','Diapositive '+(i+1));d.dataset.i=i;dotsContainer.appendChild(d);}
+      function goTo(n){current=(n+total)%total;track.style.transform='translateX(-'+current*100+'%)';dotsContainer.querySelectorAll('.post-gallery-dot').forEach(function(d,idx){d.classList.toggle('active',idx===current);});}
+      document.querySelector('.post-gallery-prev').addEventListener('click',function(){goTo(current-1);});
+      document.querySelector('.post-gallery-next').addEventListener('click',function(){goTo(current+1);});
+      dotsContainer.addEventListener('click',function(e){if(e.target.dataset.i!==undefined)goTo(+e.target.dataset.i);});
+    })();
   </script>
 </body>
 </html>
